@@ -180,7 +180,7 @@ def main():
             out_file.write(result)
             out_file.flush()
     
-    print(f"✅ COMPLETE! Results in output.txt ({len(py_files)} files analyzed)")
+    print(f"COMPLETE! Results in output.txt ({len(py_files)} files analyzed)")
 
 if __name__ == "__main__":
     main()
