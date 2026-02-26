@@ -8,7 +8,7 @@ API_URL = "https://openrouter.ai/api/v1/chat/completions"
 
 PYTHON_DIR = "python_programs"
 STRUCTURE_FILE = "output.txt"
-OUTPUT_DIR = "properties"
+OUTPUT_DIR = "propertiessh"
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -42,12 +42,12 @@ STRUCTURAL ELEMENTS:
 Instructions:
 1. Extract function-level properties first.
 2. Then extract branch-level and loop-level refinements.
-3. Each property must include:
-   - scope: "function" | "branch" | "loop"
+3. Each property must be expressed in a structured, explicit format that includes::
+   - The scope of the property (e.g., function-level or branch-level)
    - function: function name
-   - condition: branch condition if applicable
+   - Any conditions / preconditions under which it holds
    - property: short snake_case name
-   - formal: semi-formal logical statement
+   - A formal or semi-formal statement of the property
 
 4. Only reference structural elements listed above.
 5. Output ONLY a valid JSON array.
