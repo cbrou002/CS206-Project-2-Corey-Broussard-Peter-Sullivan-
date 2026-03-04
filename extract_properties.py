@@ -8,7 +8,7 @@ API_URL = "https://openrouter.ai/api/v1/chat/completions"
 
 PYTHON_DIR = "python_programs"
 STRUCTURE_FILE = "output.txt"
-OUTPUT_DIR = "propertiessh"
+OUTPUT_DIR = "properties"
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
