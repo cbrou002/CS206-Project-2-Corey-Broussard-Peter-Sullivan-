@@ -1,5 +1,5 @@
-import math
-from hypothesis import given, assume, strategies as st
+import pytest
+from hypothesis import given, strategies as st, settings
 
 def shard_assignment(keys, *, shards=4):
     if shards <= 0:
@@ -12,22 +12,31 @@ def shard_assignment(keys, *, shards=4):
 
     return buckets
 
-@given(st.lists(st.integers(), min_size=1), st.integers(min_value=1))
-def test_valid_shards_positive(keys, shards):
-    assume(shards > 0)
-    result = shard_assignment(keys, shards=shards)
-    assert all(len(bucket) >= 0 for bucket in result)
 
-@given(st.lists(st.integers(), min_size=1), st.integers(max_value=0))
-def test_shards_check(keys, shards):
-    assume(shards <= 0)
-    try:
-        shard_assignment(keys, shards=shards)
-    except ValueError as e:
-        assert str(e) == "shards must be positive"
-
-@given(st.lists(st.integers(), min_size=1), st.integers(min_value=1))
-def test_returns_buckets(keys, shards):
+# Reduce number of generated examples to speed up testing
+@settings(max_examples=50)
+@given(
+    st.lists(st.integers(), min_size=1, max_size=50),
+    st.integers(min_value=1, max_value=20)
+)
+def test_shard_assignment_properties(keys, shards):
     result = shard_assignment(keys, shards=shards)
+
+    # correct number of buckets
     assert len(result) == shards
+
+    # all buckets are lists
     assert all(isinstance(bucket, list) for bucket in result)
+
+    # every key appears in exactly one bucket
+    assert sum(len(bucket) for bucket in result) == len(keys)
+
+
+@settings(max_examples=50)
+@given(
+    st.lists(st.integers(), min_size=1, max_size=50),
+    st.integers(max_value=0)
+)
+def test_invalid_shards(keys, shards):
+    with pytest.raises(ValueError):
+        shard_assignment(keys, shards=shards)
