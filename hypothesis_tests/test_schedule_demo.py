@@ -20,19 +20,19 @@ def schedule_demo(existing, interval):
     updated.sort()
     return True, updated
 
-@given(st.tuples(st.lists(st.tuples(st.integers(), st.integers()), unique=True).map(sorted), st.tuples(st.integers(), st.integers()))
+@given(st.tuples(st.lists(st.tuples(st.integers(), st.integers()), unique=True).map(sorted), st.tuples(st.integers(), st.integers())))
 def test_valid_interval_check(existing, interval):
     start, end = interval
     assume(start < end)
     result, _ = schedule_demo(existing, interval)
     assert result
 
-@given(st.tuples(st.lists(st.tuples(st.integers(), st.integers()), unique=True).map(sorted), st.tuples(st.integers(), st.integers()))
+@given(st.tuples(st.lists(st.tuples(st.integers(), st.integers()), unique=True).map(sorted), st.tuples(st.integers(), st.integers())))
 def test_no_overlap_check(existing, interval):
     result, _ = schedule_demo(existing, interval)
     assert result
 
-@given(st.tuples(st.lists(st.tuples(st.integers(), st.integers()), unique=True).map(sorted), st.tuples(st.integers(), st.integers()))
+@given(st.tuples(st.lists(st.tuples(st.integers(), st.integers()), unique=True).map(sorted), st.tuples(st.integers(), st.integers())))
 def test_invalid_interval_error(existing, interval):
     start, end = interval
     assume(start >= end)
@@ -43,14 +43,14 @@ def test_invalid_interval_error(existing, interval):
     else:
         assert False, "Expected a ValueError to be raised"
 
-@given(st.tuples(st.lists(st.tuples(st.integers(), st.integers()), unique=True).map(sorted), st.tuples(st.integers(), st.integers()))
+@given(st.tuples(st.lists(st.tuples(st.integers(), st.integers()), unique=True).map(sorted), st.tuples(st.integers(), st.integers())))
 def test_overlap_detection(existing, interval):
     for s, e in existing:
         assume(not (interval[1] <= s or interval[0] >= e))
     result, _ = schedule_demo(existing, interval)
     assert not result
 
-@given(st.tuples(st.lists(st.tuples(st.integers(), st.integers()), unique=True).map(sorted), st.tuples(st.integers(), st.integers()))
+@given(st.tuples(st.lists(st.tuples(st.integers(), st.integers()), unique=True).map(sorted), st.tuples(st.integers(), st.integers())))
 def test_existing_intervals_iteration(existing, interval):
     result, _ = schedule_demo(existing, interval)
     assert result
