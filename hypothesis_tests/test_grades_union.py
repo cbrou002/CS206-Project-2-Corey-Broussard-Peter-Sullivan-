@@ -28,7 +28,7 @@ def grades_union(left, right):
 @given(st.lists(st.integers(), min_size=1), st.lists(st.integers(), min_size=1))
 def test_grades_union_ordered_input(left, right):
     assume(all(left[i] <= left[i+1] for i in range(len(left)-1)))
-    assume(all(right[i] <= right[i+1] for i in range(len(right)-1))
+    assume(all(right[i] <= right[i+1] for i in range(len(right)-1)))
     result = grades_union(left, right)
     assert all(result[i] <= result[i+1] for i in range(len(result)-1))
 

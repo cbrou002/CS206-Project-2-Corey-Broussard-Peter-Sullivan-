@@ -20,7 +20,7 @@ def blend_levels(left, right):
     return merged
 
 # Property: Merge sorted levels sequences
-@given(st.lists(st.integers().sorted()), st.lists(st.integers().sorted()))
+@given(st.lists(st.integers()).map(sorted), st.lists(st.integers()).map(sorted))
 def test_blend_levels_merge_sorted_sequences(left, right):
     result = blend_levels(left, right)
     assert result == sorted(left + right)

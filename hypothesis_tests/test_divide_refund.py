@@ -16,7 +16,7 @@ def divide_refund(amount, ratios, *, fee=0.0):
 
 # Property-based test for valid_input_check
 @given(
-    st.floats(allow_nan=False, allow_infinity=False, allow_infinity=True, allow_zero=True), 
+    st.floats(allow_nan=False, allow_infinity=False), 
     st.lists(st.floats(allow_nan=False, allow_infinity=False), min_size=1), 
     st.floats(allow_nan=False, allow_infinity=False)
 )
@@ -31,7 +31,7 @@ def test_valid_input_check(amount, ratios, fee):
 
 # Property-based test for fee_bug
 @given(
-    st.floats(allow_nan=False, allow_infinity=False, allow_infinity=True, allow_zero=True), 
+    st.floats(allow_nan=False, allow_infinity=False), 
     st.lists(st.floats(allow_nan=False, allow_infinity=False), min_size=1), 
     st.floats(allow_nan=False, allow_infinity=False)
 )

@@ -27,7 +27,7 @@ def test_allocate_prize_cut_valid_input_check_ratios_required(ratios):
     except ValueError as e:
         assert str(e) == "ratios required"
 
-@given(st.floats(allow_nan=False, allow_infinity=False, allow_infinity=False))
+@given(st.floats(allow_nan=False, allow_infinity=False))
 def test_allocate_prize_cut_valid_input_check_negative_amount(amount):
     assume(amount < 0)
     try:
