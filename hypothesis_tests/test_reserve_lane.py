@@ -13,7 +13,7 @@ def test_reserve_lane_valid_input_check(candidate):
         assert False
 
 # Property: no_overlap_existing
-@given(st.lists(st.integers(min_value=0, max_value=100), min_size=2, max_size=2), st.lists(st.lists(st.integers(min_value=0, max_value=100), min_size=2, max_size=2))
+@given(st.lists(st.integers(min_value=0, max_value=100), min_size=2, max_size=2), st.lists(st.lists(st.integers(min_value=0, max_value=100), min_size=2, max_size=2)))
 def test_reserve_lane_no_overlap_existing(candidate, existing):
     assume(not any(overlaps(slot, candidate) for slot in existing))
     result, _ = reserve_lane(existing, candidate)
