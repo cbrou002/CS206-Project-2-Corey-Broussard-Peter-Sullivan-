@@ -8,7 +8,7 @@ API_URL = "https://openrouter.ai/api/v1/chat/completions"
 
 PYTHON_DIR = "python_programs"
 STRUCTURE_FILE = "output.txt"
-OUTPUT_DIR = "properties"
+OUTPUT_DIR = "properties_trial"
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -39,17 +39,50 @@ SOURCE CODE:
 STRUCTURAL ELEMENTS:
 {structure_output}
 
-Instructions:
-1. Extract function-level properties first.
-2. Then extract branch-level and loop-level refinements.
-3. Each property must be expressed in a structured, explicit format that includes::
-   - The scope of the property (e.g., function-level or branch-level)
-   - function: function name
-   - Any conditions / preconditions under which it holds
-   - property: short snake_case name
-   - A formal or semi-formal statement of the property
+Your goal is to infer BEHAVIORAL invariants of the program.
 
-4. Only reference structural elements listed above.
+IMPORTANT:
+Semantic properties describe relationships between INPUTS and OUTPUTS.
+They must be observable from outside the function.
+
+DO NOT describe implementation steps such as:
+- initialization
+- increment
+- assignments
+- return statements
+- parameter names
+- default values
+
+Instead extract BEHAVIORAL PROPERTIES such as:
+
+• Output bounds (e.g., result >= 0)
+• Ordering invariants (output remains sorted)
+• Length relationships (len(output) == len(input))
+• Conservation properties
+• Monotonicity
+• Idempotence (f(f(x)) == f(x))
+• Invariance under transformations
+• Constraints enforced by branches
+
+Use the structural elements only to identify conditions.
+
+Property format must be JSON objects:
+
+[
+  {{
+    "scope": "function",
+    "function": "function_name",
+    "property": "short_snake_case_name",
+    "condition": "optional condition",
+    "description": "Formal description of the semantic property"
+  }}
+]
+
+Rules:
+1. Properties must describe program BEHAVIOR.
+2. Avoid trivial properties like "returns a value".
+3. Prefer properties that could fail if the implementation is buggy.
+4. If branches exist, produce conditional properties for each branch.
 5. Output ONLY a valid JSON array.
 6. Do NOT include markdown.
 7. Do NOT include explanations.
@@ -113,7 +146,7 @@ def main():
 
         output_path = os.path.join(
             OUTPUT_DIR,
-            filename.replace(".py", "_properties.json")
+            filename.replace(".py", "_properties_trial.json")
         )
 
         with open(output_path, "w") as f:

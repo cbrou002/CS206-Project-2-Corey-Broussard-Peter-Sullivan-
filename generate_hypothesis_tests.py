@@ -9,9 +9,9 @@ OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 API_URL = "https://openrouter.ai/api/v1/chat/completions"
 
 PYTHON_DIR = "python_programs"
-PROPERTIES_DIR = "properties"
+PROPERTIES_DIR = "properties_trial"
 STRUCTURE_FILE = "output.txt"
-TESTS_DIR = "hypothesis_tests"
+TESTS_DIR = "tests"
 
 os.makedirs(TESTS_DIR, exist_ok=True)
 
@@ -29,10 +29,10 @@ def parse_structures(structure_text):
         structure_map[filename] = block.strip()
     return structure_map
 
-def build_hypothesis_prompt(source_code, structure_output, properties_json):
+def build_hypothesis_prompt(source_code, structure_output, properties_json, module_name):
     """Prompt AI to generate Hypothesis tests from properties."""
     return f"""
-You are generating Hypothesis property-based tests for the given Python program.
+You are generating Hypothesis property-based tests for a Python function.
 
 SOURCE CODE:
 {source_code}
@@ -43,39 +43,139 @@ STRUCTURAL ELEMENTS:
 SEMANTIC PROPERTIES (JSON):
 {properties_json}
 
-TASK: Generate COMPLETE, EXECUTABLE Hypothesis tests for these properties.
+MODULE INFORMATION
 
-REQUIREMENTS:
-1. Use @given with appropriate strategies (st.lists, st.integers, st.floats, etc.)
-2. Use 'assume()' for preconditions (e.g., assume(sum(xs) != 0))
-3. Handle edge cases (empty lists, zero sums, etc.) using structural info
-4. Include imports: hypothesis, strategies as st, math (for isclose)
-5. Tests must reference functions by exact name from structures
-6. Comment generators used (e.g., "Generator: st.lists(st.floats(), min_size=1)")
-7. Use math.isclose() for floats with rel_tol=1e-9
+The function under test is defined in:
 
-OUTPUT ONLY:
-- Valid Python test file content
-- NO markdown, explanations, or wrappers
-- Multiple @given tests if multiple properties
+python_programs/{module_name}.py
 
-EXAMPLE FORMAT:
-import math
-from hypothesis import given, assume, strategies as st
+You MUST import it using:
 
-def normalize(xs): # Copy function signature from source
-# ... (copy relevant function body if needed)
+from python_programs.{module_name} import <function_name>
 
-@given(st.just([])) # Generator: always empty list (Branch: len(xs)==0)
-    def test_normalize_identity_empty(xs):
-    assert normalize(xs) == xs
+Do NOT use placeholder modules like:
+my_module
+your_module
+module
 
-@given(st.lists(st.floats(allow_nan=False, allow_infinity=False), min_size=1))
-def test_normalize_unit_sum(xs):
-    assume(sum(xs) != 0)
-    ys = normalize(xs)
-    assert math.isclose(sum(ys), 1.0, rel_tol=1e-9)
+GOAL
+Convert each semantic property into ONE strong Hypothesis property-based test that verifies observable program behavior.
 
+The tests must detect real bugs when the implementation violates the property.
+
+
+SEMANTIC PROPERTY RULES
+
+A semantic property describes relationships between:
+- function inputs
+- function outputs
+- externally observable state
+
+Tests MUST verify behavioral invariants of the program.
+
+DO NOT generate tests about:
+- variable assignments
+- internal loops
+- counters or temporary variables
+- control flow structure
+- whether the function returns a value
+- implementation details
+
+The test must only use the function's inputs and outputs.
+
+
+TEST GENERATION RULES
+
+1. Generate EXACTLY one test per property.
+2. Test name format: test_<function>_<property>.
+3. Import the function under test from the original module.
+4. Generate inputs for ALL function parameters using Hypothesis strategies.
+5. Use assume() for required preconditions (e.g., sorted inputs, non-zero values).
+6. Call the function and store the result in a variable named `result`.
+7. Assert the property using the relationship between inputs and result.
+8. Prefer strong invariants that can reveal bugs.
+
+
+STRATEGY RULES
+
+Choose strategies based on parameter types inferred from usage:
+
+Integers → st.integers()
+Floats → st.floats(allow_nan=False, allow_infinity=False)
+Lists → st.lists(..., max_size=20)
+Strings → st.text()
+Booleans → st.booleans()
+
+Always limit collection sizes for performance (max_size ≤ 20).
+
+
+EDGE CASE RULES
+
+Hypothesis must explore edge cases automatically.
+
+Ensure strategies allow:
+- empty lists
+- duplicate elements
+- zero values
+- small inputs
+
+Do not generate excessively large data.
+
+
+ASSERTION GUIDELINES
+
+Translate property descriptions into strong assertions.
+
+Examples:
+
+Sorted output
+→ assert result == sorted(result)
+
+Length relationship
+→ assert len(result) == len(a) + len(b)
+
+Element conservation
+→ from collections import Counter
+→ assert Counter(result) == Counter(a) + Counter(b)
+
+Numeric equality
+→ use math.isclose(value, expected, rel_tol=1e-9)
+
+Monotonic sequences
+→ assert all(result[i] <= result[i+1] for i in range(len(result)-1))
+
+Reference specification (preferred when possible)
+→ assert result == sorted(a + b)
+
+
+BUG DETECTION RULE
+
+Prefer assertions that compare the function output against a simple specification or invariant.
+
+Tests should FAIL if the implementation violates the property.
+
+
+IMPLEMENTATION REQUIREMENTS
+
+- Import only necessary libraries.
+- Do not redefine the function under test.
+- Do not generate random values outside Hypothesis.
+- Do not use external files or I/O.
+- Ensure all variables referenced in assertions are defined.
+
+
+OUTPUT REQUIREMENTS
+
+Output ONLY valid Python code.
+Ensure that all parenthesis are closed and syntax is correct.
+
+Do NOT include:
+- markdown
+- explanations
+- backticks
+- commentary outside Python comments
+
+The output must be a complete executable Python test file.
 """
 
 def call_ai(prompt):
@@ -109,15 +209,21 @@ def generate_tests():
     structure_map = parse_structures(structure_text)
     
     print(" Reading properties...")
-    properties_files = list(Path(PROPERTIES_DIR).glob("*_properties.json"))
+    properties_files = list(Path(PROPERTIES_DIR).glob("*_properties_trial.json"))
     
     print(f"DEBUG: Found {len(properties_files)} properties, {len(structure_map)} structures")
     
     generated = 0
     for prop_file in properties_files:
-        base_name = prop_file.stem.replace("_properties", "")
+        base_name = prop_file.stem.replace("_properties_trial", "")
         filename = f"{base_name}.py"
         
+        test_path = Path(TESTS_DIR) / f"test_{base_name}.py"
+        # Skip already generated tests
+        if test_path.exists():
+            print(f" Skipping {prop_file.name} (already generated)")
+            continue
+
         # Flexible matching
         candidates = [k for k in structure_map.keys() if base_name in k or filename in k]
         if not candidates:
@@ -137,8 +243,9 @@ def generate_tests():
             source_code = read_file(source_path)
             structure_output = structure_map[filename]
             properties_json = read_file(prop_file)
-            
-            prompt = build_hypothesis_prompt(source_code, structure_output, properties_json)
+
+            module_name = Path(filename).stem #added
+            prompt = build_hypothesis_prompt(source_code, structure_output, properties_json, module_name)
             ai_response = call_ai(prompt)
             test_code = clean_python_code(ai_response)
             
