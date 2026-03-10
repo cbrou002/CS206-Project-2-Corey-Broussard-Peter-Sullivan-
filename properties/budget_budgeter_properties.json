@@ -1,0 +1,54 @@
+[
+    {
+        "scope": "function",
+        "function": "budget_budgeter",
+        "property": "valid_input_check",
+        "description": "total and minimum must be non-negative, weights must be provided and not all zero"
+    },
+    {
+        "scope": "function",
+        "function": "budget_budgeter",
+        "property": "budget_allocation",
+        "description": "allocates budget units across weighted recipients"
+    },
+    {
+        "scope": "branch",
+        "function": "budget_budgeter",
+        "conditions": "total < 0",
+        "property": "total_non_negative_check",
+        "description": "total must be non-negative"
+    },
+    {
+        "scope": "branch",
+        "function": "budget_budgeter",
+        "conditions": "minimum < 0",
+        "property": "minimum_non_negative_check",
+        "description": "minimum must be non-negative"
+    },
+    {
+        "scope": "branch",
+        "function": "budget_budgeter",
+        "conditions": "not weights",
+        "property": "weights_provided_check",
+        "description": "weights must be provided"
+    },
+    {
+        "scope": "branch",
+        "function": "budget_budgeter",
+        "conditions": "not any(weights)",
+        "property": "non_zero_weights_check",
+        "description": "weights must not all be zero"
+    },
+    {
+        "scope": "loop",
+        "function": "budget_budgeter",
+        "property": "planned_allocation_calculation",
+        "description": "calculates planned allocation based on weights and total budget"
+    },
+    {
+        "scope": "loop",
+        "function": "budget_budgeter",
+        "property": "allocation_truncation",
+        "description": "truncates planned allocations to integers"
+    }
+]

@@ -1,0 +1,26 @@
+[
+    {
+        "scope": "function",
+        "function": "shift_risk",
+        "property": "has_parameter_damping",
+        "conditions": "damping parameter is present"
+    },
+    {
+        "scope": "branch",
+        "function": "shift_risk",
+        "property": "shape_mismatch_check",
+        "conditions": "len(current) != len(target)"
+    },
+    {
+        "scope": "branch",
+        "function": "shift_risk",
+        "property": "empty_allocation_check",
+        "conditions": "not current"
+    },
+    {
+        "scope": "loop",
+        "function": "shift_risk",
+        "property": "list_comprehension",
+        "conditions": "list_comp loop at line 10"
+    }
+]

@@ -1,0 +1,40 @@
+[
+    {
+        "scope": "function",
+        "function": "reserve_lane",
+        "property": "valid_input_check",
+        "description": "The function checks if the start of the candidate lane is before the end."
+    },
+    {
+        "scope": "function",
+        "function": "reserve_lane",
+        "property": "no_overlap_existing",
+        "description": "The function returns False if the candidate lane overlaps with any existing lane."
+    },
+    {
+        "scope": "function",
+        "function": "reserve_lane",
+        "property": "merge_and_sort",
+        "description": "The function merges the candidate lane with existing lanes and sorts them."
+    },
+    {
+        "scope": "branch",
+        "function": "reserve_lane",
+        "conditions": "candidate[0] >= candidate[1]",
+        "property": "invalid_start_end",
+        "description": "If the start of the candidate lane is not before the end, a ValueError is raised."
+    },
+    {
+        "scope": "branch",
+        "function": "reserve_lane",
+        "conditions": "overlaps(slot, candidate)",
+        "property": "overlap_check",
+        "description": "If the candidate lane overlaps with any existing lane, the function returns False."
+    },
+    {
+        "scope": "loop",
+        "function": "reserve_lane",
+        "property": "check_overlaps",
+        "description": "The function iterates over each existing lane to check for overlaps with the candidate lane."
+    }
+]

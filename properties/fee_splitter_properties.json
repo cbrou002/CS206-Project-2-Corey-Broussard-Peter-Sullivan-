@@ -1,0 +1,36 @@
+[
+    {
+        "scope": "function",
+        "function": "fee_splitter",
+        "property": "valid_input_check",
+        "conditions": "ratios is not empty, sum of ratios is greater than 0, amount is non-negative",
+        "description": "Checks if the input ratios are not empty, have a sum greater than 0, and amount is non-negative"
+    },
+    {
+        "scope": "branch",
+        "function": "fee_splitter",
+        "property": "negative_amount_handling",
+        "conditions": "amount < 0",
+        "description": "Raises a ValueError if the amount is negative"
+    },
+    {
+        "scope": "branch",
+        "function": "fee_splitter",
+        "property": "invalid_ratios_handling",
+        "conditions": "sum(ratios) <= 0",
+        "description": "Raises a ValueError if the sum of ratios is less than or equal to 0"
+    },
+    {
+        "scope": "branch",
+        "function": "fee_splitter",
+        "property": "fee_application_bug",
+        "conditions": "fee should be applied once, but is applied per share",
+        "description": "Identifies a bug where the fee is applied per share instead of once"
+    },
+    {
+        "scope": "loop",
+        "function": "fee_splitter",
+        "property": "base_calculation",
+        "description": "Calculates the base amount for each ratio based on the total ratio and input amount"
+    }
+]

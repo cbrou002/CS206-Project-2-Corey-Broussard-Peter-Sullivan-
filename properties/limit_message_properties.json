@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "limit_message",
+        "property": "throttles_message_by_recent_activity",
+        "description": "Throttles message based on recent activity within a specified time window."
+    },
+    {
+        "scope": "branch",
+        "function": "limit_message",
+        "conditions": "len(recent) > limit",
+        "property": "blocks_message_when_recent_activity_exceeds_limit",
+        "description": "Should block message when the number of recent activities exceeds the specified limit."
+    },
+    {
+        "scope": "branch",
+        "function": "limit_message",
+        "conditions": "len(recent) <= limit",
+        "property": "does_not_block_message_when_recent_activity_within_limit",
+        "description": "Does not block message when the number of recent activities is within the specified limit."
+    },
+    {
+        "scope": "loop",
+        "function": "limit_message",
+        "property": "filters_recent_activities_based_on_cutoff_time",
+        "description": "Filters the list of timestamps to include only those within the specified time window."
+    }
+]

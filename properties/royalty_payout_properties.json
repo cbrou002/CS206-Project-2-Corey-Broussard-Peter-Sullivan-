@@ -1,0 +1,30 @@
+[
+    {
+        "scope": "function",
+        "function": "royalty_payout",
+        "property": "valid_input_check",
+        "conditions": "ratios required",
+        "statement": "Input ratios must be provided"
+    },
+    {
+        "scope": "function",
+        "function": "royalty_payout",
+        "property": "valid_input_check",
+        "conditions": "negative amount",
+        "statement": "Input amount must be non-negative"
+    },
+    {
+        "scope": "function",
+        "function": "royalty_payout",
+        "property": "valid_input_check",
+        "conditions": "invalid ratios",
+        "statement": "Sum of ratios must be greater than 0"
+    },
+    {
+        "scope": "branch",
+        "function": "royalty_payout",
+        "property": "fee_deduction_bug",
+        "conditions": "fee is deducted from every participant",
+        "statement": "Fee should not be deducted from every participant"
+    }
+]

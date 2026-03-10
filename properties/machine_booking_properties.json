@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "machine_booking",
+        "property": "valid_window_check",
+        "statement": "The function checks if the window is not empty (a < b) before proceeding."
+    },
+    {
+        "scope": "function",
+        "function": "machine_booking",
+        "property": "timeline_overlap_check",
+        "statement": "The function checks if the new window overlaps with any existing timeline entries."
+    },
+    {
+        "scope": "branch",
+        "function": "machine_booking",
+        "condition": "a >= b",
+        "property": "empty_window_exception",
+        "statement": "If the start of the window is greater than or equal to the end, a ValueError exception is raised."
+    },
+    {
+        "scope": "branch",
+        "function": "machine_booking",
+        "condition": "any((not (b <= s or a >= e) for s, e in timeline))",
+        "property": "overlap_condition",
+        "statement": "If there is any overlap between the new window and existing timeline entries, the function returns False."
+    }
+]

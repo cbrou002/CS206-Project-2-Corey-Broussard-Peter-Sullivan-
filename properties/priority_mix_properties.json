@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "priority_mix",
+        "property": "shape_mismatch_check",
+        "conditions": "len(current) != len(target)",
+        "description": "Check if the lengths of 'current' and 'target' are not equal"
+    },
+    {
+        "scope": "function",
+        "function": "priority_mix",
+        "property": "empty_allocation_check",
+        "conditions": "not current",
+        "description": "Check if 'current' is empty"
+    },
+    {
+        "scope": "function",
+        "function": "priority_mix",
+        "property": "update_weights",
+        "description": "Update priority weights towards a target distribution"
+    },
+    {
+        "scope": "function",
+        "function": "priority_mix",
+        "property": "no_renormalization_bug",
+        "description": "Bug: Missing renormalization step in the calculation"
+    }
+]

@@ -1,0 +1,35 @@
+[
+    {
+        "scope": "function",
+        "function": "histogram_bucket_merge",
+        "property": "preserves_duplicates",
+        "description": "Merge two sorted bucket edges, preserving duplicates."
+    },
+    {
+        "scope": "branch",
+        "function": "histogram_bucket_merge",
+        "conditions": "left[i] < right[j]",
+        "property": "append_left_to_merged",
+        "description": "Append element from 'left' to 'merged'."
+    },
+    {
+        "scope": "branch",
+        "function": "histogram_bucket_merge",
+        "conditions": "right[j] < left[i]",
+        "property": "append_right_to_merged",
+        "description": "Append element from 'right' to 'merged'."
+    },
+    {
+        "scope": "branch",
+        "function": "histogram_bucket_merge",
+        "conditions": "merged and left and right and (merged[-1] == left[-1] == right[-1])",
+        "property": "drop_last_duplicate",
+        "description": "Drops the last duplicate when both end together."
+    },
+    {
+        "scope": "loop",
+        "function": "histogram_bucket_merge",
+        "property": "merge_elements",
+        "description": "Merge elements from 'left' and 'right' into 'merged'."
+    }
+]

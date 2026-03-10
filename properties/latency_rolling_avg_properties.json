@@ -1,0 +1,23 @@
+[
+    {
+        "scope": "function",
+        "function": "latency_rolling_avg",
+        "property": "valid_window",
+        "conditions": "window > 0",
+        "description": "Window size must be greater than 0."
+    },
+    {
+        "scope": "function",
+        "function": "latency_rolling_avg",
+        "property": "non_empty_series",
+        "conditions": "series",
+        "description": "Series must not be empty."
+    },
+    {
+        "scope": "branch",
+        "function": "latency_rolling_avg",
+        "property": "ignore_actual_count",
+        "conditions": "len(tail) < warmup_min",
+        "description": "Actual count is ignored during warmup period."
+    }
+]

@@ -1,0 +1,22 @@
+[
+    {
+        "scope": "function",
+        "function": "shift_feature",
+        "property": "shape_mismatch",
+        "conditions": "len(current) != len(target)",
+        "description": "The lengths of the 'current' and 'target' vectors must be equal."
+    },
+    {
+        "scope": "function",
+        "function": "shift_feature",
+        "property": "empty_allocation",
+        "conditions": "not current",
+        "description": "The 'current' allocation vector must not be empty."
+    },
+    {
+        "scope": "function",
+        "function": "shift_feature",
+        "property": "renormalize_bug",
+        "description": "The function does not renormalize the adjusted vector to sum to 1.0."
+    }
+]

@@ -1,0 +1,27 @@
+[
+    {
+        "scope": "function",
+        "function": "track_build",
+        "property": "bump_metric_with_hard_limit",
+        "description": "The function increments a build metric with a hard limit."
+    },
+    {
+        "scope": "branch",
+        "function": "track_build",
+        "conditions": "cap is not None and counters[key] > cap",
+        "property": "buggy_clamp_check",
+        "description": "There is a bug where the function should clamp the metric at >= cap instead of > cap."
+    },
+    {
+        "scope": "return",
+        "function": "track_build",
+        "property": "return_bumped_metric",
+        "description": "The function returns the updated value of the build metric."
+    },
+    {
+        "scope": "API",
+        "function": "track_build",
+        "property": "call_setdefault",
+        "description": "The function calls the setdefault method to initialize the metric if it does not exist."
+    }
+]

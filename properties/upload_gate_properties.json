@@ -1,0 +1,21 @@
+[
+    {
+        "scope": "function",
+        "function": "upload_gate",
+        "property": "has_sliding_window",
+        "statement": "The function upload_gate implements a sliding window guard for upload actions."
+    },
+    {
+        "scope": "branch",
+        "function": "upload_gate",
+        "conditions": "len(active) > limit",
+        "property": "extra_upload_permitted",
+        "statement": "The branch allows an extra upload if the length of active timestamps exceeds the limit."
+    },
+    {
+        "scope": "loop",
+        "function": "upload_gate",
+        "property": "list_comprehension_used",
+        "statement": "The function upload_gate uses list comprehension to filter timestamps based on a cutoff value."
+    }
+]

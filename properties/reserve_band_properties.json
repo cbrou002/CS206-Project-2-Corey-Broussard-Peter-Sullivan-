@@ -1,0 +1,35 @@
+[
+    {
+        "scope": "function",
+        "function": "reserve_band",
+        "property": "valid_input_check",
+        "conditions": "candidate[0] < candidate[1]",
+        "description": "The function checks if the start of the candidate band is before the end."
+    },
+    {
+        "scope": "function",
+        "function": "reserve_band",
+        "property": "overlapping_check",
+        "description": "The function checks if a candidate band overlaps with any existing band."
+    },
+    {
+        "scope": "branch",
+        "function": "reserve_band",
+        "property": "overlapping_condition",
+        "conditions": "overlaps(slot, candidate)",
+        "description": "If the candidate band overlaps with an existing band."
+    },
+    {
+        "scope": "branch",
+        "function": "reserve_band",
+        "property": "non_overlapping_condition",
+        "conditions": "NOT(overlaps(slot, candidate))",
+        "description": "If the candidate band does not overlap with any existing band."
+    },
+    {
+        "scope": "loop",
+        "function": "reserve_band",
+        "property": "loop_over_existing_bands",
+        "description": "Iterates over each existing band to check for overlaps with the candidate band."
+    }
+]

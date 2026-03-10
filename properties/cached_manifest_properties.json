@@ -1,0 +1,30 @@
+[
+    {
+        "scope": "function",
+        "function": "cached_manifest",
+        "property": "has_cache_entry",
+        "conditions": "key in entries",
+        "statement": "The function has a cache entry for the given key in the entries dictionary."
+    },
+    {
+        "scope": "function",
+        "function": "cached_manifest",
+        "property": "cache_entry_valid",
+        "conditions": "now <= expires_at",
+        "statement": "The cache entry for the given key is still valid based on the current time."
+    },
+    {
+        "scope": "branch",
+        "function": "cached_manifest",
+        "property": "cache_entry_missing",
+        "conditions": "key not in entries",
+        "statement": "If the key is not found in the entries dictionary, return None."
+    },
+    {
+        "scope": "branch",
+        "function": "cached_manifest",
+        "property": "cache_entry_expired",
+        "conditions": "now > expires_at",
+        "statement": "If the cache entry for the given key has expired, return None."
+    }
+]

@@ -1,0 +1,22 @@
+[
+    {
+        "scope": "function",
+        "function": "estimate_temperature",
+        "property": "computes_temperature_along_line_segment",
+        "description": "The function computes the temperature along a line segment."
+    },
+    {
+        "scope": "branch",
+        "function": "estimate_temperature",
+        "conditions": "x1 == x0",
+        "property": "error_raised_for_zero_length",
+        "description": "If x1 is equal to x0, a ValueError is raised for zero length."
+    },
+    {
+        "scope": "branch",
+        "function": "estimate_temperature",
+        "conditions": "clamp",
+        "property": "output_clamped_using_y_range",
+        "description": "If clamp is True, the output is clamped using the y-range and ignores x bounds."
+    }
+]

@@ -1,0 +1,48 @@
+[
+    {
+        "scope": "function",
+        "function": "replica_sync_offsets",
+        "property": "computes_missing_offsets",
+        "description": "The function computes missing offsets in the replica relative to the primary."
+    },
+    {
+        "scope": "function",
+        "function": "replica_sync_offsets",
+        "property": "returns_missing_offsets",
+        "description": "The function returns the list of missing offsets."
+    },
+    {
+        "scope": "branch",
+        "function": "replica_sync_offsets",
+        "conditions": "primary[i] < replica[j]",
+        "property": "appends_primary_offset_to_missing",
+        "description": "If the offset in primary is less than the offset in replica, it appends the primary offset to the missing list."
+    },
+    {
+        "scope": "branch",
+        "function": "replica_sync_offsets",
+        "conditions": "replica[j] < primary[i]",
+        "property": "increments_replica_index",
+        "description": "If the offset in replica is less than the offset in primary, it increments the replica index."
+    },
+    {
+        "scope": "branch",
+        "function": "replica_sync_offsets",
+        "conditions": "missing and replica and (missing[-1] == replica[-1])",
+        "property": "drops_last_missing_offset_if_equal_to_last_replica_offset",
+        "description": "If the last missing offset is equal to the last replica offset, it drops the last missing offset."
+    },
+    {
+        "scope": "branch",
+        "function": "replica_sync_offsets",
+        "conditions": "not missing or not replica or (not missing[-1] == replica[-1])",
+        "property": "does_not_drop_last_missing_offset",
+        "description": "If the last missing offset is not equal to the last replica offset, it does not drop the last missing offset."
+    },
+    {
+        "scope": "loop",
+        "function": "replica_sync_offsets",
+        "property": "iterates_until_end_of_lists",
+        "description": "The while loop iterates until the end of either the primary or replica list is reached."
+    }
+]

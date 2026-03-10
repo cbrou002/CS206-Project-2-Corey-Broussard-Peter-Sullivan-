@@ -1,0 +1,21 @@
+[
+    {
+        "scope": "function",
+        "function": "view_tally",
+        "property": "track_view_events_with_ceiling",
+        "description": "Tracks view events with a ceiling."
+    },
+    {
+        "scope": "branch",
+        "function": "view_tally",
+        "conditions": "max_value is not None",
+        "property": "ceiling_boundary_check",
+        "description": "Checks if new_value exceeds max_value."
+    },
+    {
+        "scope": "return",
+        "function": "view_tally",
+        "property": "return_new_value",
+        "description": "Returns the updated value."
+    }
+]

@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "embedding_lookup_cache",
+        "property": "has_parameter_ttl",
+        "description": "The function embedding_lookup_cache has a parameter named ttl with a default value of 300."
+    },
+    {
+        "scope": "function",
+        "function": "embedding_lookup_cache",
+        "property": "returns_cached_embedding",
+        "description": "The function embedding_lookup_cache returns a cached embedding if not expired, else it returns None."
+    },
+    {
+        "scope": "branch",
+        "function": "embedding_lookup_cache",
+        "conditions": "item is None",
+        "property": "returns_none_if_item_is_none",
+        "description": "If item is None, the function returns None."
+    },
+    {
+        "scope": "branch",
+        "function": "embedding_lookup_cache",
+        "conditions": "now > cached_at + ttl",
+        "property": "returns_none_if_expired",
+        "description": "If now is greater than cached_at + ttl, the function returns None."
+    }
+]

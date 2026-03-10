@@ -1,0 +1,22 @@
+[
+    {
+        "scope": "function",
+        "function": "calibrate_latency",
+        "property": "computes_latency_along_line_segment",
+        "description": "The function computes latency along a line segment using the given parameters."
+    },
+    {
+        "scope": "branch",
+        "function": "calibrate_latency",
+        "conditions": "x1 == x0",
+        "property": "zero_length_exception_raised",
+        "description": "If x1 is equal to x0, a ValueError exception is raised for zero length."
+    },
+    {
+        "scope": "branch",
+        "function": "calibrate_latency",
+        "conditions": "clamp is True",
+        "property": "output_clamped_within_y_range",
+        "description": "If clamp is True, the output y value is clamped within the range of y0 and y1."
+    }
+]

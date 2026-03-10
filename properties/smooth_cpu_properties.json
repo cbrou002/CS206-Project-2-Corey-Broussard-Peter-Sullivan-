@@ -1,0 +1,23 @@
+[
+    {
+        "scope": "function",
+        "function": "smooth_cpu",
+        "property": "valid_window",
+        "conditions": "window > 0",
+        "description": "Window size must be greater than 0"
+    },
+    {
+        "scope": "function",
+        "function": "smooth_cpu",
+        "property": "non_empty_series",
+        "conditions": "values",
+        "description": "Input series must not be empty"
+    },
+    {
+        "scope": "branch",
+        "function": "smooth_cpu",
+        "property": "warmup_check",
+        "conditions": "len(tail) < warmup_min",
+        "description": "Check if length of tail is less than warmup_min"
+    }
+]

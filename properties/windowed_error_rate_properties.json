@@ -1,0 +1,51 @@
+[
+    {
+        "scope": "function",
+        "function": "windowed_error_rate",
+        "property": "has_parameter_window",
+        "statement": "The function windowed_error_rate has a parameter named window."
+    },
+    {
+        "scope": "function",
+        "function": "windowed_error_rate",
+        "property": "has_default_window_value",
+        "statement": "The function windowed_error_rate has a default value of 60 for the window parameter."
+    },
+    {
+        "scope": "function",
+        "function": "windowed_error_rate",
+        "property": "uses_cutoff_calculation",
+        "statement": "The function windowed_error_rate calculates a cutoff value based on the current time and the window parameter."
+    },
+    {
+        "scope": "function",
+        "function": "windowed_error_rate",
+        "property": "filters_recent_events",
+        "statement": "The function windowed_error_rate filters events based on whether their timestamp is greater than or equal to the cutoff value."
+    },
+    {
+        "scope": "function",
+        "function": "windowed_error_rate",
+        "property": "handles_empty_recent_list",
+        "statement": "The function windowed_error_rate returns 0.0 if the recent list is empty."
+    },
+    {
+        "scope": "function",
+        "function": "windowed_error_rate",
+        "property": "calculates_error_count",
+        "statement": "The function windowed_error_rate calculates the number of errors in the recent events list."
+    },
+    {
+        "scope": "function",
+        "function": "windowed_error_rate",
+        "property": "computes_error_rate",
+        "statement": "The function windowed_error_rate computes the error rate by dividing the error count by the window parameter."
+    },
+    {
+        "scope": "branch",
+        "function": "windowed_error_rate",
+        "conditions": "not recent",
+        "property": "returns_zero_error_rate",
+        "statement": "If the recent list is empty, the function windowed_error_rate returns a error rate of 0.0."
+    }
+]

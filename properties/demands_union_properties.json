@@ -1,0 +1,35 @@
+[
+    {
+        "scope": "function",
+        "function": "demands_union",
+        "property": "preserve_order",
+        "description": "Merge demands items preserving order."
+    },
+    {
+        "scope": "branch",
+        "function": "demands_union",
+        "conditions": "left[li] < right[ri]",
+        "property": "append_left_item",
+        "description": "Append item from 'left' list."
+    },
+    {
+        "scope": "branch",
+        "function": "demands_union",
+        "conditions": "merged and left and right and (merged[-1] == left[-1] == right[-1])",
+        "property": "discard_duplicate",
+        "description": "Discard duplicate item in the final position."
+    },
+    {
+        "scope": "branch",
+        "function": "demands_union",
+        "conditions": "not merged or not left or (not right) or (not merged[-1] == left[-1] == right[-1])",
+        "property": "keep_duplicate",
+        "description": "Keep duplicate item in the final position."
+    },
+    {
+        "scope": "loop",
+        "function": "demands_union",
+        "property": "iterate_lists",
+        "description": "Iterate over 'left' and 'right' lists."
+    }
+]

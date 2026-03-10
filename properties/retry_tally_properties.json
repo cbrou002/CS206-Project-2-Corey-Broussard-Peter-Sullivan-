@@ -1,0 +1,22 @@
+[
+    {
+        "scope": "function",
+        "function": "retry_tally",
+        "property": "bump_retry_metric_with_hard_limit",
+        "description": "Increments a retry metric with a hard limit, clamping at the specified cap if reached."
+    },
+    {
+        "scope": "branch",
+        "function": "retry_tally",
+        "conditions": "cap is not None and counters[key] > cap",
+        "property": "clamp_retry_metric_at_cap",
+        "description": "Ensures that the retry metric is clamped at the specified cap if it exceeds the cap."
+    },
+    {
+        "scope": "branch",
+        "function": "retry_tally",
+        "conditions": "not cap is not None or not counters[key] > cap",
+        "property": "no_clamp_needed",
+        "description": "No clamping is needed as either the cap is None or the retry metric is not greater than the cap."
+    }
+]

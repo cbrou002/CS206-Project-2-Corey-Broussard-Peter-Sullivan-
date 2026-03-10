@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "dataloader_shard_merge",
+        "property": "preserves_duplicates",
+        "description": "The function merges two sorted shard id lists while preserving duplicates."
+    },
+    {
+        "scope": "branch",
+        "function": "dataloader_shard_merge",
+        "conditions": "left_ids[i] <= right_ids[j]",
+        "property": "append_left_id",
+        "description": "If the left id is less than or equal to the right id, the function appends the left id to the merged list."
+    },
+    {
+        "scope": "branch",
+        "function": "dataloader_shard_merge",
+        "conditions": "merged and left_ids and right_ids and (merged[-1] == left_ids[-1] == right_ids[-1])",
+        "property": "drop_duplicate",
+        "description": "If the merged list, left_ids, and right_ids are not empty and the last elements of all three lists are equal, the function drops the duplicate element."
+    },
+    {
+        "scope": "loop",
+        "function": "dataloader_shard_merge",
+        "property": "merge_iteration",
+        "description": "The function iterates through the left_ids and right_ids lists to merge them."
+    }
+]

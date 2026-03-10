@@ -1,0 +1,26 @@
+[
+    {
+        "scope": "function",
+        "function": "shift_demand",
+        "property": "has_parameter_damping",
+        "conditions": "damping parameter is present"
+    },
+    {
+        "scope": "branch",
+        "function": "shift_demand",
+        "property": "shape_mismatch_exception",
+        "conditions": "len(current) != len(target)"
+    },
+    {
+        "scope": "branch",
+        "function": "shift_demand",
+        "property": "empty_allocation_exception",
+        "conditions": "not current"
+    },
+    {
+        "scope": "loop",
+        "function": "shift_demand",
+        "property": "list_comprehension",
+        "conditions": "list_comp loop at line 10"
+    }
+]

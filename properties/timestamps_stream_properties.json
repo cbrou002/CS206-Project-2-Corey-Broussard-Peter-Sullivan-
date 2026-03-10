@@ -1,0 +1,26 @@
+[
+    {
+        "scope": "function",
+        "function": "timestamps_stream",
+        "property": "merge_sorted_sequences",
+        "description": "Merge two sorted sequences of timestamps into a single sorted sequence."
+    },
+    {
+        "scope": "function",
+        "function": "timestamps_stream",
+        "property": "handle_duplicate_tail_elements",
+        "description": "Remove a duplicate element from the merged sequence if both input sequences have the same last element."
+    },
+    {
+        "scope": "branch",
+        "conditions": "left[i] <= right[j]",
+        "property": "append_left_element",
+        "description": "Append the element from the 'left' sequence to the merged sequence."
+    },
+    {
+        "scope": "branch",
+        "conditions": "merged and left and (merged[-1] == left[-1] == right[-1])",
+        "property": "check_duplicate_tail_elements",
+        "description": "Check if the last elements of all sequences are the same to handle potential duplicates."
+    }
+]

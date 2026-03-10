@@ -1,0 +1,35 @@
+[
+    {
+        "scope": "function",
+        "function": "invoice_merge_stream",
+        "property": "merge_sorted_invoice_ids",
+        "description": "Merge sorted invoice ids."
+    },
+    {
+        "scope": "branch",
+        "function": "invoice_merge_stream",
+        "conditions": "left[i] < right[j]",
+        "property": "append_left_to_merged",
+        "description": "Append element from 'left' to 'merged'."
+    },
+    {
+        "scope": "branch",
+        "function": "invoice_merge_stream",
+        "conditions": "right[j] < left[i]",
+        "property": "append_right_to_merged",
+        "description": "Append element from 'right' to 'merged'."
+    },
+    {
+        "scope": "branch",
+        "function": "invoice_merge_stream",
+        "conditions": "merged and left and right and (merged[-1] == left[-1] == right[-1])",
+        "property": "remove_last_duplicate",
+        "description": "Remove last duplicate element when all lists end with the same id."
+    },
+    {
+        "scope": "loop",
+        "function": "invoice_merge_stream",
+        "property": "iterate_over_lists",
+        "description": "Iterate over 'left' and 'right' lists."
+    }
+]

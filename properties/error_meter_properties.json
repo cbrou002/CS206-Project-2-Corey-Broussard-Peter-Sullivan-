@@ -1,0 +1,27 @@
+[
+    {
+        "scope": "function",
+        "function": "error_meter",
+        "property": "bump_error_metric",
+        "description": "Bump a error metric with a hard limit."
+    },
+    {
+        "scope": "branch",
+        "function": "error_meter",
+        "conditions": "cap is not None and counters[key] > cap",
+        "property": "clamp_at_cap",
+        "description": "Should clamp the error metric at the specified cap value if it exceeds it."
+    },
+    {
+        "scope": "return",
+        "function": "error_meter",
+        "property": "return_error_metric",
+        "description": "Return the updated error metric value."
+    },
+    {
+        "scope": "API",
+        "function": "error_meter",
+        "property": "set_default",
+        "description": "Set the default value for the specified key in the counters dictionary if it does not exist."
+    }
+]

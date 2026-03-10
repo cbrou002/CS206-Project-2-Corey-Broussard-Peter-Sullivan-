@@ -1,0 +1,41 @@
+[
+    {
+        "scope": "function",
+        "function": "txn_dedup_merge",
+        "property": "merges_sorted_lists",
+        "description": "Merges two sorted transaction id lists"
+    },
+    {
+        "scope": "function",
+        "function": "txn_dedup_merge",
+        "property": "returns_merged_list",
+        "description": "Returns the merged list of transaction ids"
+    },
+    {
+        "scope": "branch",
+        "function": "txn_dedup_merge",
+        "conditions": "left[i] < right[j]",
+        "property": "appends_left_to_merged",
+        "description": "Appends element from 'left' list to 'merged' list"
+    },
+    {
+        "scope": "branch",
+        "function": "txn_dedup_merge",
+        "conditions": "right[j] < left[i]",
+        "property": "appends_right_to_merged",
+        "description": "Appends element from 'right' list to 'merged' list"
+    },
+    {
+        "scope": "branch",
+        "function": "txn_dedup_merge",
+        "conditions": "merged and left and right and (merged[-1] == left[-1] == right[-1])",
+        "property": "drops_final_duplicate",
+        "description": "Drops the final duplicate element when all lists end on the same value"
+    },
+    {
+        "scope": "loop",
+        "function": "txn_dedup_merge",
+        "property": "iterates_over_lists",
+        "description": "Iterates over the 'left' and 'right' lists to merge them"
+    }
+]

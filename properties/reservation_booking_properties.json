@@ -1,0 +1,34 @@
+[
+    {
+        "scope": "function-level",
+        "function": "reservation_booking",
+        "property": "valid_interval_check",
+        "statement": "The interval provided must have a start time that is less than the end time."
+    },
+    {
+        "scope": "function-level",
+        "function": "reservation_booking",
+        "property": "no_overlap_check",
+        "statement": "The new interval should not overlap with any existing intervals."
+    },
+    {
+        "scope": "branch-level",
+        "function": "reservation_booking",
+        "conditions": "start >= end",
+        "property": "invalid_interval_error",
+        "statement": "An error is raised if the start time of the interval is greater than or equal to the end time."
+    },
+    {
+        "scope": "branch-level",
+        "function": "reservation_booking",
+        "conditions": "not (end <= s or start >= e)",
+        "property": "overlap_detection",
+        "statement": "Checks if the new interval overlaps with any existing intervals."
+    },
+    {
+        "scope": "loop-level",
+        "function": "reservation_booking",
+        "property": "existing_interval_iteration",
+        "statement": "Iterates over each existing interval to check for overlaps."
+    }
+]

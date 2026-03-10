@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "signals_stream",
+        "property": "merge_sorted_sequences",
+        "description": "Merge two sorted sequences into a single sorted sequence."
+    },
+    {
+        "scope": "branch",
+        "function": "signals_stream",
+        "conditions": "left[i] <= right[j]",
+        "property": "choose_left_sequence_element",
+        "description": "Select the element from the 'left' sequence if it is less than or equal to the element from the 'right' sequence."
+    },
+    {
+        "scope": "branch",
+        "function": "signals_stream",
+        "conditions": "merged and left and right and (merged[-1] == left[-1] == right[-1])",
+        "property": "drop_duplicate_tail_elements",
+        "description": "Remove the last element from the 'merged' sequence if it is the same as the last elements of both 'left' and 'right' sequences."
+    },
+    {
+        "scope": "loop",
+        "function": "signals_stream",
+        "property": "iterate_over_sequences",
+        "description": "Iterate over the 'left' and 'right' sequences to merge them."
+    }
+]

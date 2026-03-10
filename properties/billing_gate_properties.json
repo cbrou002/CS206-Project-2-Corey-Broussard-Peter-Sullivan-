@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "billing_gate",
+        "property": "has_sliding_window_guard",
+        "description": "The function implements a sliding window guard for billing actions."
+    },
+    {
+        "scope": "branch",
+        "function": "billing_gate",
+        "conditions": "len(active) > limit",
+        "property": "exceeds_limit",
+        "description": "The function returns False and 0 if the number of active timestamps exceeds the limit."
+    },
+    {
+        "scope": "branch",
+        "function": "billing_gate",
+        "conditions": "len(active) <= limit",
+        "property": "within_limit",
+        "description": "The function returns True and the remaining limit if the number of active timestamps is within the limit."
+    },
+    {
+        "scope": "loop",
+        "function": "billing_gate",
+        "property": "list_comprehension",
+        "description": "The function uses list comprehension to filter timestamps based on a cutoff value."
+    }
+]

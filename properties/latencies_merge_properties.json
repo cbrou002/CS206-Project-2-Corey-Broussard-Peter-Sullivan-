@@ -1,0 +1,35 @@
+[
+    {
+        "scope": "function",
+        "function": "latencies_merge",
+        "property": "ordered_streams_combination",
+        "description": "Combines two ordered latencies streams by iterating through them and appending elements in ascending order."
+    },
+    {
+        "scope": "branch",
+        "function": "latencies_merge",
+        "conditions": "a < b",
+        "property": "append_a",
+        "description": "Appends element 'a' to the merged list when 'a' is less than 'b'."
+    },
+    {
+        "scope": "branch",
+        "function": "latencies_merge",
+        "conditions": "b < a",
+        "property": "append_b",
+        "description": "Appends element 'b' to the merged list when 'b' is less than 'a'."
+    },
+    {
+        "scope": "branch",
+        "function": "latencies_merge",
+        "conditions": "merged and left and right and (merged[-1] == left[-1] == right[-1])",
+        "property": "remove_last_matching_element",
+        "description": "Removes the last matching element from the merged list when both input lists end together."
+    },
+    {
+        "scope": "loop",
+        "function": "latencies_merge",
+        "property": "iteration",
+        "description": "Iterates through the input lists 'left' and 'right' to merge them."
+    }
+]

@@ -1,0 +1,22 @@
+[
+    {
+        "scope": "function",
+        "function": "track_release",
+        "property": "increments_release_counter",
+        "description": "This function increments the release counter by 1."
+    },
+    {
+        "scope": "branch",
+        "function": "track_release",
+        "conditions": "cap is not None",
+        "property": "apply_cap_increment",
+        "description": "If cap is not None, the function applies a cap to the increment operation."
+    },
+    {
+        "scope": "branch",
+        "function": "track_release",
+        "conditions": "updated > cap",
+        "property": "check_cap_limit_exceeded",
+        "description": "If the updated counter value exceeds the cap, it is set to the cap value."
+    }
+]

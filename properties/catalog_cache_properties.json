@@ -1,0 +1,22 @@
+[
+    {
+        "scope": "function",
+        "function": "catalog_cache",
+        "property": "has_early_return",
+        "description": "The function has early returns at lines 7, 12, and 13."
+    },
+    {
+        "scope": "branch",
+        "function": "catalog_cache",
+        "conditions": "key not in entries",
+        "property": "has_branch",
+        "description": "The function has a branch at line 6 based on whether the key is in the entries dictionary."
+    },
+    {
+        "scope": "branch",
+        "function": "catalog_cache",
+        "conditions": "now > expires_at",
+        "property": "has_branch",
+        "description": "The function has a branch at line 11 based on whether the current time is greater than the expiration time."
+    }
+]

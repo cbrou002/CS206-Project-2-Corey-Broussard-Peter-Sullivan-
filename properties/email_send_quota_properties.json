@@ -1,0 +1,48 @@
+[
+    {
+        "scope": "function",
+        "function": "email_send_quota",
+        "property": "enforces_time_based_quota",
+        "description": "The function enforces a time-based email quota based on the given parameters."
+    },
+    {
+        "scope": "branch",
+        "function": "email_send_quota",
+        "conditions": "len(recent) > limit",
+        "property": "denies_over_limit",
+        "description": "The function denies sending emails when the number of recent emails exceeds the specified limit."
+    },
+    {
+        "scope": "branch",
+        "function": "email_send_quota",
+        "conditions": "len(recent) <= limit",
+        "property": "allows_within_limit",
+        "description": "The function allows sending emails when the number of recent emails is within the specified limit."
+    },
+    {
+        "scope": "loop",
+        "function": "email_send_quota",
+        "property": "list_comprehension_used",
+        "description": "The function uses list comprehension to filter recent emails based on a cutoff time."
+    },
+    {
+        "scope": "return",
+        "function": "email_send_quota",
+        "conditions": "len(recent) > limit",
+        "property": "returns_false_over_limit",
+        "description": "The function returns False when the number of recent emails exceeds the specified limit."
+    },
+    {
+        "scope": "return",
+        "function": "email_send_quota",
+        "conditions": "len(recent) <= limit",
+        "property": "returns_true_within_limit",
+        "description": "The function returns True when the number of recent emails is within the specified limit."
+    },
+    {
+        "scope": "api_call",
+        "function": "email_send_quota",
+        "property": "uses_len_function",
+        "description": "The function uses the len() function to determine the length of a list."
+    }
+]

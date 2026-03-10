@@ -1,0 +1,14 @@
+[
+    {
+        "scope": "function",
+        "function": "offer_expiry",
+        "property": "returns_default_when_record_is_none",
+        "statement": "The function returns the default value when the record is None."
+    },
+    {
+        "scope": "function",
+        "function": "offer_expiry",
+        "property": "returns_default_when_now_exceeds_deadline",
+        "statement": "The function returns the default value when the current time exceeds the deadline."
+    }
+]

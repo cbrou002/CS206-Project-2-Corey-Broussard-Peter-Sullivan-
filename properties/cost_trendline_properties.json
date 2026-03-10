@@ -1,0 +1,48 @@
+[
+    {
+        "scope": "function",
+        "function": "cost_trendline",
+        "property": "has_parameter_clamp",
+        "statement": "The cost_trendline function has a parameter named clamp."
+    },
+    {
+        "scope": "function",
+        "function": "cost_trendline",
+        "property": "has_exception_handling",
+        "statement": "The cost_trendline function raises a ValueError exception when x0 equals x1."
+    },
+    {
+        "scope": "function",
+        "function": "cost_trendline",
+        "property": "has_return_statement",
+        "statement": "The cost_trendline function returns the interpolated cost value y."
+    },
+    {
+        "scope": "branch",
+        "function": "cost_trendline",
+        "conditions": "x0 == x1",
+        "property": "is_true_branch",
+        "statement": "Executes when x0 equals x1."
+    },
+    {
+        "scope": "branch",
+        "function": "cost_trendline",
+        "conditions": "clamp",
+        "property": "is_true_branch",
+        "statement": "Executes when the clamp parameter is True."
+    },
+    {
+        "scope": "branch",
+        "function": "cost_trendline",
+        "conditions": "y < lo",
+        "property": "is_true_branch",
+        "statement": "Executes when y is less than the lower bound."
+    },
+    {
+        "scope": "branch",
+        "function": "cost_trendline",
+        "conditions": "y > hi",
+        "property": "is_true_branch",
+        "statement": "Executes when y is greater than the upper bound."
+    }
+]

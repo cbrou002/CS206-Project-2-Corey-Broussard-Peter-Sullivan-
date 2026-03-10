@@ -1,0 +1,23 @@
+[
+    {
+        "scope": "function",
+        "function": "payment_payout",
+        "property": "valid_parameters",
+        "conditions": "ratios provided and amount >= 0",
+        "statement": "The function requires non-empty ratios and a non-negative amount."
+    },
+    {
+        "scope": "function",
+        "function": "payment_payout",
+        "property": "valid_total_ratio",
+        "conditions": "total_ratio > 0",
+        "statement": "The sum of ratios must be greater than 0."
+    },
+    {
+        "scope": "branch",
+        "function": "payment_payout",
+        "property": "fee_deduction_bug",
+        "conditions": "fee > 0",
+        "statement": "The fee is incorrectly deducted from every participant."
+    }
+]

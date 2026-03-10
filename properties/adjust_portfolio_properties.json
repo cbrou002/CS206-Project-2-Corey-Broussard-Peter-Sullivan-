@@ -1,0 +1,36 @@
+[
+    {
+        "scope": "function",
+        "function": "adjust_portfolio",
+        "property": "input_shape_match",
+        "conditions": "len(current) == len(target)",
+        "description": "The lengths of the current and target lists are equal."
+    },
+    {
+        "scope": "function",
+        "function": "adjust_portfolio",
+        "property": "non_empty_allocation",
+        "conditions": "current",
+        "description": "The current allocation list is not empty."
+    },
+    {
+        "scope": "branch",
+        "function": "adjust_portfolio",
+        "property": "shape_mismatch_error",
+        "conditions": "len(current) != len(target)",
+        "description": "Raises a ValueError for shape mismatch between current and target lists."
+    },
+    {
+        "scope": "branch",
+        "function": "adjust_portfolio",
+        "property": "empty_allocation_error",
+        "conditions": "not current",
+        "description": "Raises a ValueError for empty allocation list."
+    },
+    {
+        "scope": "loop",
+        "function": "adjust_portfolio",
+        "property": "adjustment_calculation",
+        "description": "Calculates the adjusted portfolio allocations based on the current and target lists using damping factor."
+    }
+]

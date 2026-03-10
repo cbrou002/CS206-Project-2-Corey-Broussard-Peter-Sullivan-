@@ -1,0 +1,40 @@
+[
+    {
+        "scope": "function",
+        "function": "traffic_shaping_gate",
+        "property": "sliding_window_gate",
+        "description": "Implements a sliding window gate for traffic shaping."
+    },
+    {
+        "scope": "branch",
+        "function": "traffic_shaping_gate",
+        "conditions": "len(active) > limit",
+        "property": "block_when_limit_reached",
+        "description": "Should block traffic when the number of active timestamps exceeds the limit."
+    },
+    {
+        "scope": "loop",
+        "function": "traffic_shaping_gate",
+        "property": "list_comprehension",
+        "description": "Uses list comprehension to filter timestamps based on a cutoff value."
+    },
+    {
+        "scope": "return",
+        "function": "traffic_shaping_gate",
+        "property": "return_false",
+        "description": "Returns False and 0 when the number of active timestamps exceeds the limit."
+    },
+    {
+        "scope": "return",
+        "function": "traffic_shaping_gate",
+        "property": "return_true_with_remaining_limit",
+        "description": "Returns True and the remaining limit when the number of active timestamps is within the limit."
+    },
+    {
+        "scope": "API",
+        "function": "traffic_shaping_gate",
+        "conditions": "len()",
+        "property": "call_to_len_function",
+        "description": "Uses the len() function to determine the length of a list."
+    }
+]

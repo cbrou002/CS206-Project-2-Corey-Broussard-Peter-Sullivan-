@@ -1,0 +1,22 @@
+[
+    {
+        "scope": "function",
+        "function": "cached_preference",
+        "property": "fetch_memoized_preference_payload",
+        "description": "The function fetches a memoized preference payload from the cache."
+    },
+    {
+        "scope": "branch",
+        "function": "cached_preference",
+        "conditions": "item is None",
+        "property": "return_none_if_item_is_none",
+        "description": "If the item is None, the function returns None."
+    },
+    {
+        "scope": "branch",
+        "function": "cached_preference",
+        "conditions": "now > ttl",
+        "property": "return_none_if_now_greater_than_ttl",
+        "description": "If the current time is greater than the time-to-live (ttl), the function returns None."
+    }
+]

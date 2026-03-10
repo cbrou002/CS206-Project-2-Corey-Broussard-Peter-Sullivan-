@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "feature_cache",
+        "property": "has_early_return",
+        "statement": "The function feature_cache has early returns at lines 7 and 12."
+    },
+    {
+        "scope": "function",
+        "function": "feature_cache",
+        "property": "calls_api",
+        "statement": "The function feature_cache calls the get() API at line 5."
+    },
+    {
+        "scope": "branch",
+        "function": "feature_cache",
+        "conditions": "item is None",
+        "property": "branch_condition",
+        "statement": "In the function feature_cache, if item is None at line 6, then it returns None."
+    },
+    {
+        "scope": "branch",
+        "function": "feature_cache",
+        "conditions": "now > ttl",
+        "property": "branch_condition",
+        "statement": "In the function feature_cache, if now is greater than ttl at line 11, then it returns None."
+    }
+]

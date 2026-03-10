@@ -1,0 +1,22 @@
+[
+    {
+        "scope": "function",
+        "function": "job_queue_priority",
+        "property": "accepts_jobs_into_bounded_queue",
+        "description": "Accepts jobs into a bounded queue based on the max_jobs limit."
+    },
+    {
+        "scope": "branch",
+        "function": "job_queue_priority",
+        "conditions": "max_jobs < 0",
+        "property": "max_jobs_non_negative_check",
+        "description": "Checks if max_jobs is non-negative."
+    },
+    {
+        "scope": "branch",
+        "function": "job_queue_priority",
+        "conditions": "len(jobs) > max_jobs",
+        "property": "jobs_capacity_check",
+        "description": "Checks if the number of jobs exceeds the max_jobs limit."
+    }
+]

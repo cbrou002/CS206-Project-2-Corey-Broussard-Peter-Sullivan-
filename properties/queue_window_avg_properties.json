@@ -1,0 +1,23 @@
+[
+    {
+        "scope": "function",
+        "function": "queue_window_avg",
+        "property": "positive_window_constraint",
+        "conditions": "window > 0",
+        "description": "The window size must be positive."
+    },
+    {
+        "scope": "function",
+        "function": "queue_window_avg",
+        "property": "non_empty_series_constraint",
+        "conditions": "values",
+        "description": "The series must not be empty."
+    },
+    {
+        "scope": "branch",
+        "function": "queue_window_avg",
+        "property": "warmup_condition",
+        "conditions": "len(tail) < warmup_min",
+        "description": "Checks if the length of tail is less than the warmup minimum."
+    }
+]

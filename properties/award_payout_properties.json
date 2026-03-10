@@ -1,0 +1,65 @@
+[
+    {
+        "scope": "function",
+        "function": "award_payout",
+        "property": "has_parameter_fee",
+        "description": "The function has a parameter named 'fee' that is keyword-only."
+    },
+    {
+        "scope": "function",
+        "function": "award_payout",
+        "property": "raises_exception_ratios_required",
+        "description": "The function raises a ValueError if 'ratios' is not provided."
+    },
+    {
+        "scope": "function",
+        "function": "award_payout",
+        "property": "raises_exception_negative_amount",
+        "description": "The function raises a ValueError if 'amount' is negative."
+    },
+    {
+        "scope": "function",
+        "function": "award_payout",
+        "property": "raises_exception_invalid_ratios",
+        "description": "The function raises a ValueError if the sum of 'ratios' is less than or equal to 0."
+    },
+    {
+        "scope": "branch",
+        "function": "award_payout",
+        "conditions": "not ratios",
+        "property": "requires_ratios",
+        "description": "If 'ratios' is not provided, the function raises a ValueError."
+    },
+    {
+        "scope": "branch",
+        "function": "award_payout",
+        "conditions": "amount < 0",
+        "property": "requires_non_negative_amount",
+        "description": "If 'amount' is negative, the function raises a ValueError."
+    },
+    {
+        "scope": "branch",
+        "function": "award_payout",
+        "conditions": "total_ratio <= 0",
+        "property": "valid_total_ratio",
+        "description": "If the sum of 'ratios' is less than or equal to 0, the function raises a ValueError."
+    },
+    {
+        "scope": "loop",
+        "function": "award_payout",
+        "property": "uses_for_loop",
+        "description": "The function uses a for loop to iterate over 'ratios'."
+    },
+    {
+        "scope": "loop",
+        "function": "award_payout",
+        "property": "uses_list_comp",
+        "description": "The function uses a list comprehension to calculate 'shares'."
+    },
+    {
+        "scope": "return",
+        "function": "award_payout",
+        "property": "returns_shares_minus_fee",
+        "description": "The function returns a list of 'shares' with 'fee' deducted from each element."
+    }
+]

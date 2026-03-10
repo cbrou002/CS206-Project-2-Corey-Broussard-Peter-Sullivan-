@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "cached_metric",
+        "property": "has_early_return",
+        "description": "The function has early returns at lines 7 and 12."
+    },
+    {
+        "scope": "function",
+        "function": "cached_metric",
+        "property": "calls_api",
+        "description": "The function calls the get() API at line 5."
+    },
+    {
+        "scope": "branch",
+        "function": "cached_metric",
+        "conditions": "item is None",
+        "property": "branch_condition",
+        "description": "Branch at line 6 checks if item is None."
+    },
+    {
+        "scope": "branch",
+        "function": "cached_metric",
+        "conditions": "now > ttl",
+        "property": "branch_condition",
+        "description": "Branch at line 11 checks if now is greater than ttl."
+    }
+]

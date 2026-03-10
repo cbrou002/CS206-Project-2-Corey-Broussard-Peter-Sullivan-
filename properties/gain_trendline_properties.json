@@ -1,0 +1,48 @@
+[
+    {
+        "scope": "function",
+        "function": "gain_trendline",
+        "property": "linear_estimate_computation",
+        "description": "The function computes a linear estimate for the gain between (x0, y0) and (x1, y1) based on the input values."
+    },
+    {
+        "scope": "function",
+        "function": "gain_trendline",
+        "property": "clamp_option_usage",
+        "description": "The function conditionally clamps the computed y value based on the clamp parameter."
+    },
+    {
+        "scope": "function",
+        "function": "gain_trendline",
+        "property": "clamp_bug_fix",
+        "description": "The function correctly clamps the computed y value based on the x-range, fixing a bug where clamping was based on the y-range."
+    },
+    {
+        "scope": "branch",
+        "function": "gain_trendline",
+        "conditions": "x1 == x0",
+        "property": "degenerate_segment_handling",
+        "description": "If x1 is equal to x0, a ValueError is raised to handle the degenerate segment case."
+    },
+    {
+        "scope": "branch",
+        "function": "gain_trendline",
+        "conditions": "clamp",
+        "property": "clamp_activation",
+        "description": "If the clamp parameter is True, the clamping logic is activated to restrict the computed y value within the x-range."
+    },
+    {
+        "scope": "branch",
+        "function": "gain_trendline",
+        "conditions": "y < lo",
+        "property": "y_lower_clamp",
+        "description": "If the computed y value is lower than the minimum of y0 and y1, it is clamped to the minimum value."
+    },
+    {
+        "scope": "branch",
+        "function": "gain_trendline",
+        "conditions": "y > hi",
+        "property": "y_upper_clamp",
+        "description": "If the computed y value is higher than the maximum of y0 and y1, it is clamped to the maximum value."
+    }
+]

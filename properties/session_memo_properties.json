@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "session_memo",
+        "property": "early_return_default",
+        "statement": "The function returns the default value if the record is None."
+    },
+    {
+        "scope": "function",
+        "function": "session_memo",
+        "property": "early_return_default",
+        "statement": "The function returns the default value if the current time is greater than the deadline."
+    },
+    {
+        "scope": "branch",
+        "function": "session_memo",
+        "conditions": "record is None",
+        "property": "return_default_record_none",
+        "statement": "If the record is None, the function returns the default value."
+    },
+    {
+        "scope": "branch",
+        "function": "session_memo",
+        "conditions": "now > deadline",
+        "property": "return_default_time_expired",
+        "statement": "If the current time is greater than the deadline, the function returns the default value."
+    }
+]

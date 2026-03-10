@@ -1,0 +1,44 @@
+[
+    {
+        "scope": "function",
+        "function": "storage_quota_split",
+        "property": "valid_input_check",
+        "conditions": "total >= 0 and not ratios or sum(ratios) > 0",
+        "description": "Checks if the input total is non-negative and ratios are valid"
+    },
+    {
+        "scope": "function",
+        "function": "storage_quota_split",
+        "property": "fee_subtraction_bug",
+        "conditions": "True",
+        "description": "Bug where the fee is subtracted from every share"
+    },
+    {
+        "scope": "branch",
+        "function": "storage_quota_split",
+        "property": "total_negative_branch",
+        "conditions": "total < 0",
+        "description": "Branch when total is negative"
+    },
+    {
+        "scope": "branch",
+        "function": "storage_quota_split",
+        "property": "invalid_ratios_branch",
+        "conditions": "not ratios or sum(ratios) <= 0",
+        "description": "Branch when ratios are invalid"
+    },
+    {
+        "scope": "loop",
+        "function": "storage_quota_split",
+        "property": "shares_calculation_loop",
+        "conditions": "True",
+        "description": "Loop for calculating shares based on ratios"
+    },
+    {
+        "scope": "return",
+        "function": "storage_quota_split",
+        "property": "shares_adjustment_return",
+        "conditions": "True",
+        "description": "Adjustment of shares by subtracting fee"
+    }
+]

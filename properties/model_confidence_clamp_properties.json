@@ -1,0 +1,20 @@
+[
+    {
+        "scope": "function",
+        "function": "model_confidence_clamp",
+        "property": "computes_confidence_between_two_anchor_points",
+        "description": "The function computes confidence between two anchor points using the provided formula."
+    },
+    {
+        "scope": "function",
+        "function": "model_confidence_clamp",
+        "property": "raises_error_for_degenerate_segment",
+        "description": "The function raises a ValueError if x0 is equal to x1, indicating a degenerate segment."
+    },
+    {
+        "scope": "function",
+        "function": "model_confidence_clamp",
+        "property": "clamps_output_instead_of_input_range",
+        "description": "The function clamps the output value y within the range defined by y0 and y1 when the clamp flag is set."
+    }
+]

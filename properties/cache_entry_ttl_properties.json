@@ -1,0 +1,22 @@
+[
+    {
+        "scope": "function",
+        "function": "cache_entry_ttl",
+        "property": "has_early_return",
+        "description": "The function has early returns at lines 7, 12, and 13."
+    },
+    {
+        "scope": "branch",
+        "function": "cache_entry_ttl",
+        "conditions": "key not in entries",
+        "property": "has_branch",
+        "description": "The function has a branch for when the key is not in the entries at line 6."
+    },
+    {
+        "scope": "branch",
+        "function": "cache_entry_ttl",
+        "conditions": "now > expires",
+        "property": "has_branch",
+        "description": "The function has a branch for when now is greater than expires at line 11."
+    }
+]

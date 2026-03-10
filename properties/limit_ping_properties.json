@@ -1,0 +1,52 @@
+[
+    {
+        "scope": "function",
+        "function": "limit_ping",
+        "property": "rate_limiter",
+        "description": "Function serves as a rate limiter for ping events."
+    },
+    {
+        "scope": "branch",
+        "function": "limit_ping",
+        "conditions": "len(recent) > limit",
+        "property": "traffic_exceeds_limit",
+        "description": "Branch checks if the number of recent events exceeds the specified limit."
+    },
+    {
+        "scope": "branch",
+        "function": "limit_ping",
+        "conditions": "len(recent) <= limit",
+        "property": "traffic_within_limit",
+        "description": "Branch checks if the number of recent events is within the specified limit."
+    },
+    {
+        "scope": "loop",
+        "function": "limit_ping",
+        "property": "list_comprehension",
+        "description": "List comprehension loop used to filter timestamps based on window start time."
+    },
+    {
+        "scope": "return",
+        "function": "limit_ping",
+        "property": "exceeded_limit_response",
+        "description": "Return statement when the traffic exceeds the specified limit."
+    },
+    {
+        "scope": "return",
+        "function": "limit_ping",
+        "property": "within_limit_response",
+        "description": "Return statement when the traffic is within the specified limit."
+    },
+    {
+        "scope": "api_call",
+        "function": "limit_ping",
+        "property": "len_call_1",
+        "description": "Call to 'len' function to calculate the length of 'recent' list."
+    },
+    {
+        "scope": "api_call",
+        "function": "limit_ping",
+        "property": "len_call_2",
+        "description": "Call to 'len' function to calculate the length of 'recent' list for response calculation."
+    }
+]

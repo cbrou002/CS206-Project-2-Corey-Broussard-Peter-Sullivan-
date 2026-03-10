@@ -1,0 +1,16 @@
+[
+    {
+        "scope": "function",
+        "function": "cacheline_refresh",
+        "property": "has_early_return",
+        "conditions": "item is None",
+        "statement": "The function cacheline_refresh has an early return when item is None."
+    },
+    {
+        "scope": "function",
+        "function": "cacheline_refresh",
+        "property": "has_early_return",
+        "conditions": "now > expires_at",
+        "statement": "The function cacheline_refresh has an early return when now is greater than expires_at."
+    }
+]

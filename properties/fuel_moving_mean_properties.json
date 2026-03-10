@@ -1,0 +1,29 @@
+[
+    {
+        "scope": "function",
+        "function": "fuel_moving_mean",
+        "property": "positive_window_constraint",
+        "conditions": "window <= 0",
+        "description": "Window size must be positive."
+    },
+    {
+        "scope": "function",
+        "function": "fuel_moving_mean",
+        "property": "non_empty_values_constraint",
+        "conditions": "not values",
+        "description": "Input values must not be empty."
+    },
+    {
+        "scope": "function",
+        "function": "fuel_moving_mean",
+        "property": "warmup_mean_calculation",
+        "description": "Calculates mean even during warmup period."
+    },
+    {
+        "scope": "branch",
+        "function": "fuel_moving_mean",
+        "property": "warmup_check",
+        "conditions": "len(recent) < warmup_min",
+        "description": "Checks if warmup period is not completed."
+    }
+]

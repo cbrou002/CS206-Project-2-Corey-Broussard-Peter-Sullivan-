@@ -1,0 +1,16 @@
+[
+    {
+        "scope": "function",
+        "function": "log_sampling_decider",
+        "property": "valid_rate_range",
+        "conditions": "0 <= rate <= 1",
+        "statement": "The rate parameter must be within the range [0, 1]."
+    },
+    {
+        "scope": "branch",
+        "function": "log_sampling_decider",
+        "property": "inverted_comparison_bug",
+        "conditions": "not 0 <= rate <= 1",
+        "statement": "There is a bug in the comparison logic that inverts the sampling decision."
+    }
+]

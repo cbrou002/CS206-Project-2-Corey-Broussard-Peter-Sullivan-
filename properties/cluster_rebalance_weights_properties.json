@@ -1,0 +1,26 @@
+[
+    {
+        "scope": "function",
+        "function": "cluster_rebalance_weights",
+        "property": "has_parameter_damping",
+        "conditions": "damping parameter provided"
+    },
+    {
+        "scope": "branch",
+        "function": "cluster_rebalance_weights",
+        "property": "shape_mismatch",
+        "conditions": "len(current) != len(target)"
+    },
+    {
+        "scope": "branch",
+        "function": "cluster_rebalance_weights",
+        "property": "empty_weights",
+        "conditions": "not current"
+    },
+    {
+        "scope": "loop",
+        "function": "cluster_rebalance_weights",
+        "property": "list_comprehension",
+        "conditions": "list_comp loop"
+    }
+]

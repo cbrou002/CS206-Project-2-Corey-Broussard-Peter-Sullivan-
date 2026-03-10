@@ -1,0 +1,65 @@
+[
+    {
+        "scope": "function",
+        "function": "reserve_slot",
+        "property": "valid_input_check",
+        "conditions": "candidate[0] >= candidate[1]",
+        "description": "The function checks if the start of the candidate slot is before the end."
+    },
+    {
+        "scope": "function",
+        "function": "reserve_slot",
+        "property": "overlaps_check",
+        "conditions": "overlaps(slot, candidate)",
+        "description": "Checks if there is an overlap between an existing slot and the candidate slot."
+    },
+    {
+        "scope": "function",
+        "function": "reserve_slot",
+        "property": "valid_input_error",
+        "conditions": "ValueError()",
+        "description": "Raises a ValueError if the start of the candidate slot is not before the end."
+    },
+    {
+        "scope": "function",
+        "function": "reserve_slot",
+        "property": "return_false_existing",
+        "conditions": "return (False, list(existing))",
+        "description": "Returns False along with the existing slots if there is an overlap."
+    },
+    {
+        "scope": "function",
+        "function": "reserve_slot",
+        "property": "return_true_merged",
+        "conditions": "return (True, merged)",
+        "description": "Returns True along with the merged slots if there is no overlap."
+    },
+    {
+        "scope": "function",
+        "function": "reserve_slot",
+        "property": "list_creation",
+        "conditions": "list()",
+        "description": "Creates a new list."
+    },
+    {
+        "scope": "function",
+        "function": "reserve_slot",
+        "property": "list_sort",
+        "conditions": "sort()",
+        "description": "Sorts the list of slots."
+    },
+    {
+        "scope": "branch",
+        "function": "reserve_slot",
+        "property": "overlap_condition_true",
+        "conditions": "overlaps(slot, candidate)",
+        "description": "Executes when there is an overlap between an existing slot and the candidate slot."
+    },
+    {
+        "scope": "branch",
+        "function": "reserve_slot",
+        "property": "overlap_condition_false",
+        "conditions": "NOT(overlaps(slot, candidate))",
+        "description": "Executes when there is no overlap between an existing slot and the candidate slot."
+    }
+]

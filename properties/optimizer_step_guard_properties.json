@@ -1,0 +1,35 @@
+[
+    {
+        "scope": "function",
+        "function": "optimizer_step_guard",
+        "property": "has_early_return",
+        "statement": "The function has early returns at lines 10 and 11."
+    },
+    {
+        "scope": "function",
+        "function": "optimizer_step_guard",
+        "property": "calls_api",
+        "statement": "The function calls the ValueError API at line 6."
+    },
+    {
+        "scope": "branch",
+        "function": "optimizer_step_guard",
+        "conditions": "loss_value < 0",
+        "property": "branch_condition",
+        "statement": "Branch at line 5 is taken when loss_value is less than 0."
+    },
+    {
+        "scope": "branch",
+        "function": "optimizer_step_guard",
+        "conditions": "loss_value >= 0",
+        "property": "branch_condition",
+        "statement": "Branch at line 5 is taken when loss_value is greater than or equal to 0."
+    },
+    {
+        "scope": "branch",
+        "function": "optimizer_step_guard",
+        "conditions": "not loss_value == loss_value or not loss_value > max_loss",
+        "property": "branch_condition",
+        "statement": "Branch at line 9 is taken when loss_value is NaN or when loss_value is not greater than max_loss."
+    }
+]

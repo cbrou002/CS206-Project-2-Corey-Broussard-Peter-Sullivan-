@@ -1,0 +1,70 @@
+[
+    {
+        "scope": "function",
+        "function": "credits_allocator",
+        "property": "valid_total",
+        "conditions": "total >= 0",
+        "description": "The total parameter must be non-negative."
+    },
+    {
+        "scope": "function",
+        "function": "credits_allocator",
+        "property": "valid_minimum",
+        "conditions": "minimum >= 0",
+        "description": "The minimum parameter must be non-negative."
+    },
+    {
+        "scope": "function",
+        "function": "credits_allocator",
+        "property": "non_empty_weights",
+        "conditions": "weights",
+        "description": "Weights list must not be empty."
+    },
+    {
+        "scope": "function",
+        "function": "credits_allocator",
+        "property": "non_zero_weights",
+        "conditions": "any(weights)",
+        "description": "At least one weight in the list must be non-zero."
+    },
+    {
+        "scope": "branch",
+        "function": "credits_allocator",
+        "conditions": "total < 0",
+        "property": "total_non_negative_exception",
+        "description": "Raises a ValueError if the total parameter is negative."
+    },
+    {
+        "scope": "branch",
+        "function": "credits_allocator",
+        "conditions": "minimum < 0",
+        "property": "minimum_non_negative_exception",
+        "description": "Raises a ValueError if the minimum parameter is negative."
+    },
+    {
+        "scope": "branch",
+        "function": "credits_allocator",
+        "conditions": "not weights",
+        "property": "no_weights_exception",
+        "description": "Raises a ValueError if no weights are provided."
+    },
+    {
+        "scope": "branch",
+        "function": "credits_allocator",
+        "conditions": "not any(weights)",
+        "property": "all_weights_zero_exception",
+        "description": "Raises a ValueError if all weights are zero."
+    },
+    {
+        "scope": "loop",
+        "function": "credits_allocator",
+        "property": "planned_allocation_calculation",
+        "description": "Calculates the planned allocation for each recipient based on weights and total credits."
+    },
+    {
+        "scope": "loop",
+        "function": "credits_allocator",
+        "property": "allocation_truncation",
+        "description": "Truncates the planned allocations to integers, losing leftover units."
+    }
+]

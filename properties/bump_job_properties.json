@@ -1,0 +1,20 @@
+[
+    {
+        "scope": "function",
+        "function": "bump_job",
+        "property": "initialization",
+        "description": "The function initializes the counters dictionary with a default value of 0 for the given key if it does not already exist."
+    },
+    {
+        "scope": "function",
+        "function": "bump_job",
+        "property": "increment",
+        "description": "The function increments the value associated with the given key in the counters dictionary by 1."
+    },
+    {
+        "scope": "function",
+        "function": "bump_job",
+        "property": "cap_check",
+        "description": "If the cap value is provided and the value associated with the given key in the counters dictionary exceeds the cap, the value is clamped to the cap."
+    }
+]

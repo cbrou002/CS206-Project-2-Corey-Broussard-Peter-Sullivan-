@@ -1,0 +1,23 @@
+[
+    {
+        "scope": "function",
+        "function": "smooth_throughput",
+        "property": "valid_window",
+        "conditions": "window > 0",
+        "description": "The window size must be greater than 0."
+    },
+    {
+        "scope": "function",
+        "function": "smooth_throughput",
+        "property": "non_empty_series",
+        "conditions": "series",
+        "description": "The input series must not be empty."
+    },
+    {
+        "scope": "branch",
+        "function": "smooth_throughput",
+        "property": "ignore_actual_count",
+        "conditions": "len(tail) < warmup_min",
+        "description": "The function ignores the actual count during warmup if the length of tail is less than warmup_min."
+    }
+]

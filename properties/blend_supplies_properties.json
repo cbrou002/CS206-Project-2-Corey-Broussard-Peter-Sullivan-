@@ -1,0 +1,41 @@
+[
+    {
+        "scope": "function",
+        "function": "blend_supplies",
+        "property": "merge_preserving_order",
+        "description": "Merge supplies items preserving order."
+    },
+    {
+        "scope": "function",
+        "function": "blend_supplies",
+        "property": "discard_duplicate_in_final_position",
+        "description": "Discards a duplicate in the final position if present."
+    },
+    {
+        "scope": "branch",
+        "function": "blend_supplies",
+        "conditions": "left[li] < right[ri]",
+        "property": "append_left_item",
+        "description": "Append the item from the 'left' list."
+    },
+    {
+        "scope": "branch",
+        "function": "blend_supplies",
+        "conditions": "merged and left and right and (merged[-1] == left[-1] == right[-1])",
+        "property": "discard_duplicate_condition_met",
+        "description": "Discard a duplicate if 'merged', 'left', and 'right' lists are not empty and the last items are equal."
+    },
+    {
+        "scope": "branch",
+        "function": "blend_supplies",
+        "conditions": "not merged or not left or (not right) or (not merged[-1] == left[-1] == right[-1])",
+        "property": "discard_duplicate_condition_not_met",
+        "description": "Do not discard a duplicate if any of 'merged', 'left', or 'right' lists are empty or the last items are not equal."
+    },
+    {
+        "scope": "loop",
+        "function": "blend_supplies",
+        "property": "merge_items_in_order",
+        "description": "Merge items from 'left' and 'right' lists in order."
+    }
+]

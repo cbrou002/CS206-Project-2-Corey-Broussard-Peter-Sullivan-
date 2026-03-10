@@ -1,0 +1,16 @@
+[
+    {
+        "scope": "function",
+        "function": "time_range_filter",
+        "property": "valid_range_check",
+        "conditions": "start >= end",
+        "statement": "The function raises a ValueError if the start value is greater than or equal to the end value."
+    },
+    {
+        "scope": "function",
+        "function": "time_range_filter",
+        "property": "end_boundary_inclusion_bug",
+        "conditions": "start < end",
+        "statement": "The function incorrectly includes the end boundary in the filtering range, making it [start, end] instead of [start, end)."
+    }
+]

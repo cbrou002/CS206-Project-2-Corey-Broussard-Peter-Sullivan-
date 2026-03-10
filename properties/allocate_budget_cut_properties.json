@@ -1,0 +1,44 @@
+[
+    {
+        "scope": "function",
+        "function": "allocate_budget_cut",
+        "property": "has_parameter_fee",
+        "conditions": "fee parameter is present",
+        "statement": "The function has a parameter for fee."
+    },
+    {
+        "scope": "function",
+        "function": "allocate_budget_cut",
+        "property": "raises_error_if_ratios_missing",
+        "conditions": "ratios is empty",
+        "statement": "The function raises a ValueError if ratios is not provided."
+    },
+    {
+        "scope": "function",
+        "function": "allocate_budget_cut",
+        "property": "raises_error_if_negative_amount",
+        "conditions": "amount < 0",
+        "statement": "The function raises a ValueError if amount is negative."
+    },
+    {
+        "scope": "function",
+        "function": "allocate_budget_cut",
+        "property": "raises_error_if_invalid_ratios",
+        "conditions": "total_ratio <= 0",
+        "statement": "The function raises a ValueError if the sum of ratios is less than or equal to 0."
+    },
+    {
+        "scope": "function",
+        "function": "allocate_budget_cut",
+        "property": "calculates_shares_correctly",
+        "conditions": "for each ratio in ratios",
+        "statement": "The function calculates shares correctly based on the ratios and total amount."
+    },
+    {
+        "scope": "function",
+        "function": "allocate_budget_cut",
+        "property": "deducts_fee_from_shares",
+        "conditions": "fee is deducted from shares",
+        "statement": "The function deducts the fee from each share before returning the final list."
+    }
+]

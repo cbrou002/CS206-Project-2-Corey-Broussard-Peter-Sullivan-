@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "percentile_estimator",
+        "property": "valid_input_check",
+        "conditions": "not values",
+        "description": "Checks if input values list is empty"
+    },
+    {
+        "scope": "function",
+        "function": "percentile_estimator",
+        "property": "valid_q_range_check",
+        "conditions": "not (0 <= q <= 1)",
+        "description": "Checks if q value is within the range [0, 1]"
+    },
+    {
+        "scope": "function",
+        "function": "percentile_estimator",
+        "property": "index_calculation",
+        "description": "Calculates the index based on the length of values list and q value"
+    },
+    {
+        "scope": "function",
+        "function": "percentile_estimator",
+        "property": "percentile_estimation",
+        "description": "Returns the estimated percentile value from the values list"
+    }
+]

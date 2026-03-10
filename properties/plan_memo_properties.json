@@ -1,0 +1,29 @@
+[
+    {
+        "scope": "function",
+        "function": "plan_memo",
+        "property": "reads_cache_entry_if_valid",
+        "description": "The function reads a plan cache entry if it is still valid."
+    },
+    {
+        "scope": "branch",
+        "function": "plan_memo",
+        "conditions": "key not in entries",
+        "property": "returns_none_if_key_not_in_entries",
+        "description": "If the key is not in the entries dictionary, the function returns None."
+    },
+    {
+        "scope": "branch",
+        "function": "plan_memo",
+        "conditions": "now > expires_at",
+        "property": "returns_none_if_now_greater_than_expires_at",
+        "description": "If the current time is greater than the expiration time, the function returns None."
+    },
+    {
+        "scope": "branch",
+        "function": "plan_memo",
+        "conditions": "now <= expires_at",
+        "property": "returns_value_if_now_less_than_or_equal_to_expires_at",
+        "description": "If the current time is less than or equal to the expiration time, the function returns the cached value."
+    }
+]

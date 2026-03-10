@@ -1,0 +1,23 @@
+[
+    {
+        "scope": "function",
+        "function": "request_token_bucket",
+        "property": "valid_parameters_check",
+        "conditions": "rate <= 0 or capacity <= 0",
+        "statement": "The function raises a ValueError if rate is less than or equal to 0 or if capacity is less than or equal to 0."
+    },
+    {
+        "scope": "function",
+        "function": "request_token_bucket",
+        "property": "token_update_on_consumption",
+        "conditions": "available <= 0",
+        "statement": "If no token is available for consumption, the function returns False without updating the token bucket."
+    },
+    {
+        "scope": "function",
+        "function": "request_token_bucket",
+        "property": "token_update_on_consumption",
+        "conditions": "available > 0",
+        "statement": "If tokens are available for consumption, the function updates the token bucket and returns True."
+    }
+]

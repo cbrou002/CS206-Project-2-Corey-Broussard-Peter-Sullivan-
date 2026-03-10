@@ -1,0 +1,34 @@
+[
+    {
+        "scope": "function",
+        "function": "message_counter",
+        "property": "bump_message_metric",
+        "description": "Increments the message metric for a given key with a hard limit"
+    },
+    {
+        "scope": "branch",
+        "function": "message_counter",
+        "conditions": "cap is not None and counters[key] > cap",
+        "property": "clamp_at_cap",
+        "description": "Ensures that the message metric does not exceed the specified cap"
+    },
+    {
+        "scope": "branch",
+        "function": "message_counter",
+        "conditions": "not cap is not None or not counters[key] > cap",
+        "property": "no_clamp_needed",
+        "description": "No need to clamp the message metric as cap is not specified or metric is not greater than cap"
+    },
+    {
+        "scope": "function",
+        "function": "message_counter",
+        "property": "return_metric_value",
+        "description": "Returns the value of the message metric for the given key"
+    },
+    {
+        "scope": "API",
+        "function": "setdefault",
+        "property": "initialize_counter",
+        "description": "Initializes the counter for a given key if it does not exist"
+    }
+]

@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "read_throttle",
+        "property": "has_sliding_window_guard",
+        "statement": "The function implements a sliding window guard for read actions."
+    },
+    {
+        "scope": "branch",
+        "function": "read_throttle",
+        "conditions": "len(active) > limit",
+        "property": "exceeds_limit",
+        "statement": "If the number of active timestamps exceeds the limit, return False."
+    },
+    {
+        "scope": "branch",
+        "function": "read_throttle",
+        "conditions": "len(active) <= limit",
+        "property": "within_limit",
+        "statement": "If the number of active timestamps is within the limit, return True with the remaining limit."
+    },
+    {
+        "scope": "loop",
+        "function": "read_throttle",
+        "property": "list_comprehension",
+        "statement": "A list comprehension is used to filter timestamps based on a cutoff value."
+    }
+]

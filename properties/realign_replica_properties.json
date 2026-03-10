@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "realign_replica",
+        "property": "shape_mismatch_check",
+        "conditions": "len(current) != len(target)",
+        "description": "Check if the length of current and target arrays is not equal."
+    },
+    {
+        "scope": "function",
+        "function": "realign_replica",
+        "property": "empty_allocation_check",
+        "conditions": "not current",
+        "description": "Check if the current allocation is empty."
+    },
+    {
+        "scope": "function",
+        "function": "realign_replica",
+        "property": "adjustment_calculation",
+        "description": "Calculate the adjusted values based on current and target arrays using damping factor."
+    },
+    {
+        "scope": "function",
+        "function": "realign_replica",
+        "property": "missing_normalization_bug",
+        "description": "Bug: Missing normalization step which can cause totals to drift."
+    }
+]

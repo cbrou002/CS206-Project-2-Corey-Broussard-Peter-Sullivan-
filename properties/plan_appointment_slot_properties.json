@@ -1,0 +1,34 @@
+[
+    {
+        "scope": "function",
+        "function": "plan_appointment_slot",
+        "property": "valid_window_check",
+        "statement": "The function checks if the window is not empty (a < b) before proceeding."
+    },
+    {
+        "scope": "function",
+        "function": "plan_appointment_slot",
+        "property": "timeline_overlap_check",
+        "statement": "The function checks if the new window overlaps with any existing windows in the timeline."
+    },
+    {
+        "scope": "branch",
+        "function": "plan_appointment_slot",
+        "condition": "a >= b",
+        "property": "empty_window_exception",
+        "statement": "If the start of the window is greater than or equal to the end, a ValueError is raised for an empty window."
+    },
+    {
+        "scope": "branch",
+        "function": "plan_appointment_slot",
+        "condition": "any((not (b <= s or a >= e) for s, e in timeline))",
+        "property": "overlap_exception_handling",
+        "statement": "If there is an overlap between the new window and any existing window in the timeline, the function returns False without updating the timeline."
+    },
+    {
+        "scope": "return",
+        "function": "plan_appointment_slot",
+        "property": "timeline_update",
+        "statement": "The function returns True along with the updated timeline after successfully adding the new window."
+    }
+]

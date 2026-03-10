@@ -1,0 +1,40 @@
+[
+    {
+        "scope": "function",
+        "function": "kv_snapshot_reader",
+        "property": "reads_value_from_snapshot_list",
+        "description": "Reads a value from a snapshot list of (key, value) sorted by key."
+    },
+    {
+        "scope": "branch",
+        "function": "kv_snapshot_reader",
+        "conditions": "k == key",
+        "property": "returns_value_if_key_matches",
+        "description": "Returns the value if the key matches the specified key."
+    },
+    {
+        "scope": "branch",
+        "function": "kv_snapshot_reader",
+        "conditions": "k > key",
+        "property": "breaks_loop_if_key_exceeds",
+        "description": "Breaks the loop if the current key exceeds the specified key."
+    },
+    {
+        "scope": "loop",
+        "function": "kv_snapshot_reader",
+        "property": "iterates_over_snapshot_list",
+        "description": "Iterates over the snapshot list of (key, value) pairs."
+    },
+    {
+        "scope": "return",
+        "function": "kv_snapshot_reader",
+        "property": "returns_value",
+        "description": "Returns the value found in the snapshot list."
+    },
+    {
+        "scope": "return",
+        "function": "kv_snapshot_reader",
+        "property": "returns_default",
+        "description": "Returns the default value if the specified key is not found in the snapshot list."
+    }
+]

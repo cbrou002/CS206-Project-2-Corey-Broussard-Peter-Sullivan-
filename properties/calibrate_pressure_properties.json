@@ -1,0 +1,22 @@
+[
+    {
+        "scope": "function",
+        "function": "calibrate_pressure",
+        "property": "computes_pressure_along_line_segment",
+        "description": "The function computes pressure along a line segment using the provided parameters."
+    },
+    {
+        "scope": "branch",
+        "function": "calibrate_pressure",
+        "conditions": "x1 == x0",
+        "property": "zero_length_exception_raised",
+        "description": "If x1 is equal to x0, a ValueError exception is raised for zero length."
+    },
+    {
+        "scope": "branch",
+        "function": "calibrate_pressure",
+        "conditions": "clamp is True",
+        "property": "output_clamped_within_y_bounds",
+        "description": "If clamp is True, the output value is clamped within the y bounds specified by y0 and y1."
+    }
+]

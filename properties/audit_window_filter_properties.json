@@ -1,0 +1,14 @@
+[
+    {
+        "scope": "function",
+        "function": "audit_window_filter",
+        "property": "correctness",
+        "description": "The function correctly filters timestamps within the audit window."
+    },
+    {
+        "scope": "loop",
+        "function": "audit_window_filter",
+        "property": "boundary_exclusion",
+        "description": "The list comprehension correctly excludes the boundary when the window is open on the left."
+    }
+]

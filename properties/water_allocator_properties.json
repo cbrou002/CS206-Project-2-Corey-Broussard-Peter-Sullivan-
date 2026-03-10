@@ -1,0 +1,62 @@
+[
+    {
+        "scope": "function",
+        "function": "water_allocator",
+        "property": "has_parameter_floor_to_int",
+        "conditions": "floor_to_int parameter present"
+    },
+    {
+        "scope": "function",
+        "function": "water_allocator",
+        "property": "has_parameter_minimum",
+        "conditions": "minimum parameter present"
+    },
+    {
+        "scope": "branch",
+        "function": "water_allocator",
+        "conditions": "len(weights) == 0",
+        "property": "raises_exception_weights_required"
+    },
+    {
+        "scope": "branch",
+        "function": "water_allocator",
+        "conditions": "total < 0",
+        "property": "raises_exception_negative_total"
+    },
+    {
+        "scope": "branch",
+        "function": "water_allocator",
+        "conditions": "minimum < 0",
+        "property": "raises_exception_negative_minimum"
+    },
+    {
+        "scope": "branch",
+        "function": "water_allocator",
+        "conditions": "sum(weights) == 0",
+        "property": "raises_exception_zero_total_weight"
+    },
+    {
+        "scope": "loop",
+        "function": "water_allocator",
+        "property": "uses_for_loop",
+        "conditions": "for loop present"
+    },
+    {
+        "scope": "loop",
+        "function": "water_allocator",
+        "property": "uses_list_comp",
+        "conditions": "list_comp loop present"
+    },
+    {
+        "scope": "branch",
+        "function": "water_allocator",
+        "conditions": "floor_to_int is True",
+        "property": "returns_list_of_integers"
+    },
+    {
+        "scope": "branch",
+        "function": "water_allocator",
+        "conditions": "floor_to_int is False",
+        "property": "returns_list_of_floats"
+    }
+]

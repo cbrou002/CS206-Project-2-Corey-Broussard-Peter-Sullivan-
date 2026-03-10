@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "invoice_meter",
+        "property": "tracks_invoice_events_with_ceiling",
+        "description": "Tracks invoice events with a ceiling."
+    },
+    {
+        "scope": "branch",
+        "function": "invoice_meter",
+        "conditions": "max_value is not None",
+        "property": "ceiling_check",
+        "description": "Checks if the new value exceeds the maximum value."
+    },
+    {
+        "scope": "branch",
+        "function": "invoice_meter",
+        "conditions": "new_value > max_value",
+        "property": "adjusts_value_to_ceiling",
+        "description": "Adjusts the new value to the maximum value if it exceeds it."
+    },
+    {
+        "scope": "return",
+        "function": "invoice_meter",
+        "property": "returns_new_value",
+        "description": "Returns the new value after processing."
+    }
+]

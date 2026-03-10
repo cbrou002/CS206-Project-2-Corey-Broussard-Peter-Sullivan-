@@ -1,0 +1,23 @@
+[
+    {
+        "scope": "function",
+        "function": "views_moving_mean",
+        "property": "positive_window_constraint",
+        "conditions": "window <= 0",
+        "statement": "The window size parameter must be positive."
+    },
+    {
+        "scope": "function",
+        "function": "views_moving_mean",
+        "property": "non_empty_values_constraint",
+        "conditions": "not values",
+        "statement": "The input values list must not be empty."
+    },
+    {
+        "scope": "branch",
+        "function": "views_moving_mean",
+        "property": "warmup_condition",
+        "conditions": "len(recent) < warmup_min",
+        "statement": "Check if the length of recent values is less than the warmup minimum."
+    }
+]

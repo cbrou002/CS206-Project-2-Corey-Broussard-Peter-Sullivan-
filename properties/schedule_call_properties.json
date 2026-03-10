@@ -1,0 +1,29 @@
+[
+    {
+        "scope": "function",
+        "function": "schedule_call",
+        "property": "valid_input_check",
+        "conditions": "candidate[0] >= candidate[1]",
+        "description": "The function checks if the start time is before the end time in the candidate input."
+    },
+    {
+        "scope": "function",
+        "function": "schedule_call",
+        "property": "overlaps_check",
+        "conditions": "overlaps(slot, candidate)",
+        "description": "The function checks if there is an overlap between an existing slot and the candidate slot."
+    },
+    {
+        "scope": "branch",
+        "function": "schedule_call",
+        "property": "overlaps_condition",
+        "conditions": "NOT(overlaps(slot, candidate))",
+        "description": "The function returns false if there is no overlap between an existing slot and the candidate slot."
+    },
+    {
+        "scope": "loop",
+        "function": "schedule_call",
+        "property": "merge_and_sort",
+        "description": "The function merges the existing slots with the candidate slot and sorts the merged list."
+    }
+]

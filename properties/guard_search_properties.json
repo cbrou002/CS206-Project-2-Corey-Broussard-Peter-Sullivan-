@@ -1,0 +1,52 @@
+[
+    {
+        "scope": "function",
+        "function": "guard_search",
+        "property": "sliding_window_mechanism",
+        "description": "Implements a sliding window guard for search actions."
+    },
+    {
+        "scope": "branch",
+        "function": "guard_search",
+        "conditions": "len(active) > limit",
+        "property": "limit_exceeded",
+        "description": "Returns False if the number of active timestamps exceeds the limit."
+    },
+    {
+        "scope": "branch",
+        "function": "guard_search",
+        "conditions": "len(active) <= limit",
+        "property": "limit_not_exceeded",
+        "description": "Returns True if the number of active timestamps does not exceed the limit."
+    },
+    {
+        "scope": "loop",
+        "function": "guard_search",
+        "property": "list_comprehension",
+        "description": "Filters timestamps based on a cutoff value using list comprehension."
+    },
+    {
+        "scope": "return",
+        "function": "guard_search",
+        "property": "limit_exceeded_return",
+        "description": "Returns (False, 0) when the limit of active timestamps is exceeded."
+    },
+    {
+        "scope": "return",
+        "function": "guard_search",
+        "property": "limit_not_exceeded_return",
+        "description": "Returns (True, remaining limit) when the limit of active timestamps is not exceeded."
+    },
+    {
+        "scope": "api_call",
+        "function": "guard_search",
+        "property": "len_call_1",
+        "description": "Calculates the length of the 'active' list to check if it exceeds the limit."
+    },
+    {
+        "scope": "api_call",
+        "function": "guard_search",
+        "property": "len_call_2",
+        "description": "Calculates the remaining limit by subtracting the length of 'active' list from the total limit."
+    }
+]

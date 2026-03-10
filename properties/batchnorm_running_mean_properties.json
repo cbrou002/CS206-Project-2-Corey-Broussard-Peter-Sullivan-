@@ -1,0 +1,16 @@
+[
+    {
+        "scope": "function",
+        "function": "batchnorm_running_mean",
+        "property": "valid_momentum_range",
+        "conditions": "0 <= momentum <= 1",
+        "description": "The momentum value must be in the range [0, 1]."
+    },
+    {
+        "scope": "branch",
+        "function": "batchnorm_running_mean",
+        "property": "momentum_check",
+        "conditions": "not 0 <= momentum <= 1",
+        "description": "Check if the momentum value is not within the valid range."
+    }
+]

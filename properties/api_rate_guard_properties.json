@@ -1,0 +1,40 @@
+[
+    {
+        "scope": "function",
+        "function": "api_rate_guard",
+        "property": "has_parameter_window",
+        "statement": "The function api_rate_guard has a parameter named window with a default value of 60."
+    },
+    {
+        "scope": "function",
+        "function": "api_rate_guard",
+        "property": "has_parameter_limit",
+        "statement": "The function api_rate_guard has a parameter named limit with a default value of 100."
+    },
+    {
+        "scope": "function",
+        "function": "api_rate_guard",
+        "property": "returns_tuple",
+        "statement": "The function api_rate_guard returns a tuple."
+    },
+    {
+        "scope": "branch",
+        "function": "api_rate_guard",
+        "conditions": "len(recent) > limit",
+        "property": "exceeds_limit",
+        "statement": "If the length of recent is greater than the limit, the function returns False and 0."
+    },
+    {
+        "scope": "branch",
+        "function": "api_rate_guard",
+        "conditions": "len(recent) <= limit",
+        "property": "within_limit",
+        "statement": "If the length of recent is less than or equal to the limit, the function returns True and the difference between the limit and the length of recent."
+    },
+    {
+        "scope": "loop",
+        "function": "api_rate_guard",
+        "property": "list_comprehension",
+        "statement": "The function api_rate_guard includes a list comprehension loop."
+    }
+]

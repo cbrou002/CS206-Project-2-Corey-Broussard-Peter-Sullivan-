@@ -1,0 +1,30 @@
+[
+    {
+        "scope": "function",
+        "function": "attention_mask_merge",
+        "property": "input_shape_match",
+        "conditions": "len(mask_a) == len(mask_b)",
+        "statement": "The input masks have the same length."
+    },
+    {
+        "scope": "function",
+        "function": "attention_mask_merge",
+        "property": "shape_mismatch_error",
+        "conditions": "len(mask_a) != len(mask_b)",
+        "statement": "A ValueError is raised when the input masks have different lengths."
+    },
+    {
+        "scope": "branch",
+        "function": "attention_mask_merge",
+        "property": "mask_merge_logic",
+        "conditions": "len(mask_a) != len(mask_b)",
+        "statement": "The function merges two boolean masks using 'or' logic, which may leak masked tokens."
+    },
+    {
+        "scope": "loop",
+        "function": "attention_mask_merge",
+        "property": "mask_merge_iteration",
+        "conditions": "for a, b in zip(mask_a, mask_b)",
+        "statement": "The function iterates over the elements of the input masks using zip."
+    }
+]

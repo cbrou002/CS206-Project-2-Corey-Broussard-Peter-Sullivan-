@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "maintenance_booking",
+        "property": "valid_window_check",
+        "statement": "a must be less than b to ensure a non-empty window"
+    },
+    {
+        "scope": "function",
+        "function": "maintenance_booking",
+        "property": "timeline_overlap_check",
+        "statement": "check if any existing timeline intervals overlap with the new window"
+    },
+    {
+        "scope": "branch",
+        "function": "maintenance_booking",
+        "condition": "a >= b",
+        "property": "empty_window_exception",
+        "statement": "raise a ValueError if the window is empty"
+    },
+    {
+        "scope": "branch",
+        "function": "maintenance_booking",
+        "condition": "not(any((not (b <= s or a >= e) for s, e in timeline)))",
+        "property": "valid_window_insertion",
+        "statement": "allow insertion of window if it does not overlap with any existing timeline intervals"
+    }
+]

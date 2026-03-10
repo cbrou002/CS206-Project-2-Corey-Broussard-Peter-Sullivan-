@@ -1,0 +1,40 @@
+[
+    {
+        "scope": "function",
+        "function": "file_chunk_stitch",
+        "property": "has_early_return",
+        "statement": "The function has an early return at line 7 returning b''"
+    },
+    {
+        "scope": "function",
+        "function": "file_chunk_stitch",
+        "property": "has_return",
+        "statement": "The function has a return at line 15 returning data[:-1]"
+    },
+    {
+        "scope": "function",
+        "function": "file_chunk_stitch",
+        "property": "uses_api_call",
+        "statement": "The function uses the sorted() API call at line 9"
+    },
+    {
+        "scope": "branch",
+        "function": "file_chunk_stitch",
+        "conditions": "not chunks",
+        "property": "has_branch",
+        "statement": "The function has a branch at line 6 where chunks is not truthy"
+    },
+    {
+        "scope": "branch",
+        "function": "file_chunk_stitch",
+        "conditions": "chunks",
+        "property": "has_branch",
+        "statement": "The function has a branch at line 6 where chunks is truthy"
+    },
+    {
+        "scope": "loop",
+        "function": "file_chunk_stitch",
+        "property": "has_loop",
+        "statement": "The function has a for loop at line 11"
+    }
+]

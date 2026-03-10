@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "batch_rate",
+        "property": "throttles_batch_by_recent_activity",
+        "description": "Throttles batch by recent activity based on a specified window and limit."
+    },
+    {
+        "scope": "branch",
+        "function": "batch_rate",
+        "conditions": "len(recent) > limit",
+        "property": "blocks_when_recent_exceeds_limit",
+        "description": "Should block further processing when the number of recent timestamps exceeds the specified limit."
+    },
+    {
+        "scope": "branch",
+        "function": "batch_rate",
+        "conditions": "len(recent) <= limit",
+        "property": "does_not_block_when_recent_within_limit",
+        "description": "Does not block further processing when the number of recent timestamps is within the specified limit."
+    },
+    {
+        "scope": "loop",
+        "function": "batch_rate",
+        "property": "filters_recent_timestamps",
+        "description": "Filters timestamps to include only those within the specified window."
+    }
+]

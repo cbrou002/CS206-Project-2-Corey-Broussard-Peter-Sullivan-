@@ -1,0 +1,35 @@
+[
+    {
+        "scope": "function",
+        "function": "cached_inventory",
+        "property": "has_early_return",
+        "statement": "The function has early returns at lines 7, 12."
+    },
+    {
+        "scope": "function",
+        "function": "cached_inventory",
+        "property": "calls_api",
+        "statement": "The function calls get() at line 5."
+    },
+    {
+        "scope": "branch",
+        "function": "cached_inventory",
+        "conditions": "record is None",
+        "property": "returns_default",
+        "statement": "If record is None at line 6, the function returns default at line 7."
+    },
+    {
+        "scope": "branch",
+        "function": "cached_inventory",
+        "conditions": "now > deadline",
+        "property": "returns_default",
+        "statement": "If now is greater than deadline at line 11, the function returns default at line 12."
+    },
+    {
+        "scope": "branch",
+        "function": "cached_inventory",
+        "conditions": "now <= deadline",
+        "property": "returns_value",
+        "statement": "If now is less than or equal to deadline at line 11, the function returns value at line 13."
+    }
+]

@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "limit_query",
+        "property": "has_sliding_window_guard",
+        "statement": "The function implements a sliding window guard for query actions."
+    },
+    {
+        "scope": "branch",
+        "function": "limit_query",
+        "conditions": "len(active) > limit",
+        "property": "exceeds_limit",
+        "statement": "If the length of active timestamps exceeds the specified limit, return False and 0."
+    },
+    {
+        "scope": "branch",
+        "function": "limit_query",
+        "conditions": "len(active) <= limit",
+        "property": "within_limit",
+        "statement": "If the length of active timestamps is within the specified limit, return True and the remaining limit."
+    },
+    {
+        "scope": "loop",
+        "function": "limit_query",
+        "property": "list_comprehension",
+        "statement": "The function uses list comprehension to filter timestamps based on a cutoff value."
+    }
+]

@@ -1,0 +1,47 @@
+[
+    {
+        "scope": "function",
+        "function": "stream_joiner",
+        "property": "merge_sorted_streams",
+        "description": "Merge two sorted streams of ids."
+    },
+    {
+        "scope": "function",
+        "function": "stream_joiner",
+        "property": "early_return",
+        "description": "Returns the merged stream."
+    },
+    {
+        "scope": "function",
+        "function": "stream_joiner",
+        "property": "api_calls",
+        "description": "Uses len(), append(), extend(), and pop() functions."
+    },
+    {
+        "scope": "branch",
+        "function": "stream_joiner",
+        "conditions": "left[i] <= right[j]",
+        "property": "left_less_than_right",
+        "description": "Appends element from left stream."
+    },
+    {
+        "scope": "branch",
+        "function": "stream_joiner",
+        "conditions": "out and left and (out[-1] == left[-1] == right[-1])",
+        "property": "duplicate_drop_condition",
+        "description": "Checks for duplicate elements at the end of all streams."
+    },
+    {
+        "scope": "branch",
+        "function": "stream_joiner",
+        "conditions": "not out or not left or (not right) or (not out[-1] == left[-1] == right[-1])",
+        "property": "no_duplicate_drop_condition",
+        "description": "Handles the case when no duplicate elements are found at the end of all streams."
+    },
+    {
+        "scope": "loop",
+        "function": "stream_joiner",
+        "property": "while_loop",
+        "description": "Iterates over the streams until one of them is fully processed."
+    }
+]

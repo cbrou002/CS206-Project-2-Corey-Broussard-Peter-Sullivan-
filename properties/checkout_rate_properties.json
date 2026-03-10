@@ -1,0 +1,44 @@
+[
+    {
+        "scope": "function",
+        "function": "checkout_rate",
+        "property": "has_default_parameters",
+        "conditions": "window=5, limit=3",
+        "statement": "The function checkout_rate has default parameters window=5 and limit=3."
+    },
+    {
+        "scope": "function",
+        "function": "checkout_rate",
+        "property": "returns_boolean_tuple",
+        "conditions": "",
+        "statement": "The function checkout_rate returns a tuple with a boolean value as the first element."
+    },
+    {
+        "scope": "function",
+        "function": "checkout_rate",
+        "property": "returns_integer_tuple",
+        "conditions": "",
+        "statement": "The function checkout_rate returns a tuple with an integer value as the second element."
+    },
+    {
+        "scope": "branch",
+        "function": "checkout_rate",
+        "property": "allows_exactly_at_limit_traffic",
+        "conditions": "len(recent) > limit",
+        "statement": "The function checkout_rate allows exactly-at-limit traffic if the length of recent is greater than the limit."
+    },
+    {
+        "scope": "branch",
+        "function": "checkout_rate",
+        "property": "limits_traffic_when_under_limit",
+        "conditions": "len(recent) <= limit",
+        "statement": "The function checkout_rate limits traffic when the length of recent is less than or equal to the limit."
+    },
+    {
+        "scope": "loop",
+        "function": "checkout_rate",
+        "property": "list_comprehension_used",
+        "conditions": "",
+        "statement": "The function checkout_rate uses list comprehension to filter timestamps based on window_start."
+    }
+]

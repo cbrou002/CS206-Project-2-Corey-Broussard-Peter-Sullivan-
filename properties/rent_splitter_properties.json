@@ -1,0 +1,35 @@
+[
+    {
+        "scope": "function",
+        "function": "rent_splitter",
+        "property": "valid_input_check",
+        "conditions": "len(ratios) == 0",
+        "statement": "Raises ValueError if no ratios provided"
+    },
+    {
+        "scope": "function",
+        "function": "rent_splitter",
+        "property": "valid_input_check",
+        "conditions": "sum(ratios) <= 0",
+        "statement": "Raises ValueError if sum of ratios is less than or equal to 0"
+    },
+    {
+        "scope": "function",
+        "function": "rent_splitter",
+        "property": "valid_input_check",
+        "conditions": "amount < 0",
+        "statement": "Raises ValueError if amount is negative"
+    },
+    {
+        "scope": "function",
+        "function": "rent_splitter",
+        "property": "calculation_correctness",
+        "statement": "Applies correct calculation to split rent amount across recipients"
+    },
+    {
+        "scope": "function",
+        "function": "rent_splitter",
+        "property": "bug_fix",
+        "statement": "Applies fee only once instead of to each share"
+    }
+]

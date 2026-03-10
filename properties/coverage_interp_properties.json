@@ -1,0 +1,36 @@
+[
+    {
+        "scope": "function",
+        "function": "coverage_interp",
+        "property": "linear_estimate_computation",
+        "description": "Computes a linear estimate for coverage between two points (x0, y0) and (x1, y1) based on a given x value."
+    },
+    {
+        "scope": "branch",
+        "function": "coverage_interp",
+        "conditions": "x1 == x0",
+        "property": "degenerate_segment_check",
+        "description": "Checks if the segment defined by (x0, y0) and (x1, y1) is degenerate (x1 equals x0)."
+    },
+    {
+        "scope": "branch",
+        "function": "coverage_interp",
+        "conditions": "clamp",
+        "property": "clamping_enabled_check",
+        "description": "Checks if clamping is enabled for the coverage estimate."
+    },
+    {
+        "scope": "branch",
+        "function": "coverage_interp",
+        "conditions": "y < lo",
+        "property": "lower_clamp_check",
+        "description": "Checks if the computed y value is lower than the minimum y value of the segment."
+    },
+    {
+        "scope": "branch",
+        "function": "coverage_interp",
+        "conditions": "y > hi",
+        "property": "upper_clamp_check",
+        "description": "Checks if the computed y value is higher than the maximum y value of the segment."
+    }
+]

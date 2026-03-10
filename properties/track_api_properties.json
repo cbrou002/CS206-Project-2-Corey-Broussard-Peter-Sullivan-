@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "track_api",
+        "property": "updates_counts_with_new_value",
+        "description": "The track_api function updates the counts dictionary with the new value for the given key."
+    },
+    {
+        "scope": "function",
+        "function": "track_api",
+        "property": "returns_new_value",
+        "description": "The track_api function returns the new value after updating the counts dictionary."
+    },
+    {
+        "scope": "branch",
+        "function": "track_api",
+        "conditions": "max_value is not None",
+        "property": "checks_max_value_existence",
+        "description": "If the max_value parameter is provided, the function checks for its existence."
+    },
+    {
+        "scope": "branch",
+        "function": "track_api",
+        "conditions": "new_value > max_value",
+        "property": "adjusts_new_value_to_max_value",
+        "description": "If the new value exceeds the max_value, the function adjusts the new value to be equal to the max_value."
+    }
+]

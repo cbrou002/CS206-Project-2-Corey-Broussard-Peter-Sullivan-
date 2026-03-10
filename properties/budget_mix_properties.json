@@ -1,0 +1,26 @@
+[
+    {
+        "scope": "function",
+        "function": "budget_mix",
+        "property": "has_parameter_damping",
+        "conditions": "damping parameter is present"
+    },
+    {
+        "scope": "branch",
+        "function": "budget_mix",
+        "property": "shape_mismatch_exception",
+        "conditions": "len(current) != len(target)"
+    },
+    {
+        "scope": "branch",
+        "function": "budget_mix",
+        "property": "empty_allocation_exception",
+        "conditions": "not current"
+    },
+    {
+        "scope": "loop",
+        "function": "budget_mix",
+        "property": "list_comprehension",
+        "conditions": "list comprehension at line 10"
+    }
+]

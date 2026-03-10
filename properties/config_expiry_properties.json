@@ -1,0 +1,22 @@
+[
+    {
+        "scope": "function",
+        "function": "config_expiry",
+        "property": "has_early_return",
+        "statement": "The function config_expiry has early returns at lines 7, 12."
+    },
+    {
+        "scope": "branch",
+        "function": "config_expiry",
+        "conditions": "key not in entries",
+        "property": "branch_has_early_return",
+        "statement": "The branch where key is not in entries at line 6 has an early return at line 7."
+    },
+    {
+        "scope": "branch",
+        "function": "config_expiry",
+        "conditions": "now > expires_at",
+        "property": "branch_has_early_return",
+        "statement": "The branch where now is greater than expires_at at line 11 has an early return at line 12."
+    }
+]

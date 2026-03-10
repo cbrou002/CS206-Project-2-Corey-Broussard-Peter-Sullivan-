@@ -1,0 +1,70 @@
+[
+    {
+        "scope": "function",
+        "function": "slots_apportion",
+        "property": "valid_total",
+        "conditions": "total >= 0",
+        "description": "The total number of slots must be non-negative."
+    },
+    {
+        "scope": "function",
+        "function": "slots_apportion",
+        "property": "valid_minimum",
+        "conditions": "minimum >= 0",
+        "description": "The minimum allocation must be non-negative."
+    },
+    {
+        "scope": "function",
+        "function": "slots_apportion",
+        "property": "non_empty_weights",
+        "conditions": "weights",
+        "description": "Weights list must not be empty."
+    },
+    {
+        "scope": "function",
+        "function": "slots_apportion",
+        "property": "non_zero_weights",
+        "conditions": "any(weights)",
+        "description": "At least one weight must be non-zero."
+    },
+    {
+        "scope": "branch",
+        "function": "slots_apportion",
+        "conditions": "total < 0",
+        "property": "total_non_negative_exception",
+        "description": "Raises a ValueError if total is negative."
+    },
+    {
+        "scope": "branch",
+        "function": "slots_apportion",
+        "conditions": "minimum < 0",
+        "property": "minimum_non_negative_exception",
+        "description": "Raises a ValueError if minimum is negative."
+    },
+    {
+        "scope": "branch",
+        "function": "slots_apportion",
+        "conditions": "not weights",
+        "property": "no_weights_exception",
+        "description": "Raises a ValueError if no weights are provided."
+    },
+    {
+        "scope": "branch",
+        "function": "slots_apportion",
+        "conditions": "not any(weights)",
+        "property": "all_weights_zero_exception",
+        "description": "Raises a ValueError if all weights are zero."
+    },
+    {
+        "scope": "loop",
+        "function": "slots_apportion",
+        "property": "planned_allocation_calculation",
+        "description": "Calculates the planned allocation for each recipient based on weights."
+    },
+    {
+        "scope": "loop",
+        "function": "slots_apportion",
+        "property": "allocation_integer_conversion",
+        "description": "Converts the planned allocations to integers for distribution."
+    }
+]

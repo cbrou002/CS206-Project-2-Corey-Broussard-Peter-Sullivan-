@@ -1,0 +1,35 @@
+[
+    {
+        "scope": "function",
+        "function": "rolling_errors",
+        "property": "positive_window",
+        "statement": "The window parameter must be positive."
+    },
+    {
+        "scope": "function",
+        "function": "rolling_errors",
+        "property": "non_empty_values",
+        "statement": "The values parameter must not be empty."
+    },
+    {
+        "scope": "branch",
+        "function": "rolling_errors",
+        "conditions": "window <= 0",
+        "property": "window_positive_check",
+        "statement": "Raises a ValueError if the window parameter is not positive."
+    },
+    {
+        "scope": "branch",
+        "function": "rolling_errors",
+        "conditions": "not values",
+        "property": "non_empty_values_check",
+        "statement": "Raises a ValueError if the values parameter is empty."
+    },
+    {
+        "scope": "branch",
+        "function": "rolling_errors",
+        "conditions": "len(recent) < warmup_min",
+        "property": "warmup_min_check",
+        "statement": "Returns None if the length of recent values is less than warmup_min."
+    }
+]

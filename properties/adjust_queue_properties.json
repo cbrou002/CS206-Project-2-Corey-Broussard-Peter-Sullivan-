@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "adjust_queue",
+        "property": "shape_mismatch_check",
+        "conditions": "len(current) != len(target)",
+        "description": "Check if the lengths of current and target are not equal"
+    },
+    {
+        "scope": "function",
+        "function": "adjust_queue",
+        "property": "empty_allocation_check",
+        "conditions": "not current",
+        "description": "Check if the current allocation is empty"
+    },
+    {
+        "scope": "function",
+        "function": "adjust_queue",
+        "property": "adjustment_calculation",
+        "description": "Calculate the adjusted queue allocations based on current and target mixes"
+    },
+    {
+        "scope": "function",
+        "function": "adjust_queue",
+        "property": "missing_normalization_bug",
+        "description": "Bug: Missing normalization step leading to potential drift in totals"
+    }
+]

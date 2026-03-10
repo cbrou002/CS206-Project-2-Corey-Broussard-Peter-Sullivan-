@@ -1,0 +1,23 @@
+[
+    {
+        "scope": "function",
+        "function": "quota_for_memory",
+        "property": "valid_input_check",
+        "conditions": "total >= 0, minimum >= 0, weights not empty, any(weights) is true",
+        "description": "Checks if the input parameters meet the required conditions"
+    },
+    {
+        "scope": "function",
+        "function": "quota_for_memory",
+        "property": "memory_allocation_calculation",
+        "conditions": "valid_input_check is true",
+        "description": "Calculates memory allocation for weighted recipients"
+    },
+    {
+        "scope": "function",
+        "function": "quota_for_memory",
+        "property": "allocation_truncation_bug",
+        "conditions": "valid_input_check is true",
+        "description": "Identifies the bug where truncation loses leftover units"
+    }
+]

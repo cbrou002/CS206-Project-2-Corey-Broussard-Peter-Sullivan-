@@ -1,0 +1,42 @@
+[
+    {
+        "scope": "function",
+        "function": "estimate_reliability",
+        "property": "input_validation",
+        "description": "x0 must not equal x1"
+    },
+    {
+        "scope": "function",
+        "function": "estimate_reliability",
+        "property": "output_behavior",
+        "description": "returns the interpolated reliability value y"
+    },
+    {
+        "scope": "branch",
+        "function": "estimate_reliability",
+        "conditions": "x0 == x1",
+        "property": "exception_raised",
+        "description": "raises a ValueError if x0 equals x1"
+    },
+    {
+        "scope": "branch",
+        "function": "estimate_reliability",
+        "conditions": "clamp is True",
+        "property": "clamp_applied",
+        "description": "applies clamping to the interpolated reliability value y"
+    },
+    {
+        "scope": "branch",
+        "function": "estimate_reliability",
+        "conditions": "y < lo",
+        "property": "clamp_lower_bound",
+        "description": "adjusts y to the lower bound if it is less than the minimum of y0 and y1"
+    },
+    {
+        "scope": "branch",
+        "function": "estimate_reliability",
+        "conditions": "y > hi",
+        "property": "clamp_upper_bound",
+        "description": "adjusts y to the upper bound if it is greater than the maximum of y0 and y1"
+    }
+]

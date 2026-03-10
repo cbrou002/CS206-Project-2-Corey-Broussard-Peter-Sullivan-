@@ -1,0 +1,22 @@
+[
+    {
+        "scope": "function",
+        "function": "summary_memo",
+        "property": "valid_cache_entry_returned",
+        "description": "The function returns a valid cache entry if it exists and has not expired."
+    },
+    {
+        "scope": "branch",
+        "function": "summary_memo",
+        "conditions": "key not in entries",
+        "property": "cache_entry_not_found_returned",
+        "description": "If the key is not found in the entries dictionary, the function returns None."
+    },
+    {
+        "scope": "branch",
+        "function": "summary_memo",
+        "conditions": "now > expires_at",
+        "property": "cache_entry_expired_returned",
+        "description": "If the current time is greater than the expiration time of the cache entry, the function returns None."
+    }
+]

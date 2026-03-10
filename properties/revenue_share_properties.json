@@ -1,0 +1,65 @@
+[
+    {
+        "scope": "function",
+        "function": "revenue_share",
+        "property": "has_parameter_fee",
+        "statement": "The function revenue_share has a keyword-only parameter fee."
+    },
+    {
+        "scope": "function",
+        "function": "revenue_share",
+        "property": "raises_exception_if_ratios_empty",
+        "statement": "The function revenue_share raises a ValueError if ratios is empty."
+    },
+    {
+        "scope": "function",
+        "function": "revenue_share",
+        "property": "raises_exception_if_amount_negative",
+        "statement": "The function revenue_share raises a ValueError if amount is negative."
+    },
+    {
+        "scope": "function",
+        "function": "revenue_share",
+        "property": "raises_exception_if_invalid_ratios",
+        "statement": "The function revenue_share raises a ValueError if the total_ratio is less than or equal to 0."
+    },
+    {
+        "scope": "function",
+        "function": "revenue_share",
+        "property": "returns_list_of_shares",
+        "statement": "The function revenue_share returns a list of shares calculated based on the ratios and amount."
+    },
+    {
+        "scope": "branch",
+        "function": "revenue_share",
+        "conditions": "not ratios",
+        "property": "raises_exception",
+        "statement": "If ratios is empty, a ValueError is raised."
+    },
+    {
+        "scope": "branch",
+        "function": "revenue_share",
+        "conditions": "amount < 0",
+        "property": "raises_exception",
+        "statement": "If amount is negative, a ValueError is raised."
+    },
+    {
+        "scope": "branch",
+        "function": "revenue_share",
+        "conditions": "total_ratio <= 0",
+        "property": "raises_exception",
+        "statement": "If the total_ratio is less than or equal to 0, a ValueError is raised."
+    },
+    {
+        "scope": "loop",
+        "function": "revenue_share",
+        "property": "iterates_over_ratios",
+        "statement": "The function revenue_share iterates over the ratios list to calculate shares."
+    },
+    {
+        "scope": "loop",
+        "function": "revenue_share",
+        "property": "calculates_shares_correctly",
+        "statement": "The function revenue_share correctly calculates each participant's share based on the total_ratio and amount."
+    }
+]

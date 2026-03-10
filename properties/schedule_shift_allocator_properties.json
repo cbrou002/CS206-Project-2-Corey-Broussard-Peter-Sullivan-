@@ -1,0 +1,58 @@
+[
+    {
+        "scope": "function",
+        "function": "schedule_shift_allocator",
+        "property": "valid_total_non_negative",
+        "conditions": "total >= 0",
+        "statement": "The total parameter must be non-negative."
+    },
+    {
+        "scope": "function",
+        "function": "schedule_shift_allocator",
+        "property": "valid_minimum_non_negative",
+        "conditions": "minimum >= 0",
+        "statement": "The minimum parameter must be non-negative."
+    },
+    {
+        "scope": "function",
+        "function": "schedule_shift_allocator",
+        "property": "valid_weights_non_empty",
+        "conditions": "not weights or sum(weights) == 0",
+        "statement": "The weights list must not be empty and the sum of weights must not be zero."
+    },
+    {
+        "scope": "function",
+        "function": "schedule_shift_allocator",
+        "property": "valid_shares_calculation",
+        "conditions": "weight_sum > 0",
+        "statement": "The shares are calculated correctly based on the weights and total, ensuring weight_sum is greater than zero."
+    },
+    {
+        "scope": "function",
+        "function": "schedule_shift_allocator",
+        "property": "valid_shares_integer_conversion",
+        "conditions": "all(x.is_integer() for x in shares)",
+        "statement": "The shares are converted to integers without losing precision."
+    },
+    {
+        "scope": "branch",
+        "function": "schedule_shift_allocator",
+        "property": "valid_total_check",
+        "conditions": "total < 0",
+        "statement": "If the total parameter is less than zero, a ValueError is raised."
+    },
+    {
+        "scope": "branch",
+        "function": "schedule_shift_allocator",
+        "property": "valid_minimum_check",
+        "conditions": "minimum < 0",
+        "statement": "If the minimum parameter is less than zero, a ValueError is raised."
+    },
+    {
+        "scope": "branch",
+        "function": "schedule_shift_allocator",
+        "property": "valid_weights_check",
+        "conditions": "not weights or sum(weights) == 0",
+        "statement": "If the weights list is empty or the sum of weights is zero, a ValueError is raised."
+    }
+]

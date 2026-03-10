@@ -1,0 +1,36 @@
+[
+    {
+        "scope": "function",
+        "function": "search_result_pager",
+        "property": "valid_page_input",
+        "conditions": "page >= 1",
+        "description": "Page input must be greater than or equal to 1"
+    },
+    {
+        "scope": "function",
+        "function": "search_result_pager",
+        "property": "positive_page_size",
+        "conditions": "page_size > 0",
+        "description": "Page size must be a positive value"
+    },
+    {
+        "scope": "branch",
+        "function": "search_result_pager",
+        "conditions": "page < 1",
+        "property": "invalid_page_error",
+        "description": "Raises a ValueError if page is less than 1"
+    },
+    {
+        "scope": "branch",
+        "function": "search_result_pager",
+        "conditions": "page_size <= 0",
+        "property": "invalid_page_size_error",
+        "description": "Raises a ValueError if page_size is less than or equal to 0"
+    },
+    {
+        "scope": "function",
+        "function": "search_result_pager",
+        "property": "inclusive_end_bug",
+        "description": "The end index in slicing is inclusive instead of exclusive"
+    }
+]

@@ -1,0 +1,23 @@
+[
+    {
+        "scope": "function",
+        "function": "memory_moving_mean",
+        "property": "valid_window",
+        "conditions": "window > 0",
+        "description": "The window size must be greater than 0."
+    },
+    {
+        "scope": "function",
+        "function": "memory_moving_mean",
+        "property": "non_empty_series",
+        "conditions": "series",
+        "description": "The input series must not be empty."
+    },
+    {
+        "scope": "branch",
+        "function": "memory_moving_mean",
+        "property": "warmup_condition",
+        "conditions": "len(tail) < warmup_min",
+        "description": "Check if the length of the tail is less than the warmup minimum."
+    }
+]

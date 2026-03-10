@@ -1,0 +1,34 @@
+[
+    {
+        "scope": "function",
+        "function": "schedule_demo",
+        "property": "valid_interval_check",
+        "description": "The interval provided must have a start time less than the end time."
+    },
+    {
+        "scope": "function",
+        "function": "schedule_demo",
+        "property": "no_overlap_check",
+        "description": "The new interval should not overlap with any existing intervals."
+    },
+    {
+        "scope": "branch",
+        "function": "schedule_demo",
+        "conditions": "start >= end",
+        "property": "invalid_interval_error",
+        "description": "If the start time of the interval is greater than or equal to the end time, a ValueError is raised."
+    },
+    {
+        "scope": "branch",
+        "function": "schedule_demo",
+        "conditions": "not (end <= s or start >= e)",
+        "property": "overlap_detection",
+        "description": "If the new interval overlaps with any existing interval, return False."
+    },
+    {
+        "scope": "loop",
+        "function": "schedule_demo",
+        "property": "existing_intervals_iteration",
+        "description": "Iterate over each existing interval to check for overlaps."
+    }
+]

@@ -1,0 +1,43 @@
+[
+    {
+        "scope": "function",
+        "function": "divide_coupon",
+        "property": "valid_input_check",
+        "conditions": "ratios is not empty, sum(ratios) > 0, amount >= 0",
+        "description": "Checks if the input ratios are not empty, sum of ratios is greater than 0, and amount is non-negative"
+    },
+    {
+        "scope": "function",
+        "function": "divide_coupon",
+        "property": "fee_application_bug",
+        "conditions": "fee applied per share instead of once",
+        "description": "Bug where the fee is applied per share instead of once"
+    },
+    {
+        "scope": "branch",
+        "function": "divide_coupon",
+        "property": "empty_ratios_error",
+        "conditions": "not ratios",
+        "description": "Raises a ValueError if ratios is empty"
+    },
+    {
+        "scope": "branch",
+        "function": "divide_coupon",
+        "property": "invalid_ratios_error",
+        "conditions": "sum(ratios) <= 0",
+        "description": "Raises a ValueError if the sum of ratios is less than or equal to 0"
+    },
+    {
+        "scope": "branch",
+        "function": "divide_coupon",
+        "property": "negative_amount_error",
+        "conditions": "amount < 0",
+        "description": "Raises a ValueError if the amount is negative"
+    },
+    {
+        "scope": "loop",
+        "function": "divide_coupon",
+        "property": "base_calculation",
+        "description": "Calculates the base payouts per ratio"
+    }
+]

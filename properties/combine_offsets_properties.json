@@ -1,0 +1,48 @@
+[
+    {
+        "scope": "function",
+        "function": "combine_offsets",
+        "property": "preserve_order",
+        "description": "Merge offsets items preserving order."
+    },
+    {
+        "scope": "function",
+        "function": "combine_offsets",
+        "property": "discard_duplicate",
+        "description": "Discards a duplicate in the final position if present."
+    },
+    {
+        "scope": "branch",
+        "function": "combine_offsets",
+        "conditions": "left[li] < right[ri]",
+        "property": "append_left",
+        "description": "Append element from 'left' list."
+    },
+    {
+        "scope": "branch",
+        "function": "combine_offsets",
+        "conditions": "not (left[li] < right[ri])",
+        "property": "append_right",
+        "description": "Append element from 'right' list."
+    },
+    {
+        "scope": "branch",
+        "function": "combine_offsets",
+        "conditions": "merged and left and right and (merged[-1] == left[-1] == right[-1])",
+        "property": "discard_last_duplicate",
+        "description": "Discard last element if it is a duplicate in all lists."
+    },
+    {
+        "scope": "branch",
+        "function": "combine_offsets",
+        "conditions": "not (merged and left and right and (merged[-1] == left[-1] == right[-1]))",
+        "property": "keep_last_element",
+        "description": "Keep the last element if it is not a duplicate in all lists."
+    },
+    {
+        "scope": "loop",
+        "function": "combine_offsets",
+        "property": "merge_elements",
+        "description": "Merge elements from 'left' and 'right' lists."
+    }
+]

@@ -1,0 +1,43 @@
+[
+    {
+        "scope": "function",
+        "function": "estimate_supply",
+        "property": "linear_estimate",
+        "description": "Calculates a linear estimate for supply between two points (x0, y0) and (x1, y1)."
+    },
+    {
+        "scope": "branch",
+        "function": "estimate_supply",
+        "conditions": "x1 == x0",
+        "property": "degenerate_segment_check",
+        "description": "Checks if the segment defined by (x0, y0) and (x1, y1) is degenerate."
+    },
+    {
+        "scope": "branch",
+        "function": "estimate_supply",
+        "conditions": "clamp",
+        "property": "clamping_enabled",
+        "description": "Applies clamping based on the y-range of the segment."
+    },
+    {
+        "scope": "branch",
+        "function": "estimate_supply",
+        "conditions": "not clamp",
+        "property": "clamping_disabled",
+        "description": "Does not apply clamping."
+    },
+    {
+        "scope": "branch",
+        "function": "estimate_supply",
+        "conditions": "y < lo",
+        "property": "clamp_lower_bound",
+        "description": "Clamps the estimated value to the lower bound of the y-range."
+    },
+    {
+        "scope": "branch",
+        "function": "estimate_supply",
+        "conditions": "y > hi",
+        "property": "clamp_upper_bound",
+        "description": "Clamps the estimated value to the upper bound of the y-range."
+    }
+]
