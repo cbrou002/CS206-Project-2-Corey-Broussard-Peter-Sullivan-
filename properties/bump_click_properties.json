@@ -1,0 +1,26 @@
+[
+    {
+        "scope": "function",
+        "function": "bump_click",
+        "property": "initialization",
+        "description": "The function initializes the counters dictionary with a default value of 0 if the key is not already present."
+    },
+    {
+        "scope": "function",
+        "function": "bump_click",
+        "property": "increment",
+        "description": "The function increments the value associated with the key in the counters dictionary by 1."
+    },
+    {
+        "scope": "function",
+        "function": "bump_click",
+        "property": "cap_check",
+        "description": "If the cap is not None and the value associated with the key in the counters dictionary is greater than the cap, the value is clamped to the cap."
+    },
+    {
+        "scope": "function",
+        "function": "bump_click",
+        "property": "return",
+        "description": "The function returns the value associated with the key in the counters dictionary."
+    }
+]

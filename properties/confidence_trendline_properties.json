@@ -1,0 +1,61 @@
+[
+    {
+        "scope": "function",
+        "function": "confidence_trendline",
+        "property": "interpolates_confidence_value",
+        "description": "The function interpolates a confidence value based on the input parameters."
+    },
+    {
+        "scope": "function",
+        "function": "confidence_trendline",
+        "property": "raises_value_error_when_x0_equals_x1",
+        "description": "The function raises a ValueError if x0 is equal to x1."
+    },
+    {
+        "scope": "function",
+        "function": "confidence_trendline",
+        "property": "clamps_interpolated_value_within_y_bounds",
+        "description": "The function clamps the interpolated value within the y0 and y1 bounds if clamp is True."
+    },
+    {
+        "scope": "function",
+        "function": "confidence_trendline",
+        "property": "does_not_clamp_interpolated_value_when_clamp_is_false",
+        "description": "The function does not clamp the interpolated value if clamp is False."
+    },
+    {
+        "scope": "branch",
+        "function": "confidence_trendline",
+        "conditions": "x0 == x1",
+        "property": "x0_equals_x1_exception_raised",
+        "description": "If x0 is equal to x1, a ValueError is raised."
+    },
+    {
+        "scope": "branch",
+        "function": "confidence_trendline",
+        "conditions": "clamp",
+        "property": "interpolated_value_clamped",
+        "description": "If clamp is True, the interpolated value is clamped within the y0 and y1 bounds."
+    },
+    {
+        "scope": "branch",
+        "function": "confidence_trendline",
+        "conditions": "not clamp",
+        "property": "interpolated_value_not_clamped",
+        "description": "If clamp is False, the interpolated value is not clamped."
+    },
+    {
+        "scope": "branch",
+        "function": "confidence_trendline",
+        "conditions": "y < lo",
+        "property": "interpolated_value_below_lower_bound",
+        "description": "If the interpolated value is below the lower bound, it is set to the lower bound."
+    },
+    {
+        "scope": "branch",
+        "function": "confidence_trendline",
+        "conditions": "y > hi",
+        "property": "interpolated_value_above_upper_bound",
+        "description": "If the interpolated value is above the upper bound, it is set to the upper bound."
+    }
+]

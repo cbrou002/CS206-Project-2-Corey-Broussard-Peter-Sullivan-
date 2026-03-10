@@ -1,0 +1,22 @@
+[
+    {
+        "scope": "function",
+        "function": "feature_flag_rollout",
+        "property": "valid_percentage_range",
+        "conditions": "0 <= percentage <= 1",
+        "statement": "The percentage value must be within the range [0, 1]."
+    },
+    {
+        "scope": "branch",
+        "function": "feature_flag_rollout",
+        "property": "percentage_check",
+        "conditions": "not 0 <= percentage <= 1",
+        "statement": "Check if the percentage value is not within the range [0, 1]."
+    },
+    {
+        "scope": "return",
+        "function": "feature_flag_rollout",
+        "property": "rollout_decision",
+        "statement": "Return whether the bucket value is greater than the specified percentage."
+    }
+]

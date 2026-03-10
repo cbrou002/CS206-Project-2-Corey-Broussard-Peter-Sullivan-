@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "track_logout",
+        "property": "increments_logout_counter",
+        "description": "The function increments the logout counter by 1."
+    },
+    {
+        "scope": "function",
+        "function": "track_logout",
+        "property": "updates_counter_with_cap",
+        "description": "If cap is provided, the function updates the counter with the cap value if the incremented value exceeds the cap."
+    },
+    {
+        "scope": "branch",
+        "function": "track_logout",
+        "conditions": "cap is not None",
+        "property": "apply_cap_limit",
+        "description": "If cap is not None, the function applies the cap limit to the incremented value."
+    },
+    {
+        "scope": "branch",
+        "function": "track_logout",
+        "conditions": "updated > cap",
+        "property": "check_cap_exceeded",
+        "description": "If the incremented value is greater than the cap, the function sets the updated value to the cap."
+    }
+]

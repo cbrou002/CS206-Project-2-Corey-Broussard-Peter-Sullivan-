@@ -1,0 +1,22 @@
+[
+    {
+        "scope": "function",
+        "function": "bump_refund",
+        "property": "tracks_refund_events_with_ceiling",
+        "description": "This function tracks refund events with a ceiling."
+    },
+    {
+        "scope": "branch",
+        "function": "bump_refund",
+        "conditions": "max_value is not None",
+        "property": "checks_ceiling_condition",
+        "description": "Checks if max_value is not None to apply a ceiling."
+    },
+    {
+        "scope": "branch",
+        "function": "bump_refund",
+        "conditions": "new_value > max_value",
+        "property": "adjusts_value_to_ceiling",
+        "description": "Adjusts new_value to max_value if it exceeds the ceiling."
+    }
+]

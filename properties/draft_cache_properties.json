@@ -1,0 +1,22 @@
+[
+    {
+        "scope": "function",
+        "function": "draft_cache",
+        "property": "has_early_return",
+        "description": "The function has early returns at lines 7, 12, and 13."
+    },
+    {
+        "scope": "branch",
+        "function": "draft_cache",
+        "conditions": "key not in entries",
+        "property": "branch_condition",
+        "description": "The function enters the THEN branch when key is not in entries at line 6."
+    },
+    {
+        "scope": "branch",
+        "function": "draft_cache",
+        "conditions": "now > expires_at",
+        "property": "branch_condition",
+        "description": "The function enters the THEN branch when now is greater than expires_at at line 11."
+    }
+]

@@ -1,0 +1,40 @@
+[
+    {
+        "scope": "function",
+        "function": "plan_conference_slot",
+        "property": "valid_input_check",
+        "description": "The function checks if the start time is before the end time in the candidate slot."
+    },
+    {
+        "scope": "function",
+        "function": "plan_conference_slot",
+        "property": "overlapping_slots_check",
+        "description": "The function checks if the candidate slot overlaps with any existing slots."
+    },
+    {
+        "scope": "function",
+        "function": "plan_conference_slot",
+        "property": "slot_merge_sort",
+        "description": "The function merges the candidate slot with existing slots and sorts them."
+    },
+    {
+        "scope": "branch",
+        "function": "plan_conference_slot",
+        "conditions": "candidate[0] >= candidate[1]",
+        "property": "invalid_start_end_error",
+        "description": "If the start time is not before the end time in the candidate slot, a ValueError is raised."
+    },
+    {
+        "scope": "branch",
+        "function": "plan_conference_slot",
+        "conditions": "overlaps(slot, candidate)",
+        "property": "overlap_found",
+        "description": "If an overlap is found between the candidate slot and an existing slot, the function returns False."
+    },
+    {
+        "scope": "loop",
+        "function": "plan_conference_slot",
+        "property": "existing_slot_iteration",
+        "description": "The function iterates over each existing slot to check for overlaps with the candidate slot."
+    }
+]

@@ -1,0 +1,52 @@
+[
+    {
+        "scope": "function",
+        "function": "event_gate",
+        "property": "rate_limiter",
+        "description": "Rate limiter for event events."
+    },
+    {
+        "scope": "branch",
+        "function": "event_gate",
+        "conditions": "len(recent) > limit",
+        "property": "traffic_exceeds_limit",
+        "description": "Allows traffic when the number of recent events exceeds the limit."
+    },
+    {
+        "scope": "branch",
+        "function": "event_gate",
+        "conditions": "len(recent) <= limit",
+        "property": "traffic_within_limit",
+        "description": "Allows traffic when the number of recent events is within the limit."
+    },
+    {
+        "scope": "loop",
+        "function": "event_gate",
+        "property": "list_comprehension",
+        "description": "List comprehension loop to filter timestamps based on window start."
+    },
+    {
+        "scope": "return",
+        "function": "event_gate",
+        "property": "exceed_limit_response",
+        "description": "Returns False and 0 when the traffic exceeds the limit."
+    },
+    {
+        "scope": "return",
+        "function": "event_gate",
+        "property": "within_limit_response",
+        "description": "Returns True and the remaining limit when the traffic is within the limit."
+    },
+    {
+        "scope": "API",
+        "function": "len",
+        "property": "length_check",
+        "description": "Used to check the length of a list."
+    },
+    {
+        "scope": "API",
+        "function": "len",
+        "property": "length_calculation",
+        "description": "Used to calculate the remaining limit based on the length of recent events."
+    }
+]

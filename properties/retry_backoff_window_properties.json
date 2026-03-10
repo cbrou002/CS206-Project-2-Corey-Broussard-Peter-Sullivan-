@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "retry_backoff_window",
+        "property": "valid_input",
+        "description": "The function expects non-negative 'attempts' parameter."
+    },
+    {
+        "scope": "function",
+        "function": "retry_backoff_window",
+        "property": "exponential_backoff",
+        "description": "The delay is computed as base * (2 ** attempts)."
+    },
+    {
+        "scope": "branch",
+        "function": "retry_backoff_window",
+        "conditions": "attempts < 0",
+        "property": "negative_attempts_error",
+        "description": "Raises a ValueError if 'attempts' is less than 0."
+    },
+    {
+        "scope": "branch",
+        "function": "retry_backoff_window",
+        "conditions": "delay > max_delay",
+        "property": "delay_capped",
+        "description": "Caps the delay at 'max_delay' if it exceeds it."
+    }
+]

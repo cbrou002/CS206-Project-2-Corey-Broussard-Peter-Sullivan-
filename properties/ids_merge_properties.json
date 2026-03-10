@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "ids_merge",
+        "property": "merge_sorted_sequences",
+        "description": "The function merges two sorted sequences of IDs into a single sorted sequence."
+    },
+    {
+        "scope": "branch",
+        "function": "ids_merge",
+        "conditions": "left[i] <= right[j]",
+        "property": "choose_left_sequence_element",
+        "description": "When merging, if the element in the 'left' sequence is less than or equal to the element in the 'right' sequence, choose the element from the 'left' sequence."
+    },
+    {
+        "scope": "branch",
+        "function": "ids_merge",
+        "conditions": "merged and left and right and (merged[-1] == left[-1] == right[-1])",
+        "property": "drop_duplicate_tail_element",
+        "description": "If the merged sequence, 'left' sequence, and 'right' sequence all have the same last element, drop the duplicate element from the merged sequence."
+    },
+    {
+        "scope": "loop",
+        "function": "ids_merge",
+        "property": "iterate_over_sequences",
+        "description": "The function iterates over the 'left' and 'right' sequences to merge them."
+    }
+]

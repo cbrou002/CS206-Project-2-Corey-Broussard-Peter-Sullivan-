@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "token_expiry_check",
+        "property": "has_early_return",
+        "description": "The function has early returns at lines 8, 13"
+    },
+    {
+        "scope": "function",
+        "function": "token_expiry_check",
+        "property": "calls_api",
+        "description": "The function calls get() at line 6"
+    },
+    {
+        "scope": "branch",
+        "function": "token_expiry_check",
+        "conditions": "record is None",
+        "property": "branch_condition",
+        "description": "Branch at line 7 checks if record is None"
+    },
+    {
+        "scope": "branch",
+        "function": "token_expiry_check",
+        "conditions": "now > expires_at",
+        "property": "branch_condition",
+        "description": "Branch at line 12 checks if now is greater than expires_at"
+    }
+]

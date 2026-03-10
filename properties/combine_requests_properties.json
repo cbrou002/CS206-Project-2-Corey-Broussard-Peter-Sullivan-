@@ -1,0 +1,47 @@
+[
+    {
+        "scope": "function",
+        "function": "combine_requests",
+        "property": "has_control_flow",
+        "description": "The function contains control flow branches."
+    },
+    {
+        "scope": "function",
+        "function": "combine_requests",
+        "property": "has_loop",
+        "description": "The function contains a while loop."
+    },
+    {
+        "scope": "function",
+        "function": "combine_requests",
+        "property": "has_api_calls",
+        "description": "The function makes API calls to len(), append(), extend(), and pop()."
+    },
+    {
+        "scope": "function",
+        "function": "combine_requests",
+        "property": "returns_value",
+        "description": "The function returns a value."
+    },
+    {
+        "scope": "branch",
+        "function": "combine_requests",
+        "conditions": "a < b",
+        "property": "branch_condition",
+        "description": "Executes when 'a' is less than 'b'."
+    },
+    {
+        "scope": "branch",
+        "function": "combine_requests",
+        "conditions": "b < a",
+        "property": "branch_condition",
+        "description": "Executes when 'b' is less than 'a'."
+    },
+    {
+        "scope": "branch",
+        "function": "combine_requests",
+        "conditions": "merged and left and (merged[-1] == left[-1] == right[-1])",
+        "property": "branch_condition",
+        "description": "Executes when 'merged', 'left', and 'right' are not empty and their last elements are equal."
+    }
+]

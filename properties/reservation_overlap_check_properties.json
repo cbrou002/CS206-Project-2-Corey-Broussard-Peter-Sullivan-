@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "reservation_overlap_check",
+        "property": "valid_input_check",
+        "conditions": "c_start >= c_end",
+        "statement": "The input reservation candidate must have a start time that is strictly less than its end time."
+    },
+    {
+        "scope": "function",
+        "function": "reservation_overlap_check",
+        "property": "early_return_true",
+        "statement": "If an overlap is found between the candidate reservation and any existing reservation, return True."
+    },
+    {
+        "scope": "function",
+        "function": "reservation_overlap_check",
+        "property": "early_return_false",
+        "statement": "If no overlap is found between the candidate reservation and any existing reservation, return False."
+    },
+    {
+        "scope": "branch",
+        "function": "reservation_overlap_check",
+        "conditions": "not (c_end <= start or c_start >= end)",
+        "property": "overlap_condition",
+        "statement": "An overlap is detected between the candidate reservation and an existing reservation if the end time of the candidate is not before the start time of the existing reservation, and the start time of the candidate is not after the end time of the existing reservation."
+    }
+]

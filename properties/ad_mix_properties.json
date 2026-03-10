@@ -1,0 +1,23 @@
+[
+    {
+        "scope": "function",
+        "function": "ad_mix",
+        "property": "shape_mismatch",
+        "conditions": "len(current) != len(target)",
+        "statement": "The lengths of the 'current' and 'target' lists must be equal."
+    },
+    {
+        "scope": "function",
+        "function": "ad_mix",
+        "property": "empty_allocation",
+        "conditions": "not current",
+        "statement": "The 'current' list must not be empty."
+    },
+    {
+        "scope": "branch",
+        "function": "ad_mix",
+        "property": "normalization_missing",
+        "conditions": "missing normalization",
+        "statement": "Normalization is missing, causing totals to drift."
+    }
+]

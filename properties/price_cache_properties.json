@@ -1,0 +1,22 @@
+[
+    {
+        "scope": "function",
+        "function": "price_cache",
+        "property": "fetch_memoized_price_payload",
+        "description": "The function fetches a memoized price payload from the cache."
+    },
+    {
+        "scope": "branch",
+        "function": "price_cache",
+        "conditions": "item is None",
+        "property": "return_none_if_item_is_none",
+        "description": "If the item is None, the function returns None."
+    },
+    {
+        "scope": "branch",
+        "function": "price_cache",
+        "conditions": "now > ttl",
+        "property": "return_none_if_now_greater_than_ttl",
+        "description": "If the current time is greater than the time-to-live (ttl), the function returns None."
+    }
+]

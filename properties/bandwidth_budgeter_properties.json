@@ -1,0 +1,70 @@
+[
+    {
+        "scope": "function",
+        "function": "bandwidth_budgeter",
+        "property": "valid_total_non_negative",
+        "conditions": "total >= 0",
+        "description": "Total bandwidth must be non-negative."
+    },
+    {
+        "scope": "function",
+        "function": "bandwidth_budgeter",
+        "property": "valid_minimum_non_negative",
+        "conditions": "minimum >= 0",
+        "description": "Minimum allocation must be non-negative."
+    },
+    {
+        "scope": "function",
+        "function": "bandwidth_budgeter",
+        "property": "weights_provided",
+        "conditions": "weights",
+        "description": "Weights list must be provided."
+    },
+    {
+        "scope": "function",
+        "function": "bandwidth_budgeter",
+        "property": "non_zero_weights",
+        "conditions": "any(weights)",
+        "description": "At least one weight must be non-zero."
+    },
+    {
+        "scope": "branch",
+        "function": "bandwidth_budgeter",
+        "conditions": "total < 0",
+        "property": "total_non_negative_exception",
+        "description": "Raises ValueError if total is negative."
+    },
+    {
+        "scope": "branch",
+        "function": "bandwidth_budgeter",
+        "conditions": "minimum < 0",
+        "property": "minimum_non_negative_exception",
+        "description": "Raises ValueError if minimum is negative."
+    },
+    {
+        "scope": "branch",
+        "function": "bandwidth_budgeter",
+        "conditions": "not weights",
+        "property": "no_weights_exception",
+        "description": "Raises ValueError if no weights are provided."
+    },
+    {
+        "scope": "branch",
+        "function": "bandwidth_budgeter",
+        "conditions": "not any(weights)",
+        "property": "all_weights_zero_exception",
+        "description": "Raises ValueError if all weights are zero."
+    },
+    {
+        "scope": "loop",
+        "function": "bandwidth_budgeter",
+        "property": "planned_allocation_calculation",
+        "description": "Calculates planned allocations based on weights and total bandwidth."
+    },
+    {
+        "scope": "loop",
+        "function": "bandwidth_budgeter",
+        "property": "allocation_truncation",
+        "description": "Truncates planned allocations to integers."
+    }
+]

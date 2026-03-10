@@ -1,0 +1,26 @@
+[
+    {
+        "scope": "function",
+        "function": "gpu_memory_pool",
+        "property": "capacity_positive",
+        "statement": "capacity must be positive"
+    },
+    {
+        "scope": "function",
+        "function": "gpu_memory_pool",
+        "property": "request_non_negative",
+        "statement": "request must be non-negative"
+    },
+    {
+        "scope": "function",
+        "function": "gpu_memory_pool",
+        "property": "return_false",
+        "statement": "return False if used + request > capacity"
+    },
+    {
+        "scope": "function",
+        "function": "gpu_memory_pool",
+        "property": "return_true",
+        "statement": "return True if used + request <= capacity"
+    }
+]

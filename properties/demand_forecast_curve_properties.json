@@ -1,0 +1,55 @@
+[
+    {
+        "scope": "function",
+        "function": "demand_forecast_curve",
+        "property": "linear_interpolation_used",
+        "description": "The function estimates demand using linear interpolation."
+    },
+    {
+        "scope": "function",
+        "function": "demand_forecast_curve",
+        "property": "x0_not_equal_x1",
+        "description": "The function raises a ValueError if x0 is equal to x1."
+    },
+    {
+        "scope": "function",
+        "function": "demand_forecast_curve",
+        "property": "clamp_applied",
+        "description": "The function clamps the output value if clamp is set to True."
+    },
+    {
+        "scope": "branch",
+        "function": "demand_forecast_curve",
+        "conditions": "x0 == x1",
+        "property": "x0_equal_x1_branch",
+        "description": "Executes when x0 is equal to x1."
+    },
+    {
+        "scope": "branch",
+        "function": "demand_forecast_curve",
+        "conditions": "clamp",
+        "property": "clamp_true_branch",
+        "description": "Executes when clamp is set to True."
+    },
+    {
+        "scope": "branch",
+        "function": "demand_forecast_curve",
+        "conditions": "not clamp",
+        "property": "clamp_false_branch",
+        "description": "Executes when clamp is set to False."
+    },
+    {
+        "scope": "branch",
+        "function": "demand_forecast_curve",
+        "conditions": "y < low",
+        "property": "y_less_than_low_branch",
+        "description": "Executes when y is less than the lower bound."
+    },
+    {
+        "scope": "branch",
+        "function": "demand_forecast_curve",
+        "conditions": "y > high",
+        "property": "y_greater_than_high_branch",
+        "description": "Executes when y is greater than the upper bound."
+    }
+]

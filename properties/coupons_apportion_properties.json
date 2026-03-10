@@ -1,0 +1,68 @@
+[
+    {
+        "scope": "function",
+        "function": "coupons_apportion",
+        "property": "has_parameter_floor_to_int",
+        "statement": "The function has a parameter named 'floor_to_int' that defaults to True."
+    },
+    {
+        "scope": "function",
+        "function": "coupons_apportion",
+        "property": "has_parameter_minimum",
+        "statement": "The function has a parameter named 'minimum' with a default value of 0."
+    },
+    {
+        "scope": "branch",
+        "function": "coupons_apportion",
+        "conditions": "len(weights) == 0",
+        "property": "raises_value_error_weights_required",
+        "statement": "If the length of 'weights' is 0, a ValueError with message 'weights required' is raised."
+    },
+    {
+        "scope": "branch",
+        "function": "coupons_apportion",
+        "conditions": "total < 0",
+        "property": "raises_value_error_negative_total",
+        "statement": "If 'total' is less than 0, a ValueError with message 'negative total' is raised."
+    },
+    {
+        "scope": "branch",
+        "function": "coupons_apportion",
+        "conditions": "minimum < 0",
+        "property": "raises_value_error_negative_minimum",
+        "statement": "If 'minimum' is less than 0, a ValueError with message 'negative minimum' is raised."
+    },
+    {
+        "scope": "branch",
+        "function": "coupons_apportion",
+        "conditions": "sum(weights) == 0",
+        "property": "raises_value_error_zero_total_weight",
+        "statement": "If the sum of 'weights' is 0, a ValueError with message 'zero total weight' is raised."
+    },
+    {
+        "scope": "branch",
+        "function": "coupons_apportion",
+        "conditions": "floor_to_int",
+        "property": "returns_list_of_integers",
+        "statement": "If 'floor_to_int' is True, the function returns a list of integers."
+    },
+    {
+        "scope": "branch",
+        "function": "coupons_apportion",
+        "conditions": "not floor_to_int",
+        "property": "returns_list_of_floats",
+        "statement": "If 'floor_to_int' is False, the function returns a list of floats."
+    },
+    {
+        "scope": "loop",
+        "function": "coupons_apportion",
+        "property": "calculates_portion_based_on_weights",
+        "statement": "Within a loop, the function calculates a portion based on the weights provided."
+    },
+    {
+        "scope": "loop",
+        "function": "coupons_apportion",
+        "property": "appends_portion_to_shares",
+        "statement": "Within a loop, the calculated portion is appended to the 'shares' list."
+    }
+]

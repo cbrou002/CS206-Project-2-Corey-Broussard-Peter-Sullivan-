@@ -1,0 +1,22 @@
+[
+    {
+        "scope": "function",
+        "function": "room_reservation",
+        "property": "valid_interval_check",
+        "statement": "The interval provided must have a start time that is less than the end time."
+    },
+    {
+        "scope": "branch",
+        "function": "room_reservation",
+        "conditions": "start >= end",
+        "property": "invalid_interval_error",
+        "statement": "If the start time of the interval is greater than or equal to the end time, a ValueError is raised for an invalid interval."
+    },
+    {
+        "scope": "branch",
+        "function": "room_reservation",
+        "conditions": "not (end <= s or start >= e)",
+        "property": "no_overlap_check",
+        "statement": "If the provided interval does not overlap with any existing intervals, return True and the updated list of intervals."
+    }
+]

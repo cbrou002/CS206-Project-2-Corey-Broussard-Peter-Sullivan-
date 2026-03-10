@@ -1,0 +1,43 @@
+[
+    {
+        "scope": "function",
+        "function": "calibrate_loss",
+        "property": "linear_estimate_loss",
+        "description": "Calculates a linear estimate for loss between two points (x0, y0) and (x1, y1)."
+    },
+    {
+        "scope": "branch",
+        "function": "calibrate_loss",
+        "conditions": "x1 == x0",
+        "property": "degenerate_segment",
+        "description": "Raises a ValueError if the segment defined by (x0, y0) and (x1, y1) is degenerate."
+    },
+    {
+        "scope": "branch",
+        "function": "calibrate_loss",
+        "conditions": "clamp",
+        "property": "clamp_values",
+        "description": "Clamps the calculated y value within the range defined by y0 and y1."
+    },
+    {
+        "scope": "branch",
+        "function": "calibrate_loss",
+        "conditions": "not clamp",
+        "property": "no_clamping",
+        "description": "Does not clamp the calculated y value."
+    },
+    {
+        "scope": "branch",
+        "function": "calibrate_loss",
+        "conditions": "y < lo",
+        "property": "clamp_lower_bound",
+        "description": "Clamps the calculated y value to the lower bound of the y range."
+    },
+    {
+        "scope": "branch",
+        "function": "calibrate_loss",
+        "conditions": "y > hi",
+        "property": "clamp_upper_bound",
+        "description": "Clamps the calculated y value to the upper bound of the y range."
+    }
+]

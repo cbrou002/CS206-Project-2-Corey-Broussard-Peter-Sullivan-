@@ -1,0 +1,49 @@
+[
+    {
+        "scope": "function",
+        "function": "quota_for_inventory",
+        "property": "valid_input_check",
+        "conditions": "total >= 0, minimum >= 0, weights not empty, any(weights) is true",
+        "description": "Input parameters total, minimum, and weights are valid"
+    },
+    {
+        "scope": "branch",
+        "function": "quota_for_inventory",
+        "conditions": "total < 0",
+        "property": "total_non_negative_check",
+        "description": "Total must be non-negative"
+    },
+    {
+        "scope": "branch",
+        "function": "quota_for_inventory",
+        "conditions": "minimum < 0",
+        "property": "minimum_non_negative_check",
+        "description": "Minimum must be non-negative"
+    },
+    {
+        "scope": "branch",
+        "function": "quota_for_inventory",
+        "conditions": "not weights",
+        "property": "weights_provided_check",
+        "description": "Weights must be provided"
+    },
+    {
+        "scope": "branch",
+        "function": "quota_for_inventory",
+        "conditions": "not any(weights)",
+        "property": "non_zero_weights_check",
+        "description": "All weights must be non-zero"
+    },
+    {
+        "scope": "loop",
+        "function": "quota_for_inventory",
+        "property": "planned_calculation",
+        "description": "Calculate planned allocations based on weights and total"
+    },
+    {
+        "scope": "loop",
+        "function": "quota_for_inventory",
+        "property": "allocation_conversion",
+        "description": "Convert planned allocations to integers"
+    }
+]

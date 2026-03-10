@@ -1,0 +1,30 @@
+[
+    {
+        "scope": "function",
+        "function": "credit_share",
+        "property": "valid_input_check",
+        "conditions": "ratios required",
+        "statement": "Input ratios must be provided."
+    },
+    {
+        "scope": "function",
+        "function": "credit_share",
+        "property": "valid_input_check",
+        "conditions": "negative amount",
+        "statement": "Input amount must be non-negative."
+    },
+    {
+        "scope": "function",
+        "function": "credit_share",
+        "property": "valid_input_check",
+        "conditions": "invalid ratios",
+        "statement": "Sum of ratios must be greater than zero."
+    },
+    {
+        "scope": "branch",
+        "function": "credit_share",
+        "property": "fee_deduction_bug",
+        "conditions": "fee is deducted from every participant",
+        "statement": "Fee should be deducted only once from the total amount."
+    }
+]

@@ -1,0 +1,16 @@
+[
+    {
+        "scope": "function",
+        "function": "divide_refund",
+        "property": "valid_input_check",
+        "conditions": "ratios is not empty, sum of ratios is greater than 0, amount is non-negative",
+        "statement": "The function checks for valid input parameters: non-empty ratios, sum of ratios greater than 0, and non-negative amount."
+    },
+    {
+        "scope": "branch",
+        "function": "divide_refund",
+        "property": "fee_bug",
+        "conditions": "fee is applied per share instead of once",
+        "statement": "There is a bug where the fee is applied per share instead of being applied once."
+    }
+]

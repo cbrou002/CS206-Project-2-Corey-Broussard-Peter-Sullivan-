@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "schedule_pickup",
+        "property": "valid_window_check",
+        "statement": "a must be less than b to avoid empty window error"
+    },
+    {
+        "scope": "function",
+        "function": "schedule_pickup",
+        "property": "timeline_overlap_check",
+        "statement": "check if any existing timeline overlaps with the new window"
+    },
+    {
+        "scope": "branch",
+        "function": "schedule_pickup",
+        "condition": "a >= b",
+        "property": "empty_window_error",
+        "statement": "raise ValueError for empty window if a is greater than or equal to b"
+    },
+    {
+        "scope": "branch",
+        "function": "schedule_pickup",
+        "condition": "not any((not (b <= s or a >= e) for s, e in timeline))",
+        "property": "valid_overlap_condition",
+        "statement": "allow b == s or a == e to pass without overlap"
+    }
+]

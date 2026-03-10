@@ -1,0 +1,47 @@
+[
+    {
+        "scope": "function",
+        "function": "downtime_booking",
+        "property": "valid_input_check",
+        "conditions": "candidate[0] < candidate[1]",
+        "description": "The function checks if the start time is before the end time in the candidate downtime window."
+    },
+    {
+        "scope": "function",
+        "function": "downtime_booking",
+        "property": "no_overlap_existing",
+        "description": "The function returns False and the existing downtime slots if the candidate downtime window overlaps with any existing downtime slot."
+    },
+    {
+        "scope": "function",
+        "function": "downtime_booking",
+        "property": "overlap_check",
+        "description": "The function checks if the candidate downtime window overlaps with any existing downtime slot using the overlaps function."
+    },
+    {
+        "scope": "function",
+        "function": "downtime_booking",
+        "property": "merge_downtime_slots",
+        "description": "The function merges the candidate downtime window with the existing downtime slots and returns True along with the merged list sorted in ascending order."
+    },
+    {
+        "scope": "branch",
+        "function": "downtime_booking",
+        "property": "overlap_condition_true",
+        "conditions": "overlaps(slot, candidate)",
+        "description": "The function enters the branch if the candidate downtime window overlaps with the current existing downtime slot."
+    },
+    {
+        "scope": "branch",
+        "function": "downtime_booking",
+        "property": "overlap_condition_false",
+        "conditions": "NOT(overlaps(slot, candidate))",
+        "description": "The function enters the branch if the candidate downtime window does not overlap with the current existing downtime slot."
+    },
+    {
+        "scope": "loop",
+        "function": "downtime_booking",
+        "property": "loop_over_existing",
+        "description": "The function iterates over each existing downtime slot to check for overlaps with the candidate downtime window."
+    }
+]

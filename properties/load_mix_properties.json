@@ -1,0 +1,16 @@
+[
+    {
+        "scope": "function",
+        "function": "load_mix",
+        "property": "shape_mismatch",
+        "conditions": "len(current) != len(target)",
+        "statement": "The lengths of 'current' and 'target' must be equal."
+    },
+    {
+        "scope": "function",
+        "function": "load_mix",
+        "property": "empty_allocation",
+        "conditions": "not current",
+        "statement": "'current' must not be empty."
+    }
+]

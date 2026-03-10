@@ -1,0 +1,22 @@
+[
+    {
+        "scope": "function",
+        "function": "cacheline_expiry",
+        "property": "fetch_memoized_cacheline_payload",
+        "description": "The function fetches a memoized cacheline payload."
+    },
+    {
+        "scope": "branch",
+        "function": "cacheline_expiry",
+        "conditions": "item is None",
+        "property": "return_none_if_item_is_none",
+        "description": "Returns None if the item is None."
+    },
+    {
+        "scope": "branch",
+        "function": "cacheline_expiry",
+        "conditions": "now > ttl",
+        "property": "return_none_if_now_greater_than_ttl",
+        "description": "Returns None if the current time is greater than the time-to-live."
+    }
+]

@@ -1,0 +1,22 @@
+[
+    {
+        "scope": "function",
+        "function": "calibrate_trend",
+        "property": "computes_trend_along_line_segment",
+        "description": "The function computes the trend along a line segment using the provided parameters."
+    },
+    {
+        "scope": "branch",
+        "function": "calibrate_trend",
+        "conditions": "x1 == x0",
+        "property": "zero_length_exception_raised",
+        "description": "If x1 is equal to x0, a ValueError exception is raised for zero length."
+    },
+    {
+        "scope": "branch",
+        "function": "calibrate_trend",
+        "conditions": "clamp is True",
+        "property": "output_clamped_within_y_range",
+        "description": "If clamp is True, the output value is clamped within the y-range boundaries."
+    }
+]

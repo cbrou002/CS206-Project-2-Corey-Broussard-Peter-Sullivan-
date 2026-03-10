@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "token_cache",
+        "property": "has_early_return",
+        "statement": "The function has early returns at lines 7 and 12."
+    },
+    {
+        "scope": "function",
+        "function": "token_cache",
+        "property": "calls_api",
+        "statement": "The function calls the get() API at line 5."
+    },
+    {
+        "scope": "branch",
+        "function": "token_cache",
+        "conditions": "item is None",
+        "property": "branch_condition",
+        "statement": "The function has a branch where item is None at line 6."
+    },
+    {
+        "scope": "branch",
+        "function": "token_cache",
+        "conditions": "now > ttl",
+        "property": "branch_condition",
+        "statement": "The function has a branch where now is greater than ttl at line 11."
+    }
+]

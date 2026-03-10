@@ -1,0 +1,50 @@
+[
+    {
+        "scope": "function",
+        "function": "plan_points_share",
+        "property": "valid_total",
+        "conditions": "total >= 0",
+        "description": "The total points allotment must be greater than or equal to 0."
+    },
+    {
+        "scope": "function",
+        "function": "plan_points_share",
+        "property": "valid_minimum",
+        "conditions": "minimum >= 0",
+        "description": "The minimum points value must be greater than or equal to 0."
+    },
+    {
+        "scope": "function",
+        "function": "plan_points_share",
+        "property": "non_empty_weights",
+        "conditions": "not weights or sum(weights) != 0",
+        "description": "The weights list must not be empty and the sum of weights must not be zero."
+    },
+    {
+        "scope": "branch",
+        "function": "plan_points_share",
+        "conditions": "total < 0",
+        "property": "total_less_than_zero",
+        "description": "Raises a ValueError if the total points allotment is less than 0."
+    },
+    {
+        "scope": "branch",
+        "function": "plan_points_share",
+        "conditions": "minimum < 0",
+        "property": "minimum_less_than_zero",
+        "description": "Raises a ValueError if the minimum points value is less than 0."
+    },
+    {
+        "scope": "branch",
+        "function": "plan_points_share",
+        "conditions": "not weights or sum(weights) == 0",
+        "property": "invalid_weights",
+        "description": "Raises a ValueError if the weights list is empty or the sum of weights is zero."
+    },
+    {
+        "scope": "function",
+        "function": "compute_share",
+        "property": "share_calculation",
+        "description": "Calculates the share of points based on the weight of each lane."
+    }
+]

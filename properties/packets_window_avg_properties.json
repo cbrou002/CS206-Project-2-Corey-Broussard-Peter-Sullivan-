@@ -1,0 +1,35 @@
+[
+    {
+        "scope": "function",
+        "function": "packets_window_avg",
+        "property": "valid_window_size",
+        "statement": "window must be positive"
+    },
+    {
+        "scope": "function",
+        "function": "packets_window_avg",
+        "property": "non_empty_values",
+        "statement": "values must not be empty"
+    },
+    {
+        "scope": "branch",
+        "function": "packets_window_avg",
+        "conditions": "window <= 0",
+        "property": "invalid_window_exception",
+        "statement": "Raises a ValueError if window is not positive"
+    },
+    {
+        "scope": "branch",
+        "function": "packets_window_avg",
+        "conditions": "not values",
+        "property": "empty_values_exception",
+        "statement": "Raises a ValueError if values are empty"
+    },
+    {
+        "scope": "branch",
+        "function": "packets_window_avg",
+        "conditions": "len(recent) < warmup_min",
+        "property": "insufficient_data",
+        "statement": "Returns None if the length of recent values is less than warmup_min"
+    }
+]

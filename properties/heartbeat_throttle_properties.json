@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "heartbeat_throttle",
+        "property": "has_sliding_window_guard",
+        "description": "The function implements a sliding window guard for heartbeat actions."
+    },
+    {
+        "scope": "branch",
+        "function": "heartbeat_throttle",
+        "conditions": "len(active) > limit",
+        "property": "exceeds_limit",
+        "description": "The number of active timestamps exceeds the specified limit."
+    },
+    {
+        "scope": "branch",
+        "function": "heartbeat_throttle",
+        "conditions": "len(active) <= limit",
+        "property": "within_limit",
+        "description": "The number of active timestamps is within the specified limit."
+    },
+    {
+        "scope": "loop",
+        "function": "heartbeat_throttle",
+        "property": "list_comprehension",
+        "description": "A list comprehension loop is used to filter timestamps based on a cutoff value."
+    }
+]

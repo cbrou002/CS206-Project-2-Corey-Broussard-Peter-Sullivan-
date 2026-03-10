@@ -1,0 +1,26 @@
+[
+    {
+        "scope": "function",
+        "function": "calibrate_score",
+        "property": "linear_estimate_used",
+        "description": "The function uses a linear estimate to calculate the score between (x0, y0) and (x1, y1)."
+    },
+    {
+        "scope": "function",
+        "function": "calibrate_score",
+        "property": "clamp_option_checked",
+        "description": "The function checks if the clamp option is enabled before clamping the result."
+    },
+    {
+        "scope": "function",
+        "function": "calibrate_score",
+        "property": "clamp_based_on_y_range",
+        "description": "The function erroneously clamps the result based on the y-range instead of the x-range."
+    },
+    {
+        "scope": "function",
+        "function": "calibrate_score",
+        "property": "degenerate_segment_exception",
+        "description": "The function raises a ValueError if x1 is equal to x0, indicating a degenerate segment."
+    }
+]

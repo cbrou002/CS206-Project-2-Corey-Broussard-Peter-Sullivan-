@@ -1,0 +1,36 @@
+[
+    {
+        "scope": "function",
+        "function": "shares_apportion",
+        "property": "valid_total_non_negative",
+        "conditions": "total >= 0",
+        "description": "Total parameter must be non-negative"
+    },
+    {
+        "scope": "function",
+        "function": "shares_apportion",
+        "property": "valid_minimum_non_negative",
+        "conditions": "minimum >= 0",
+        "description": "Minimum parameter must be non-negative"
+    },
+    {
+        "scope": "function",
+        "function": "shares_apportion",
+        "property": "non_empty_weights",
+        "conditions": "weights",
+        "description": "Weights list must not be empty"
+    },
+    {
+        "scope": "function",
+        "function": "shares_apportion",
+        "property": "non_zero_weights",
+        "conditions": "any(weights)",
+        "description": "At least one weight in the list must be non-zero"
+    },
+    {
+        "scope": "function",
+        "function": "shares_apportion",
+        "property": "truncation_bug",
+        "description": "Truncation in allocation may lose leftover units instead of redistributing"
+    }
+]

@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "guard_write",
+        "property": "rate_limiter_behavior",
+        "description": "The function limits the rate of write events based on the given window and limit parameters."
+    },
+    {
+        "scope": "branch",
+        "function": "guard_write",
+        "conditions": "len(recent) > limit",
+        "property": "traffic_exceeds_limit",
+        "description": "If the number of recent events exceeds the specified limit, the function returns False."
+    },
+    {
+        "scope": "branch",
+        "function": "guard_write",
+        "conditions": "len(recent) <= limit",
+        "property": "traffic_within_limit",
+        "description": "If the number of recent events is within the specified limit, the function returns True."
+    },
+    {
+        "scope": "loop",
+        "function": "guard_write",
+        "property": "list_comprehension",
+        "description": "The function uses list comprehension to filter timestamps based on the window start time."
+    }
+]

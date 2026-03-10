@@ -1,0 +1,47 @@
+[
+    {
+        "scope": "function",
+        "function": "blend_margins",
+        "property": "has_control_flow",
+        "description": "The function contains control flow branches."
+    },
+    {
+        "scope": "function",
+        "function": "blend_margins",
+        "property": "has_loop",
+        "description": "The function contains a while loop."
+    },
+    {
+        "scope": "function",
+        "function": "blend_margins",
+        "property": "has_api_calls",
+        "description": "The function makes API calls to len(), append(), extend(), and pop()."
+    },
+    {
+        "scope": "function",
+        "function": "blend_margins",
+        "property": "returns_value",
+        "description": "The function returns the merged list."
+    },
+    {
+        "scope": "branch",
+        "function": "blend_margins",
+        "conditions": "a < b @ line 9",
+        "property": "append_a",
+        "description": "If 'a' is less than 'b', append 'a' to the merged list."
+    },
+    {
+        "scope": "branch",
+        "function": "blend_margins",
+        "conditions": "b < a @ line 12",
+        "property": "append_b",
+        "description": "If 'b' is less than 'a', append 'b' to the merged list."
+    },
+    {
+        "scope": "branch",
+        "function": "blend_margins",
+        "conditions": "merged and left and (merged[-1] == left[-1] == right[-1]) @ line 24",
+        "property": "remove_last_matching_element",
+        "description": "If the merged list, left list, and right list are not empty and the last elements of all three lists match, remove the last element from the merged list."
+    }
+]

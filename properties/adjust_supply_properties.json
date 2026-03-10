@@ -1,0 +1,26 @@
+[
+    {
+        "scope": "function",
+        "function": "adjust_supply",
+        "property": "has_parameter_damping",
+        "conditions": "damping parameter is present"
+    },
+    {
+        "scope": "branch",
+        "function": "adjust_supply",
+        "property": "shape_mismatch_check",
+        "conditions": "len(current) != len(target)"
+    },
+    {
+        "scope": "branch",
+        "function": "adjust_supply",
+        "property": "empty_allocation_check",
+        "conditions": "not current"
+    },
+    {
+        "scope": "loop",
+        "function": "adjust_supply",
+        "property": "updates_weights",
+        "conditions": "for each index in current"
+    }
+]

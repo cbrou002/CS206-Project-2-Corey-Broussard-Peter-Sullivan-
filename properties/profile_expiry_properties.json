@@ -1,0 +1,22 @@
+[
+    {
+        "scope": "function",
+        "function": "profile_expiry",
+        "property": "has_early_return",
+        "description": "The function has early returns at lines 7, 12, and 13."
+    },
+    {
+        "scope": "branch",
+        "function": "profile_expiry",
+        "conditions": "key not in entries",
+        "property": "branch_has_early_return",
+        "description": "The branch at line 6 has an early return at line 7."
+    },
+    {
+        "scope": "branch",
+        "function": "profile_expiry",
+        "conditions": "now > expires_at",
+        "property": "branch_has_early_return",
+        "description": "The branch at line 11 has an early return at line 12."
+    }
+]

@@ -1,0 +1,29 @@
+[
+    {
+        "scope": "function",
+        "function": "lr_warmup_schedule",
+        "property": "linear_warmup_schedule",
+        "description": "Implements a linear warmup schedule for learning rate."
+    },
+    {
+        "scope": "branch",
+        "function": "lr_warmup_schedule",
+        "conditions": "warmup_steps <= 0",
+        "property": "positive_warmup_steps_required",
+        "description": "Raises a ValueError if warmup_steps is not positive."
+    },
+    {
+        "scope": "branch",
+        "function": "lr_warmup_schedule",
+        "conditions": "step < 0",
+        "property": "non_negative_step_required",
+        "description": "Raises a ValueError if step is negative."
+    },
+    {
+        "scope": "branch",
+        "function": "lr_warmup_schedule",
+        "conditions": "step >= warmup_steps",
+        "property": "last_warmup_step_skipped",
+        "description": "Skips the last warmup step if step is greater than or equal to warmup_steps."
+    }
+]

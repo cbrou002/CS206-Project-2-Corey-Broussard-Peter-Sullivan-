@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "task_throttle",
+        "property": "has_rate_limiting",
+        "statement": "The function implements rate limiting for task events."
+    },
+    {
+        "scope": "branch",
+        "function": "task_throttle",
+        "conditions": "len(recent) > limit",
+        "property": "allows_exceeding_limit",
+        "statement": "The function allows traffic to exceed the specified limit."
+    },
+    {
+        "scope": "branch",
+        "function": "task_throttle",
+        "conditions": "len(recent) <= limit",
+        "property": "respects_limit",
+        "statement": "The function respects the specified traffic limit."
+    },
+    {
+        "scope": "loop",
+        "function": "task_throttle",
+        "property": "list_comprehension",
+        "statement": "The function uses list comprehension to filter recent timestamps."
+    }
+]

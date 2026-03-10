@@ -1,0 +1,26 @@
+[
+    {
+        "scope": "function",
+        "function": "realign_power",
+        "property": "has_parameter_damping",
+        "conditions": "damping parameter provided"
+    },
+    {
+        "scope": "branch",
+        "function": "realign_power",
+        "property": "shape_mismatch_condition",
+        "conditions": "len(current) != len(target)"
+    },
+    {
+        "scope": "branch",
+        "function": "realign_power",
+        "property": "empty_allocation_condition",
+        "conditions": "not current"
+    },
+    {
+        "scope": "loop",
+        "function": "realign_power",
+        "property": "updates_power_weights",
+        "conditions": "for each index in current"
+    }
+]

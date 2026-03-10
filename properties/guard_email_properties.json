@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "guard_email",
+        "property": "throttles_email_by_recent_activity",
+        "description": "Throttles email based on recent activity within a specified time window."
+    },
+    {
+        "scope": "branch",
+        "function": "guard_email",
+        "conditions": "len(recent) > limit",
+        "property": "blocks_email_when_recent_activity_exceeds_limit",
+        "description": "Should block email when the number of recent activities exceeds the specified limit."
+    },
+    {
+        "scope": "branch",
+        "function": "guard_email",
+        "conditions": "len(recent) <= limit",
+        "property": "allows_email_when_recent_activity_within_limit",
+        "description": "Allows email when the number of recent activities is within the specified limit."
+    },
+    {
+        "scope": "loop",
+        "function": "guard_email",
+        "property": "filters_recent_activities_based_on_cutoff_time",
+        "description": "Filters out timestamps that are older than the specified cutoff time."
+    }
+]

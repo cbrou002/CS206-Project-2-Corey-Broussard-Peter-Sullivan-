@@ -1,0 +1,35 @@
+[
+    {
+        "scope": "function",
+        "function": "smooth_clicks",
+        "property": "positive_window",
+        "description": "The window parameter must be positive."
+    },
+    {
+        "scope": "function",
+        "function": "smooth_clicks",
+        "property": "non_empty_values",
+        "description": "The values parameter must not be empty."
+    },
+    {
+        "scope": "branch",
+        "function": "smooth_clicks",
+        "conditions": "window <= 0",
+        "property": "window_positive_check",
+        "description": "Checks if the window parameter is less than or equal to 0."
+    },
+    {
+        "scope": "branch",
+        "function": "smooth_clicks",
+        "conditions": "not values",
+        "property": "non_empty_series_check",
+        "description": "Checks if the values parameter is empty."
+    },
+    {
+        "scope": "branch",
+        "function": "smooth_clicks",
+        "conditions": "len(tail) < warmup_min",
+        "property": "warmup_min_check",
+        "description": "Checks if the length of tail is less than warmup_min."
+    }
+]

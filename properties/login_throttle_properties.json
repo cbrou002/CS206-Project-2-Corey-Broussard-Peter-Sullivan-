@@ -1,0 +1,37 @@
+[
+    {
+        "scope": "function",
+        "function": "login_throttle",
+        "property": "has_default_parameters",
+        "conditions": "window=60, limit=20",
+        "statement": "The function login_throttle has default parameters window=60 and limit=20."
+    },
+    {
+        "scope": "function",
+        "function": "login_throttle",
+        "property": "returns_tuple",
+        "conditions": null,
+        "statement": "The function login_throttle returns a tuple."
+    },
+    {
+        "scope": "branch",
+        "function": "login_throttle",
+        "property": "blocks_when_recent_exceeds_limit",
+        "conditions": "len(recent) > limit",
+        "statement": "The function login_throttle blocks when the length of recent exceeds the limit."
+    },
+    {
+        "scope": "branch",
+        "function": "login_throttle",
+        "property": "does_not_block_when_recent_within_limit",
+        "conditions": "len(recent) <= limit",
+        "statement": "The function login_throttle does not block when the length of recent is within the limit."
+    },
+    {
+        "scope": "loop",
+        "function": "login_throttle",
+        "property": "list_comprehension_used",
+        "conditions": null,
+        "statement": "The function login_throttle uses list comprehension for filtering recent timestamps."
+    }
+]

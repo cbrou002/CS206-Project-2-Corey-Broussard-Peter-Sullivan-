@@ -1,0 +1,21 @@
+[
+    {
+        "scope": "function",
+        "function": "config_interpolate",
+        "property": "interpolation_formula_valid",
+        "description": "The interpolation formula is valid as long as x1 is not equal to x0."
+    },
+    {
+        "scope": "function",
+        "function": "config_interpolate",
+        "property": "clamping_based_on_y_range",
+        "description": "Clamping is based on the y-range, not the x-range."
+    },
+    {
+        "scope": "branch",
+        "function": "config_interpolate",
+        "conditions": "x1 == x0",
+        "property": "degenerate_range_exception_raised",
+        "description": "A ValueError exception is raised when x1 is equal to x0."
+    }
+]

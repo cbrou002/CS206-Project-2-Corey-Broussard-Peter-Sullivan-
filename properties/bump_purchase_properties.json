@@ -1,0 +1,21 @@
+[
+    {
+        "scope": "function",
+        "function": "bump_purchase",
+        "property": "increments_purchase_counter",
+        "description": "This function increments the purchase counter by 1."
+    },
+    {
+        "scope": "function",
+        "function": "bump_purchase",
+        "property": "handles_optional_cap",
+        "description": "This function handles an optional cap for the purchase counter."
+    },
+    {
+        "scope": "branch",
+        "function": "bump_purchase",
+        "conditions": "cap is not None",
+        "property": "checks_optional_cap",
+        "description": "If the cap is provided, the function checks if the updated counter exceeds the cap."
+    }
+]

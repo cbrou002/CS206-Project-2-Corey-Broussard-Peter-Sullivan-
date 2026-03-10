@@ -1,0 +1,37 @@
+[
+    {
+        "scope": "function",
+        "function": "rolling_retries",
+        "property": "positive_window",
+        "conditions": "window > 0",
+        "description": "The window size must be positive."
+    },
+    {
+        "scope": "function",
+        "function": "rolling_retries",
+        "property": "non_empty_series",
+        "conditions": "values",
+        "description": "The series of values must not be empty."
+    },
+    {
+        "scope": "branch",
+        "function": "rolling_retries",
+        "conditions": "window <= 0",
+        "property": "invalid_window_exception",
+        "description": "Raises a ValueError if the window size is not positive."
+    },
+    {
+        "scope": "branch",
+        "function": "rolling_retries",
+        "conditions": "not values",
+        "property": "empty_series_exception",
+        "description": "Raises a ValueError if the series of values is empty."
+    },
+    {
+        "scope": "branch",
+        "function": "rolling_retries",
+        "conditions": "len(tail) < warmup_min",
+        "property": "insufficient_data",
+        "description": "Returns None if the length of tail is less than the warmup minimum."
+    }
+]

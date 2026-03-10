@@ -1,0 +1,26 @@
+[
+    {
+        "scope": "function",
+        "function": "shift_traffic",
+        "property": "has_parameter_damping",
+        "conditions": "damping parameter is present"
+    },
+    {
+        "scope": "branch",
+        "function": "shift_traffic",
+        "property": "shape_mismatch_check",
+        "conditions": "len(current) != len(target)"
+    },
+    {
+        "scope": "branch",
+        "function": "shift_traffic",
+        "property": "empty_allocation_check",
+        "conditions": "not current"
+    },
+    {
+        "scope": "loop",
+        "function": "shift_traffic",
+        "property": "updates_values",
+        "conditions": "for each index in range(len(current))"
+    }
+]

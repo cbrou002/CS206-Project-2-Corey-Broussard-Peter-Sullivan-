@@ -1,0 +1,44 @@
+[
+    {
+        "scope": "function",
+        "function": "grant_share",
+        "property": "valid_input_check",
+        "conditions": "len(ratios) != 0 and sum(ratios) > 0 and amount >= 0",
+        "statement": "The function checks for valid input conditions before proceeding with the grant sharing calculation."
+    },
+    {
+        "scope": "branch",
+        "function": "grant_share",
+        "property": "no_ratios_error",
+        "conditions": "len(ratios) == 0",
+        "statement": "Raises a ValueError if no ratios are provided."
+    },
+    {
+        "scope": "branch",
+        "function": "grant_share",
+        "property": "invalid_ratios_error",
+        "conditions": "sum(ratios) <= 0",
+        "statement": "Raises a ValueError if the sum of ratios is less than or equal to 0."
+    },
+    {
+        "scope": "branch",
+        "function": "grant_share",
+        "property": "negative_amount_error",
+        "conditions": "amount < 0",
+        "statement": "Raises a ValueError if the grant amount is negative."
+    },
+    {
+        "scope": "loop",
+        "function": "grant_share",
+        "property": "share_calculation",
+        "conditions": "base = [(r / total_ratio) * amount for r in ratios]",
+        "statement": "Calculates the share for each recipient based on their ratio."
+    },
+    {
+        "scope": "return",
+        "function": "grant_share",
+        "property": "fee_deduction",
+        "conditions": "return [share - fee for share in base]",
+        "statement": "Deducts the fee from each recipient's share before returning the final list."
+    }
+]

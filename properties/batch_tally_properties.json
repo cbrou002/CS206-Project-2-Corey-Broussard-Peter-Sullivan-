@@ -1,0 +1,22 @@
+[
+    {
+        "scope": "function",
+        "function": "batch_tally",
+        "property": "track_batch_events_with_ceiling",
+        "description": "Tracks batch events with a ceiling by updating the counts dictionary with the new value for the specified key."
+    },
+    {
+        "scope": "branch",
+        "function": "batch_tally",
+        "conditions": "max_value is not None",
+        "property": "check_boundary_condition",
+        "description": "Checks if the new value exceeds the specified max_value."
+    },
+    {
+        "scope": "branch",
+        "function": "batch_tally",
+        "conditions": "new_value > max_value",
+        "property": "adjust_new_value",
+        "description": "Adjusts the new value to be equal to the max_value if it exceeds the max_value."
+    }
+]

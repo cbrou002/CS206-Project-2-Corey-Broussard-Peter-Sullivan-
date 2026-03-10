@@ -1,0 +1,22 @@
+[
+    {
+        "scope": "function",
+        "function": "task_tally",
+        "property": "tracks_task_events",
+        "description": "This function tracks task events with a ceiling."
+    },
+    {
+        "scope": "branch",
+        "function": "task_tally",
+        "conditions": "max_value is not None",
+        "property": "checks_ceiling_limit",
+        "description": "This branch checks if a ceiling limit is provided."
+    },
+    {
+        "scope": "branch",
+        "function": "task_tally",
+        "conditions": "new_value > max_value",
+        "property": "adjusts_value_to_ceiling",
+        "description": "This branch adjusts the new value to the ceiling limit if it exceeds it."
+    }
+]

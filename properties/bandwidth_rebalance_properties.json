@@ -1,0 +1,22 @@
+[
+    {
+        "scope": "function",
+        "function": "bandwidth_rebalance",
+        "property": "shape_mismatch_check",
+        "conditions": "len(current) != len(target)",
+        "description": "Check if the length of 'current' is not equal to the length of 'target'."
+    },
+    {
+        "scope": "function",
+        "function": "bandwidth_rebalance",
+        "property": "empty_allocation_check",
+        "conditions": "not current",
+        "description": "Check if 'current' is empty."
+    },
+    {
+        "scope": "function",
+        "function": "bandwidth_rebalance",
+        "property": "bandwidth_update_calculation",
+        "description": "Calculate the updated bandwidth weights based on the current and target distributions."
+    }
+]

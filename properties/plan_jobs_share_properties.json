@@ -1,0 +1,32 @@
+[
+    {
+        "scope": "function",
+        "function": "plan_jobs_share",
+        "property": "has_docstring",
+        "description": "The function has a docstring explaining its purpose."
+    },
+    {
+        "scope": "function",
+        "function": "plan_jobs_share",
+        "property": "has_error_handling",
+        "description": "The function includes error handling for specific cases."
+    },
+    {
+        "scope": "function",
+        "function": "plan_jobs_share",
+        "property": "has_loop",
+        "description": "The function includes a loop for processing weights."
+    },
+    {
+        "scope": "function",
+        "function": "plan_jobs_share",
+        "property": "has_list_comprehension",
+        "description": "The function includes a list comprehension for processing shares."
+    },
+    {
+        "scope": "function",
+        "function": "plan_jobs_share",
+        "property": "returns_integer_list",
+        "description": "The function returns a list of integers if floor_to_int is True."
+    }
+]

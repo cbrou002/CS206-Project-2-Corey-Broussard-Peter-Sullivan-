@@ -1,0 +1,37 @@
+[
+    {
+        "scope": "function",
+        "function": "metric_rolling_avg",
+        "property": "valid_window",
+        "conditions": "window > 0",
+        "description": "The window size must be greater than 0."
+    },
+    {
+        "scope": "function",
+        "function": "metric_rolling_avg",
+        "property": "non_empty_values",
+        "conditions": "values",
+        "description": "The input values list must not be empty."
+    },
+    {
+        "scope": "branch",
+        "function": "metric_rolling_avg",
+        "conditions": "window <= 0",
+        "property": "invalid_window_exception",
+        "description": "Raises a ValueError if the window size is less than or equal to 0."
+    },
+    {
+        "scope": "branch",
+        "function": "metric_rolling_avg",
+        "conditions": "not values",
+        "property": "empty_values_exception",
+        "description": "Raises a ValueError if the input values list is empty."
+    },
+    {
+        "scope": "branch",
+        "function": "metric_rolling_avg",
+        "conditions": "len(tail) < min_samples",
+        "property": "insufficient_samples",
+        "description": "Returns None if the number of samples in the rolling window is less than the specified minimum."
+    }
+]

@@ -1,0 +1,42 @@
+[
+    {
+        "scope": "function",
+        "function": "rebate_splitter",
+        "property": "valid_input_check",
+        "conditions": "len(ratios) != 0 and sum(ratios) > 0 and amount >= 0",
+        "description": "Checks if input ratios are not empty, sum of ratios is positive, and amount is non-negative"
+    },
+    {
+        "scope": "branch",
+        "function": "rebate_splitter",
+        "conditions": "len(ratios) == 0",
+        "property": "empty_ratios_error",
+        "description": "Raises a ValueError if input ratios are empty"
+    },
+    {
+        "scope": "branch",
+        "function": "rebate_splitter",
+        "conditions": "sum(ratios) <= 0",
+        "property": "invalid_ratios_error",
+        "description": "Raises a ValueError if sum of ratios is less than or equal to 0"
+    },
+    {
+        "scope": "branch",
+        "function": "rebate_splitter",
+        "conditions": "amount < 0",
+        "property": "negative_amount_error",
+        "description": "Raises a ValueError if amount is negative"
+    },
+    {
+        "scope": "loop",
+        "function": "rebate_splitter",
+        "property": "rebate_calculation",
+        "description": "Calculates the share for each recipient based on ratios and total amount"
+    },
+    {
+        "scope": "return",
+        "function": "rebate_splitter",
+        "property": "fee_deduction",
+        "description": "Deducts the fee from each recipient's share"
+    }
+]

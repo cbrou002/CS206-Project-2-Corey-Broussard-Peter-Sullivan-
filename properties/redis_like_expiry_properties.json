@@ -1,0 +1,22 @@
+[
+    {
+        "scope": "function",
+        "function": "redis_like_expiry",
+        "property": "has_early_return",
+        "description": "The function has early returns at lines 8, 13, and 14."
+    },
+    {
+        "scope": "branch",
+        "function": "redis_like_expiry",
+        "conditions": "item is None",
+        "property": "branch_condition",
+        "description": "Branching condition based on whether item is None at line 7."
+    },
+    {
+        "scope": "branch",
+        "function": "redis_like_expiry",
+        "conditions": "now > expires_at",
+        "property": "branch_condition",
+        "description": "Branching condition based on whether now is greater than expires_at at line 12."
+    }
+]

@@ -1,0 +1,65 @@
+[
+    {
+        "scope": "function",
+        "function": "allocate_pool_cut",
+        "property": "has_parameter_fee",
+        "statement": "The function allocate_pool_cut has a parameter named fee."
+    },
+    {
+        "scope": "function",
+        "function": "allocate_pool_cut",
+        "property": "raises_error_if_ratios_empty",
+        "statement": "The function allocate_pool_cut raises a ValueError if ratios is empty."
+    },
+    {
+        "scope": "function",
+        "function": "allocate_pool_cut",
+        "property": "raises_error_if_amount_negative",
+        "statement": "The function allocate_pool_cut raises a ValueError if amount is negative."
+    },
+    {
+        "scope": "function",
+        "function": "allocate_pool_cut",
+        "property": "raises_error_if_invalid_ratios",
+        "statement": "The function allocate_pool_cut raises a ValueError if the total_ratio is less than or equal to 0."
+    },
+    {
+        "scope": "function",
+        "function": "allocate_pool_cut",
+        "property": "returns_list_with_fee_deducted",
+        "statement": "The function allocate_pool_cut returns a list with fee deducted from each element in shares."
+    },
+    {
+        "scope": "branch",
+        "function": "allocate_pool_cut",
+        "conditions": "not ratios",
+        "property": "raises_value_error",
+        "statement": "If ratios is empty, a ValueError is raised."
+    },
+    {
+        "scope": "branch",
+        "function": "allocate_pool_cut",
+        "conditions": "amount < 0",
+        "property": "raises_value_error",
+        "statement": "If amount is negative, a ValueError is raised."
+    },
+    {
+        "scope": "branch",
+        "function": "allocate_pool_cut",
+        "conditions": "total_ratio <= 0",
+        "property": "raises_value_error",
+        "statement": "If the total_ratio is less than or equal to 0, a ValueError is raised."
+    },
+    {
+        "scope": "loop",
+        "function": "allocate_pool_cut",
+        "property": "calculates_shares_correctly",
+        "statement": "The for loop in allocate_pool_cut calculates shares correctly based on ratios and amount."
+    },
+    {
+        "scope": "loop",
+        "function": "allocate_pool_cut",
+        "property": "appends_correctly",
+        "statement": "The list comprehension in allocate_pool_cut appends elements correctly to shares."
+    }
+]

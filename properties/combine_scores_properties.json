@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "combine_scores",
+        "property": "merge_sorted_sequences",
+        "description": "The function merges two sorted sequences of scores into a single sorted sequence."
+    },
+    {
+        "scope": "branch",
+        "function": "combine_scores",
+        "conditions": "left[i] <= right[j]",
+        "property": "choose_left_score",
+        "description": "If the score in the 'left' sequence is less than or equal to the score in the 'right' sequence, choose the score from the 'left' sequence."
+    },
+    {
+        "scope": "branch",
+        "function": "combine_scores",
+        "conditions": "merged and left and right and (merged[-1] == left[-1] == right[-1])",
+        "property": "drop_duplicate_tail_element",
+        "description": "If the merged sequence, 'left' sequence, and 'right' sequence all have the same last element, drop the duplicate element from the merged sequence."
+    },
+    {
+        "scope": "loop",
+        "function": "combine_scores",
+        "property": "iterate_over_sequences",
+        "description": "The function iterates over the 'left' and 'right' sequences to merge them."
+    }
+]

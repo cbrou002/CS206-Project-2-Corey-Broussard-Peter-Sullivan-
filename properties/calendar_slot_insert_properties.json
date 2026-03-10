@@ -1,0 +1,30 @@
+[
+    {
+        "scope": "function",
+        "function": "calendar_slot_insert",
+        "property": "valid_slot_check",
+        "conditions": "start >= end",
+        "statement": "The slot is considered valid if the start time is greater than or equal to the end time."
+    },
+    {
+        "scope": "function",
+        "function": "calendar_slot_insert",
+        "property": "overlap_check",
+        "conditions": "not (end <= s or start >= e)",
+        "statement": "Checks if the new slot overlaps with any existing slots in the schedule."
+    },
+    {
+        "scope": "function",
+        "function": "calendar_slot_insert",
+        "property": "early_return_false",
+        "conditions": "end <= s or start >= e",
+        "statement": "Returns False along with the existing schedule if the new slot overlaps with any existing slots."
+    },
+    {
+        "scope": "function",
+        "function": "calendar_slot_insert",
+        "property": "early_return_true",
+        "conditions": "No overlap with existing slots",
+        "statement": "Returns True along with the updated sorted schedule if the new slot does not overlap with any existing slots."
+    }
+]

@@ -1,0 +1,49 @@
+[
+    {
+        "scope": "function",
+        "function": "quota_for_storage",
+        "property": "valid_input_check",
+        "conditions": "total >= 0, minimum >= 0, weights not empty, any(weights) is true",
+        "description": "Checks if the input values meet the required conditions before proceeding with the allocation"
+    },
+    {
+        "scope": "branch",
+        "function": "quota_for_storage",
+        "conditions": "total < 0",
+        "property": "total_negative_error",
+        "description": "Raises a ValueError if the total is negative"
+    },
+    {
+        "scope": "branch",
+        "function": "quota_for_storage",
+        "conditions": "minimum < 0",
+        "property": "minimum_negative_error",
+        "description": "Raises a ValueError if the minimum is negative"
+    },
+    {
+        "scope": "branch",
+        "function": "quota_for_storage",
+        "conditions": "not weights",
+        "property": "empty_weights_error",
+        "description": "Raises a ValueError if no weights are provided"
+    },
+    {
+        "scope": "branch",
+        "function": "quota_for_storage",
+        "conditions": "not any(weights)",
+        "property": "zero_weights_error",
+        "description": "Raises a ValueError if all weights are zero"
+    },
+    {
+        "scope": "loop",
+        "function": "quota_for_storage",
+        "property": "planned_calculation",
+        "description": "Calculates the planned allocation for each recipient based on their weight"
+    },
+    {
+        "scope": "loop",
+        "function": "quota_for_storage",
+        "property": "allocation_conversion",
+        "description": "Converts the planned allocation to integer values for final allocation"
+    }
+]

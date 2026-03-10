@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "limit_api",
+        "property": "throttles_api_by_recent_activity",
+        "description": "Throttles the API based on recent activity"
+    },
+    {
+        "scope": "branch",
+        "function": "limit_api",
+        "conditions": "len(recent) > limit",
+        "property": "blocks_execution_when_recent_exceeds_limit",
+        "description": "Execution is blocked when the number of recent activities exceeds the limit"
+    },
+    {
+        "scope": "branch",
+        "function": "limit_api",
+        "conditions": "len(recent) <= limit",
+        "property": "allows_execution_when_recent_does_not_exceed_limit",
+        "description": "Execution is allowed when the number of recent activities does not exceed the limit"
+    },
+    {
+        "scope": "loop",
+        "function": "limit_api",
+        "property": "filters_recent_activities_based_on_cutoff_time",
+        "description": "Filters the list of recent activities based on the cutoff time"
+    }
+]

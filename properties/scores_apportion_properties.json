@@ -1,0 +1,44 @@
+[
+    {
+        "scope": "function",
+        "function": "scores_apportion",
+        "property": "valid_input_check",
+        "conditions": "total >= 0, minimum >= 0, not weights or sum(weights) != 0",
+        "statement": "Input parameters total, minimum, and weights are valid"
+    },
+    {
+        "scope": "function",
+        "function": "scores_apportion",
+        "property": "early_return",
+        "conditions": "raw >= minimum",
+        "statement": "Return raw if raw is greater than or equal to minimum"
+    },
+    {
+        "scope": "function",
+        "function": "scores_apportion",
+        "property": "integer_conversion_bug",
+        "conditions": "N/A",
+        "statement": "Bug: Integer conversion discards fractional remainder"
+    },
+    {
+        "scope": "branch",
+        "function": "scores_apportion",
+        "property": "total_check",
+        "conditions": "total < 0",
+        "statement": "Raise ValueError if total is less than 0"
+    },
+    {
+        "scope": "branch",
+        "function": "scores_apportion",
+        "property": "minimum_check",
+        "conditions": "minimum < 0",
+        "statement": "Raise ValueError if minimum is less than 0"
+    },
+    {
+        "scope": "branch",
+        "function": "scores_apportion",
+        "property": "weights_check",
+        "conditions": "not weights or sum(weights) == 0",
+        "statement": "Raise ValueError if weights are empty or sum to 0"
+    }
+]

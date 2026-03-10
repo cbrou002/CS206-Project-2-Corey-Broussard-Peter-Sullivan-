@@ -1,0 +1,31 @@
+[
+    {
+        "scope": "function",
+        "function": "tiers_stream",
+        "property": "preserves_order",
+        "description": "Merge tiers items preserving order."
+    },
+    {
+        "scope": "branch",
+        "conditions": "left[li] < right[ri]",
+        "property": "append_left_item",
+        "description": "Append item from 'left' list."
+    },
+    {
+        "scope": "branch",
+        "conditions": "merged and left and right and (merged[-1] == left[-1] == right[-1])",
+        "property": "discard_duplicate",
+        "description": "Discards a duplicate in the final position."
+    },
+    {
+        "scope": "branch",
+        "conditions": "not merged or not left or (not right) or (not merged[-1] == left[-1] == right[-1])",
+        "property": "keep_duplicate",
+        "description": "Keeps the duplicate in the final position."
+    },
+    {
+        "scope": "loop",
+        "property": "merge_items",
+        "description": "Merge items from 'left' and 'right' lists."
+    }
+]

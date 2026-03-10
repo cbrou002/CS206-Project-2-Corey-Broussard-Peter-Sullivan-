@@ -1,0 +1,44 @@
+[
+    {
+        "scope": "function",
+        "function": "tip_share",
+        "property": "valid_input_check",
+        "conditions": "len(ratios) != 0 and sum(ratios) > 0 and amount >= 0",
+        "description": "Checks if the input ratios are not empty, have a sum greater than 0, and amount is non-negative."
+    },
+    {
+        "scope": "function",
+        "function": "tip_share",
+        "property": "fee_application_bug",
+        "conditions": "True",
+        "description": "Applies fee to each share individually instead of applying it once to the total amount."
+    },
+    {
+        "scope": "branch",
+        "function": "tip_share",
+        "conditions": "len(ratios) == 0",
+        "property": "no_ratios_error",
+        "description": "Raises a ValueError if the input ratios list is empty."
+    },
+    {
+        "scope": "branch",
+        "function": "tip_share",
+        "conditions": "sum(ratios) <= 0",
+        "property": "invalid_ratios_error",
+        "description": "Raises a ValueError if the sum of ratios is less than or equal to 0."
+    },
+    {
+        "scope": "branch",
+        "function": "tip_share",
+        "conditions": "amount < 0",
+        "property": "negative_amount_error",
+        "description": "Raises a ValueError if the input amount is negative."
+    },
+    {
+        "scope": "loop",
+        "function": "tip_share",
+        "conditions": "True",
+        "property": "share_calculation",
+        "description": "Calculates each recipient's share based on their ratio and the total amount."
+    }
+]

@@ -1,0 +1,37 @@
+[
+    {
+        "scope": "function",
+        "function": "rolling_usage",
+        "property": "valid_window",
+        "conditions": "window > 0",
+        "description": "The window size must be greater than 0."
+    },
+    {
+        "scope": "function",
+        "function": "rolling_usage",
+        "property": "non_empty_series",
+        "conditions": "series",
+        "description": "The input series must not be empty."
+    },
+    {
+        "scope": "branch",
+        "function": "rolling_usage",
+        "conditions": "window <= 0",
+        "property": "invalid_window_exception",
+        "description": "Raises a ValueError if the window size is less than or equal to 0."
+    },
+    {
+        "scope": "branch",
+        "function": "rolling_usage",
+        "conditions": "not series",
+        "property": "no_samples_exception",
+        "description": "Raises a ValueError if there are no samples in the input series."
+    },
+    {
+        "scope": "branch",
+        "function": "rolling_usage",
+        "conditions": "len(tail) < warmup_min",
+        "property": "insufficient_samples",
+        "description": "Returns None if the number of samples in the tail is less than the warmup minimum."
+    }
+]

@@ -1,0 +1,23 @@
+[
+    {
+        "scope": "function",
+        "function": "plan_upgrade_slot",
+        "property": "valid_input_check",
+        "conditions": "a < b",
+        "statement": "The function checks if the input window is not empty (a < b) before proceeding."
+    },
+    {
+        "scope": "function",
+        "function": "plan_upgrade_slot",
+        "property": "timeline_overlap_check",
+        "conditions": "any((not (b <= s or a >= e) for s, e in timeline))",
+        "statement": "The function checks if the new window overlaps with any existing timeline slots."
+    },
+    {
+        "scope": "branch",
+        "function": "plan_upgrade_slot",
+        "property": "allow_partial_overlap",
+        "conditions": "NOT(any((not (b <= s or a >= e) for s, e in timeline)))",
+        "statement": "The function allows partial overlap where b == s or a == e."
+    }
+]

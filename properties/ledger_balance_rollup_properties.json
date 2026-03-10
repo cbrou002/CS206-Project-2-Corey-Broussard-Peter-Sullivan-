@@ -1,0 +1,42 @@
+[
+    {
+        "scope": "function",
+        "function": "ledger_balance_rollup",
+        "property": "computes_balance_correctly",
+        "description": "The function correctly computes the account balance by adding or subtracting amounts based on the kind of entry."
+    },
+    {
+        "scope": "branch",
+        "function": "ledger_balance_rollup",
+        "conditions": "amount < 0",
+        "property": "raises_value_error_for_negative_amount",
+        "description": "If the amount is negative, a ValueError is raised."
+    },
+    {
+        "scope": "branch",
+        "function": "ledger_balance_rollup",
+        "conditions": "kind == 'credit'",
+        "property": "adds_amount_for_credit_entry",
+        "description": "If the entry kind is 'credit', the amount is added to the balance."
+    },
+    {
+        "scope": "branch",
+        "function": "ledger_balance_rollup",
+        "conditions": "kind == 'debit'",
+        "property": "subtracts_amount_for_debit_entry",
+        "description": "If the entry kind is 'debit', the amount is subtracted from the balance."
+    },
+    {
+        "scope": "branch",
+        "function": "ledger_balance_rollup",
+        "conditions": "kind not in ['credit', 'debit']",
+        "property": "raises_value_error_for_unknown_kind",
+        "description": "If the entry kind is neither 'credit' nor 'debit', a ValueError is raised."
+    },
+    {
+        "scope": "return",
+        "function": "ledger_balance_rollup",
+        "property": "returns_balance",
+        "description": "The function returns the computed balance."
+    }
+]

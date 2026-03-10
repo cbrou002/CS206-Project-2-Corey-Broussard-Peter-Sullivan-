@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "track_deployment",
+        "property": "tracks_deployment_events_with_ceiling",
+        "description": "Tracks deployment events with a ceiling."
+    },
+    {
+        "scope": "branch",
+        "function": "track_deployment",
+        "conditions": "max_value is not None",
+        "property": "ceiling_check_triggered",
+        "description": "Ceiling check is triggered when max_value is not None."
+    },
+    {
+        "scope": "branch",
+        "function": "track_deployment",
+        "conditions": "new_value > max_value",
+        "property": "ceiling_exceeded",
+        "description": "New value is capped at max_value when it exceeds the ceiling."
+    },
+    {
+        "scope": "return",
+        "function": "track_deployment",
+        "property": "returns_new_value",
+        "description": "Returns the new value after tracking deployment events."
+    }
+]

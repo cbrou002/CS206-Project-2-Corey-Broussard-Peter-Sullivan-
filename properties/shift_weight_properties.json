@@ -1,0 +1,26 @@
+[
+    {
+        "scope": "function",
+        "function": "shift_weight",
+        "property": "has_parameter_damping",
+        "conditions": "damping parameter provided"
+    },
+    {
+        "scope": "branch",
+        "function": "shift_weight",
+        "property": "shape_mismatch_check",
+        "conditions": "len(current) != len(target)"
+    },
+    {
+        "scope": "branch",
+        "function": "shift_weight",
+        "property": "empty_allocation_check",
+        "conditions": "not current"
+    },
+    {
+        "scope": "loop",
+        "function": "shift_weight",
+        "property": "updates_weights",
+        "conditions": "for each index in current"
+    }
+]

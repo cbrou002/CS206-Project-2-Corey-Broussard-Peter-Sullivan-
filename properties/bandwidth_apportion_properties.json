@@ -1,0 +1,50 @@
+[
+    {
+        "scope": "function",
+        "function": "bandwidth_apportion",
+        "property": "valid_input_check",
+        "conditions": "total >= 0, minimum >= 0, not weights or sum(weights) != 0",
+        "description": "Checks if the input values are valid before proceeding with bandwidth apportionment."
+    },
+    {
+        "scope": "function",
+        "function": "bandwidth_apportion",
+        "property": "integer_truncation_bug",
+        "description": "The function may truncate decimals when converting bandwidth values to integers."
+    },
+    {
+        "scope": "branch",
+        "function": "bandwidth_apportion",
+        "conditions": "total < 0",
+        "property": "total_non_negative_check",
+        "description": "Raises a ValueError if the total bandwidth is negative."
+    },
+    {
+        "scope": "branch",
+        "function": "bandwidth_apportion",
+        "conditions": "minimum < 0",
+        "property": "minimum_non_negative_check",
+        "description": "Raises a ValueError if the minimum bandwidth is negative."
+    },
+    {
+        "scope": "branch",
+        "function": "bandwidth_apportion",
+        "conditions": "not weights or sum(weights) == 0",
+        "property": "invalid_weights_check",
+        "description": "Raises a ValueError if the weights are empty or sum up to zero."
+    },
+    {
+        "scope": "loop",
+        "function": "bandwidth_apportion",
+        "conditions": "list_comp loop @ line 13",
+        "property": "bandwidth_calculation",
+        "description": "Calculates the bandwidth apportioned to each weight, considering the minimum value."
+    },
+    {
+        "scope": "loop",
+        "function": "bandwidth_apportion",
+        "conditions": "list_comp loop @ line 16",
+        "property": "integer_conversion",
+        "description": "Converts the calculated bandwidth values to integers."
+    }
+]

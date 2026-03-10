@@ -1,0 +1,23 @@
+[
+    {
+        "scope": "function",
+        "function": "lru_evictor",
+        "property": "capacity_non_negative",
+        "conditions": "capacity < 0",
+        "statement": "Capacity must be non-negative."
+    },
+    {
+        "scope": "branch",
+        "function": "lru_evictor",
+        "property": "eviction_condition",
+        "conditions": "len(order) > capacity",
+        "statement": "Evict keys until under capacity."
+    },
+    {
+        "scope": "loop",
+        "function": "lru_evictor",
+        "property": "eviction_loop",
+        "conditions": "len(order) > capacity",
+        "statement": "Evict keys until under capacity."
+    }
+]

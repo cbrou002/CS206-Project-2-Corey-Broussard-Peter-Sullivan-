@@ -1,0 +1,23 @@
+[
+    {
+        "scope": "function",
+        "function": "smooth_pressure",
+        "property": "valid_window_parameter",
+        "conditions": "window > 0",
+        "description": "The window parameter must be a positive integer."
+    },
+    {
+        "scope": "function",
+        "function": "smooth_pressure",
+        "property": "non_empty_values",
+        "conditions": "values",
+        "description": "The values parameter must not be empty."
+    },
+    {
+        "scope": "branch",
+        "function": "smooth_pressure",
+        "property": "valid_warmup_condition",
+        "conditions": "len(recent) >= warmup_min",
+        "description": "The length of recent values must be greater than or equal to the warmup_min parameter."
+    }
+]

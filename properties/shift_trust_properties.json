@@ -1,0 +1,36 @@
+[
+    {
+        "scope": "function",
+        "function": "shift_trust",
+        "property": "valid_input_shape",
+        "conditions": "len(current) == len(target)",
+        "description": "The input vectors current and target must have the same length."
+    },
+    {
+        "scope": "function",
+        "function": "shift_trust",
+        "property": "non_empty_current",
+        "conditions": "current",
+        "description": "The input vector current must not be empty."
+    },
+    {
+        "scope": "branch",
+        "function": "shift_trust",
+        "property": "shape_mismatch_error",
+        "conditions": "len(current) != len(target)",
+        "description": "Raises a ValueError if the input vectors current and target have different lengths."
+    },
+    {
+        "scope": "branch",
+        "function": "shift_trust",
+        "property": "empty_allocation_error",
+        "conditions": "not current",
+        "description": "Raises a ValueError if the input vector current is empty."
+    },
+    {
+        "scope": "loop",
+        "function": "shift_trust",
+        "property": "adjustment_calculation",
+        "description": "Calculates the adjusted trust mix by applying a damping factor to each element in the vectors current and target."
+    }
+]

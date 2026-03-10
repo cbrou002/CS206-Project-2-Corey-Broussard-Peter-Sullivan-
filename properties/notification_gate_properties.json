@@ -1,0 +1,52 @@
+[
+    {
+        "scope": "function",
+        "function": "notification_gate",
+        "property": "rate_limiter_function",
+        "description": "Function serves as a rate limiter for notification events."
+    },
+    {
+        "scope": "branch",
+        "function": "notification_gate",
+        "conditions": "len(recent) > limit",
+        "property": "traffic_exceeds_limit",
+        "description": "Branch where the length of recent events exceeds the specified limit."
+    },
+    {
+        "scope": "branch",
+        "function": "notification_gate",
+        "conditions": "len(recent) <= limit",
+        "property": "traffic_within_limit",
+        "description": "Branch where the length of recent events is within or equal to the specified limit."
+    },
+    {
+        "scope": "loop",
+        "function": "notification_gate",
+        "property": "list_comprehension_loop",
+        "description": "List comprehension loop to filter timestamps based on window start time."
+    },
+    {
+        "scope": "return",
+        "function": "notification_gate",
+        "property": "return_false_zero",
+        "description": "Return statement when recent events exceed the limit, returning False and 0."
+    },
+    {
+        "scope": "return",
+        "function": "notification_gate",
+        "property": "return_true_remaining_limit",
+        "description": "Return statement when recent events are within the limit, returning True and the remaining limit."
+    },
+    {
+        "scope": "api_call",
+        "function": "notification_gate",
+        "property": "len_call_branch",
+        "description": "Call to len() function to determine the length of recent events in the branch."
+    },
+    {
+        "scope": "api_call",
+        "function": "notification_gate",
+        "property": "len_call_return",
+        "description": "Call to len() function to calculate the remaining limit in the return statement."
+    }
+]

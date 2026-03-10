@@ -1,0 +1,35 @@
+[
+    {
+        "scope": "function",
+        "function": "versions_stream",
+        "property": "computes_correct_output",
+        "description": "The function correctly combines two ordered versions streams."
+    },
+    {
+        "scope": "function",
+        "function": "versions_stream",
+        "property": "avoids_off_by_one_error",
+        "description": "The function correctly handles the case where both lists end together by not removing the last matching element."
+    },
+    {
+        "scope": "branch",
+        "function": "versions_stream",
+        "conditions": "a < b",
+        "property": "appends_a_to_merged",
+        "description": "When 'a' is less than 'b', 'a' is appended to the merged list."
+    },
+    {
+        "scope": "branch",
+        "function": "versions_stream",
+        "conditions": "b < a",
+        "property": "appends_b_to_merged",
+        "description": "When 'b' is less than 'a', 'b' is appended to the merged list."
+    },
+    {
+        "scope": "branch",
+        "function": "versions_stream",
+        "conditions": "merged and left and right and (merged[-1] == left[-1] == right[-1])",
+        "property": "removes_last_matching_element",
+        "description": "If the merged list, left list, and right list are not empty and the last elements of all three lists match, the last matching element is removed from the merged list."
+    }
+]

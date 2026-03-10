@@ -1,0 +1,47 @@
+[
+    {
+        "scope": "function",
+        "function": "blend_orders",
+        "property": "has_control_flow",
+        "description": "The function contains control flow branches."
+    },
+    {
+        "scope": "function",
+        "function": "blend_orders",
+        "property": "has_loop",
+        "description": "The function contains a while loop."
+    },
+    {
+        "scope": "function",
+        "function": "blend_orders",
+        "property": "has_api_calls",
+        "description": "The function makes API calls to perform operations."
+    },
+    {
+        "scope": "function",
+        "function": "blend_orders",
+        "property": "has_return",
+        "description": "The function has a return statement."
+    },
+    {
+        "scope": "branch",
+        "function": "blend_orders",
+        "conditions": "a < b",
+        "property": "branch_condition_a_lt_b",
+        "description": "Executes when 'a' is less than 'b'."
+    },
+    {
+        "scope": "branch",
+        "function": "blend_orders",
+        "conditions": "b < a",
+        "property": "branch_condition_b_lt_a",
+        "description": "Executes when 'b' is less than 'a'."
+    },
+    {
+        "scope": "branch",
+        "function": "blend_orders",
+        "conditions": "merged and left and (merged[-1] == left[-1] == right[-1])",
+        "property": "branch_condition_last_matching_element",
+        "description": "Executes when the last elements of 'merged', 'left', and 'right' lists match."
+    }
+]

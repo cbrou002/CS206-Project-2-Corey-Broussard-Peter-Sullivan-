@@ -1,0 +1,49 @@
+[
+    {
+        "scope": "function",
+        "function": "tasks_allocator",
+        "property": "valid_input_check",
+        "conditions": "total >= 0, minimum >= 0, weights not empty, any(weights) is true",
+        "description": "Checks if the input parameters meet the required conditions before proceeding with task allocation."
+    },
+    {
+        "scope": "branch",
+        "function": "tasks_allocator",
+        "conditions": "total < 0",
+        "property": "total_non_negative",
+        "description": "Checks if the total parameter is non-negative."
+    },
+    {
+        "scope": "branch",
+        "function": "tasks_allocator",
+        "conditions": "minimum < 0",
+        "property": "minimum_non_negative",
+        "description": "Checks if the minimum parameter is non-negative."
+    },
+    {
+        "scope": "branch",
+        "function": "tasks_allocator",
+        "conditions": "not weights",
+        "property": "weights_provided",
+        "description": "Checks if weights are provided."
+    },
+    {
+        "scope": "branch",
+        "function": "tasks_allocator",
+        "conditions": "not any(weights)",
+        "property": "non_zero_weights",
+        "description": "Checks if all weights are non-zero."
+    },
+    {
+        "scope": "loop",
+        "function": "tasks_allocator",
+        "property": "planned_calculation",
+        "description": "Calculates the planned allocation for each recipient based on their weight."
+    },
+    {
+        "scope": "loop",
+        "function": "tasks_allocator",
+        "property": "allocation_conversion",
+        "description": "Converts the planned allocations to integers for distribution."
+    }
+]

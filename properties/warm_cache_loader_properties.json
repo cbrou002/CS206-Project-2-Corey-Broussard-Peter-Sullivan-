@@ -1,0 +1,16 @@
+[
+    {
+        "scope": "function",
+        "function": "warm_cache_loader",
+        "property": "has_early_return",
+        "conditions": "item is None",
+        "statement": "The function has an early return when 'item' is None."
+    },
+    {
+        "scope": "function",
+        "function": "warm_cache_loader",
+        "property": "has_early_return",
+        "conditions": "now > expires_at",
+        "statement": "The function has an early return when 'now' is greater than 'expires_at'."
+    }
+]

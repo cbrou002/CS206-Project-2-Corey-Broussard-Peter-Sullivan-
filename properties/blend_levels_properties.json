@@ -1,0 +1,65 @@
+[
+    {
+        "scope": "function",
+        "function": "blend_levels",
+        "property": "merge_sorted_sequences",
+        "description": "Merge sorted levels sequences."
+    },
+    {
+        "scope": "function",
+        "function": "blend_levels",
+        "property": "early_return",
+        "description": "Return the merged sequence."
+    },
+    {
+        "scope": "function",
+        "function": "blend_levels",
+        "property": "api_calls",
+        "description": "Call len() to get the length of sequences."
+    },
+    {
+        "scope": "function",
+        "function": "blend_levels",
+        "property": "api_calls",
+        "description": "Call append() to add elements to the merged sequence."
+    },
+    {
+        "scope": "function",
+        "function": "blend_levels",
+        "property": "api_calls",
+        "description": "Call extend() to add elements from sequences to the merged sequence."
+    },
+    {
+        "scope": "function",
+        "function": "blend_levels",
+        "property": "api_calls",
+        "description": "Call pop() to remove the last element if a duplicate is found."
+    },
+    {
+        "scope": "branch",
+        "function": "blend_levels",
+        "conditions": "left[i] <= right[j]",
+        "property": "merge_left_element",
+        "description": "Add the left element to the merged sequence."
+    },
+    {
+        "scope": "branch",
+        "function": "blend_levels",
+        "conditions": "merged and left and (merged[-1] == left[-1] == right[-1])",
+        "property": "remove_duplicate",
+        "description": "Remove the last element if it is a duplicate shared by both tails."
+    },
+    {
+        "scope": "branch",
+        "function": "blend_levels",
+        "conditions": "not merged or not left or (not right) or (not merged[-1] == left[-1] == right[-1])",
+        "property": "no_duplicate_to_remove",
+        "description": "Do not remove any duplicate element."
+    },
+    {
+        "scope": "loop",
+        "function": "blend_levels",
+        "property": "while_loop",
+        "description": "Iterate over the sequences until one is fully merged."
+    }
+]

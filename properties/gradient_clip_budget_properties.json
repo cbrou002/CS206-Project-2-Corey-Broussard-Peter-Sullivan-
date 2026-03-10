@@ -1,0 +1,43 @@
+[
+    {
+        "scope": "function",
+        "function": "gradient_clip_budget",
+        "property": "valid_max_norm",
+        "conditions": "max_norm > 0",
+        "description": "The max_norm parameter must be greater than 0."
+    },
+    {
+        "scope": "function",
+        "function": "gradient_clip_budget",
+        "property": "non_empty_gradients",
+        "conditions": "gradients",
+        "description": "The gradients list must not be empty."
+    },
+    {
+        "scope": "branch",
+        "function": "gradient_clip_budget",
+        "conditions": "max_norm <= 0",
+        "property": "invalid_max_norm_exception",
+        "description": "Raises a ValueError if max_norm is less than or equal to 0."
+    },
+    {
+        "scope": "branch",
+        "function": "gradient_clip_budget",
+        "conditions": "not gradients",
+        "property": "empty_gradients_return",
+        "description": "Returns an empty list if the gradients list is empty."
+    },
+    {
+        "scope": "branch",
+        "function": "gradient_clip_budget",
+        "conditions": "norm > max_norm",
+        "property": "gradient_scaling",
+        "description": "Scales the gradients if the L2 norm exceeds the max_norm."
+    },
+    {
+        "scope": "loop",
+        "function": "gradient_clip_budget",
+        "property": "gradient_scaling_loop",
+        "description": "Applies scaling to each gradient in the list using a list comprehension."
+    }
+]

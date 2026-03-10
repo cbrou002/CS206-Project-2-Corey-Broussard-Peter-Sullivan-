@@ -1,0 +1,27 @@
+[
+    {
+        "scope": "function",
+        "function": "warning_meter",
+        "property": "initialization",
+        "description": "Ensure the 'key' exists in 'counters' with an initial value of 0"
+    },
+    {
+        "scope": "function",
+        "function": "warning_meter",
+        "property": "increment",
+        "description": "Increment the value associated with 'key' in 'counters' by 1"
+    },
+    {
+        "scope": "function",
+        "function": "warning_meter",
+        "property": "cap_check",
+        "condition": "cap is not None and counters[key] > cap",
+        "description": "If 'cap' is not None and the value associated with 'key' exceeds 'cap', set it to 'cap'"
+    },
+    {
+        "scope": "function",
+        "function": "warning_meter",
+        "property": "return",
+        "description": "Return the value associated with 'key' in 'counters'"
+    }
+]

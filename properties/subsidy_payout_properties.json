@@ -1,0 +1,35 @@
+[
+    {
+        "scope": "function",
+        "function": "subsidy_payout",
+        "property": "valid_input_check",
+        "conditions": "ratios required",
+        "description": "Check if ratios are required"
+    },
+    {
+        "scope": "function",
+        "function": "subsidy_payout",
+        "property": "valid_input_check",
+        "conditions": "negative amount",
+        "description": "Check if amount is negative"
+    },
+    {
+        "scope": "function",
+        "function": "subsidy_payout",
+        "property": "valid_input_check",
+        "conditions": "invalid ratios",
+        "description": "Check if total_ratio is invalid"
+    },
+    {
+        "scope": "function",
+        "function": "subsidy_payout",
+        "property": "calculation",
+        "description": "Calculate shares based on ratios and amount"
+    },
+    {
+        "scope": "function",
+        "function": "subsidy_payout",
+        "property": "fee_deduction",
+        "description": "Deduct fee from each share"
+    }
+]

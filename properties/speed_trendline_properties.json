@@ -1,0 +1,30 @@
+[
+    {
+        "scope": "function",
+        "function": "speed_trendline",
+        "property": "valid_input_check",
+        "conditions": "x0 != x1",
+        "statement": "The input values x0 and x1 must not be equal."
+    },
+    {
+        "scope": "function",
+        "function": "speed_trendline",
+        "property": "clamp_option",
+        "conditions": "clamp",
+        "statement": "The function applies clamping to the interpolated speed value."
+    },
+    {
+        "scope": "branch",
+        "function": "speed_trendline",
+        "property": "clamp_using_y_bounds",
+        "conditions": "clamp and y < lo",
+        "statement": "The function clamps the speed value using the lower bound of y0 and y1."
+    },
+    {
+        "scope": "branch",
+        "function": "speed_trendline",
+        "property": "clamp_using_y_bounds",
+        "conditions": "clamp and y > hi",
+        "statement": "The function clamps the speed value using the upper bound of y0 and y1."
+    }
+]

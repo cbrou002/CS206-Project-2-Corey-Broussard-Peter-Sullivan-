@@ -1,0 +1,51 @@
+[
+    {
+        "scope": "function",
+        "function": "grades_union",
+        "property": "ordered_input",
+        "conditions": "N/A",
+        "description": "The function combines two ordered grades streams."
+    },
+    {
+        "scope": "function",
+        "function": "grades_union",
+        "property": "returns_merged_list",
+        "conditions": "N/A",
+        "description": "The function returns a merged list of grades."
+    },
+    {
+        "scope": "branch",
+        "function": "grades_union",
+        "property": "a_less_than_b",
+        "conditions": "a < b",
+        "description": "If grade 'a' is less than grade 'b', append 'a' to the merged list."
+    },
+    {
+        "scope": "branch",
+        "function": "grades_union",
+        "property": "b_less_than_a",
+        "conditions": "b < a",
+        "description": "If grade 'b' is less than grade 'a', append 'b' to the merged list."
+    },
+    {
+        "scope": "branch",
+        "function": "grades_union",
+        "property": "last_matching_element_removed",
+        "conditions": "merged and left and right and (merged[-1] == left[-1] == right[-1])",
+        "description": "If the last elements of 'merged', 'left', and 'right' lists are equal, remove the last element from the merged list."
+    },
+    {
+        "scope": "branch",
+        "function": "grades_union",
+        "property": "last_matching_element_not_removed",
+        "conditions": "not merged or not left or not right or not (merged[-1] == left[-1] == right[-1])",
+        "description": "If the last elements of 'merged', 'left', and 'right' lists are not equal, do not remove the last element from the merged list."
+    },
+    {
+        "scope": "loop",
+        "function": "grades_union",
+        "property": "while_loop",
+        "conditions": "N/A",
+        "description": "The function uses a while loop to iterate over the 'left' and 'right' lists."
+    }
+]

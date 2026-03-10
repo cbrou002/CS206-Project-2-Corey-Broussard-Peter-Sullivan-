@@ -1,0 +1,35 @@
+[
+    {
+        "scope": "function",
+        "function": "prices_stream",
+        "property": "combines_ordered_streams",
+        "description": "The function combines two ordered prices streams."
+    },
+    {
+        "scope": "branch",
+        "function": "prices_stream",
+        "conditions": "a < b",
+        "property": "append_a",
+        "description": "If 'a' is less than 'b', append 'a' to the merged list."
+    },
+    {
+        "scope": "branch",
+        "function": "prices_stream",
+        "conditions": "b < a",
+        "property": "append_b",
+        "description": "If 'b' is less than 'a', append 'b' to the merged list."
+    },
+    {
+        "scope": "branch",
+        "function": "prices_stream",
+        "conditions": "merged and left and right and (merged[-1] == left[-1] == right[-1])",
+        "property": "remove_last_matching_element",
+        "description": "If the last elements of 'merged', 'left', and 'right' are equal, remove the last element from the merged list."
+    },
+    {
+        "scope": "loop",
+        "function": "prices_stream",
+        "property": "merge_elements",
+        "description": "Iterate through the left and right lists to merge elements based on their values."
+    }
+]

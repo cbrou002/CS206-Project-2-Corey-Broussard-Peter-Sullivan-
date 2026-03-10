@@ -1,0 +1,22 @@
+[
+    {
+        "scope": "function",
+        "function": "demand_curve",
+        "property": "computes_demand_along_line_segment",
+        "description": "The function computes demand along a line segment using the given parameters."
+    },
+    {
+        "scope": "branch",
+        "function": "demand_curve",
+        "conditions": "x1 == x0",
+        "property": "check_for_zero_length",
+        "description": "Checks if the line segment has zero length."
+    },
+    {
+        "scope": "branch",
+        "function": "demand_curve",
+        "conditions": "clamp",
+        "property": "clamp_output_using_y_range",
+        "description": "Clamps the output value using the y-range if clamp is True."
+    }
+]

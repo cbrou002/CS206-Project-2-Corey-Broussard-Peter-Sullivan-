@@ -1,0 +1,35 @@
+[
+    {
+        "scope": "function",
+        "function": "prediction_cache",
+        "property": "has_early_return",
+        "statement": "The function has early returns at lines 7 and 12."
+    },
+    {
+        "scope": "function",
+        "function": "prediction_cache",
+        "property": "calls_api",
+        "statement": "The function calls the get() API at line 5."
+    },
+    {
+        "scope": "branch",
+        "function": "prediction_cache",
+        "conditions": "record is None",
+        "property": "returns_default",
+        "statement": "If record is None at line 6, the function returns default."
+    },
+    {
+        "scope": "branch",
+        "function": "prediction_cache",
+        "conditions": "now > deadline",
+        "property": "returns_default",
+        "statement": "If now is greater than deadline at line 11, the function returns default."
+    },
+    {
+        "scope": "branch",
+        "function": "prediction_cache",
+        "conditions": "now <= deadline",
+        "property": "returns_value",
+        "statement": "If now is less than or equal to deadline at line 11, the function returns value."
+    }
+]

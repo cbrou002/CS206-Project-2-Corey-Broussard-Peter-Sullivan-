@@ -1,0 +1,16 @@
+[
+    {
+        "scope": "function",
+        "function": "schedule_car",
+        "property": "valid_window_check",
+        "conditions": "a < b",
+        "statement": "The function checks if the window is not empty (a < b) before proceeding."
+    },
+    {
+        "scope": "function",
+        "function": "schedule_car",
+        "property": "timeline_overlap_check",
+        "conditions": "any((not (b <= s or a >= e) for s, e in timeline))",
+        "statement": "The function checks if there is any overlap between the new window and existing bookings in the timeline."
+    }
+]

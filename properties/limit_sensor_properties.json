@@ -1,0 +1,40 @@
+[
+    {
+        "scope": "function",
+        "function": "limit_sensor",
+        "property": "sliding_window_guard",
+        "description": "Function implements a sliding window guard for sensor actions."
+    },
+    {
+        "scope": "branch",
+        "function": "limit_sensor",
+        "conditions": "len(active) > limit",
+        "property": "extra_active_elements",
+        "description": "If the number of active elements exceeds the limit, return False."
+    },
+    {
+        "scope": "branch",
+        "function": "limit_sensor",
+        "conditions": "len(active) <= limit",
+        "property": "within_limit",
+        "description": "If the number of active elements is within the limit, return True."
+    },
+    {
+        "scope": "loop",
+        "function": "limit_sensor",
+        "property": "list_comprehension",
+        "description": "List comprehension loop to filter timestamps based on cutoff."
+    },
+    {
+        "scope": "return",
+        "function": "limit_sensor",
+        "property": "exceeded_limit",
+        "description": "Return False and 0 if the number of active elements exceeds the limit."
+    },
+    {
+        "scope": "return",
+        "function": "limit_sensor",
+        "property": "within_limit_count",
+        "description": "Return True and the count of elements within the limit."
+    }
+]

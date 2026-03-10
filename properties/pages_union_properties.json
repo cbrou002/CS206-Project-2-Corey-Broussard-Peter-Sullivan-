@@ -1,0 +1,47 @@
+[
+    {
+        "scope": "function",
+        "function": "pages_union",
+        "property": "has_control_flow",
+        "description": "The function contains control flow branches."
+    },
+    {
+        "scope": "function",
+        "function": "pages_union",
+        "property": "has_loop",
+        "description": "The function contains a while loop."
+    },
+    {
+        "scope": "function",
+        "function": "pages_union",
+        "property": "has_api_calls",
+        "description": "The function makes API calls to len(), append(), extend(), and pop()."
+    },
+    {
+        "scope": "function",
+        "function": "pages_union",
+        "property": "returns_value",
+        "description": "The function returns the 'merged' list."
+    },
+    {
+        "scope": "branch",
+        "function": "pages_union",
+        "condition": "a < b",
+        "property": "append_a",
+        "description": "If 'a' is less than 'b', append 'a' to the 'merged' list."
+    },
+    {
+        "scope": "branch",
+        "function": "pages_union",
+        "condition": "b < a",
+        "property": "append_b",
+        "description": "If 'b' is less than 'a', append 'b' to the 'merged' list."
+    },
+    {
+        "scope": "branch",
+        "function": "pages_union",
+        "condition": "merged and left and right and (merged[-1] == left[-1] == right[-1])",
+        "property": "remove_last_matching_element",
+        "description": "If the last elements of 'merged', 'left', and 'right' lists are equal, remove the last element from 'merged'."
+    }
+]

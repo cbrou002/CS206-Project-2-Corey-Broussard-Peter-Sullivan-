@@ -1,0 +1,30 @@
+[
+    {
+        "scope": "function",
+        "function": "bill_payout",
+        "property": "valid_input_check",
+        "conditions": "ratios required",
+        "statement": "Input ratios must be provided"
+    },
+    {
+        "scope": "function",
+        "function": "bill_payout",
+        "property": "valid_input_check",
+        "conditions": "negative amount",
+        "statement": "Amount must be non-negative"
+    },
+    {
+        "scope": "function",
+        "function": "bill_payout",
+        "property": "valid_input_check",
+        "conditions": "invalid ratios",
+        "statement": "Total ratio of ratios must be positive"
+    },
+    {
+        "scope": "branch",
+        "function": "bill_payout",
+        "property": "fee_deduction_bug",
+        "conditions": "fee is deducted from every participant",
+        "statement": "Fee should not be deducted from every participant"
+    }
+]

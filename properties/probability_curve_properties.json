@@ -1,0 +1,43 @@
+[
+    {
+        "scope": "function",
+        "function": "probability_curve",
+        "property": "linear_estimate",
+        "description": "Calculates a linear estimate for probability between two points (x0, y0) and (x1, y1)."
+    },
+    {
+        "scope": "branch",
+        "function": "probability_curve",
+        "conditions": "x1 == x0",
+        "property": "degenerate_segment",
+        "description": "Raises a ValueError if the segment defined by (x0, y0) and (x1, y1) is degenerate."
+    },
+    {
+        "scope": "branch",
+        "function": "probability_curve",
+        "conditions": "clamp",
+        "property": "clamp_values",
+        "description": "Clamps the calculated y value within the range of y0 and y1."
+    },
+    {
+        "scope": "branch",
+        "function": "probability_curve",
+        "conditions": "not clamp",
+        "property": "no_clamping",
+        "description": "Does not clamp the calculated y value."
+    },
+    {
+        "scope": "branch",
+        "function": "probability_curve",
+        "conditions": "y < lo",
+        "property": "clamp_lower_bound",
+        "description": "Clamps the calculated y value to the lower bound if it is less than the minimum of y0 and y1."
+    },
+    {
+        "scope": "branch",
+        "function": "probability_curve",
+        "conditions": "y > hi",
+        "property": "clamp_upper_bound",
+        "description": "Clamps the calculated y value to the upper bound if it is greater than the maximum of y0 and y1."
+    }
+]

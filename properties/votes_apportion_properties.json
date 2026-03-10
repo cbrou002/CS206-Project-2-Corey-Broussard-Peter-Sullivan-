@@ -1,0 +1,90 @@
+[
+    {
+        "scope": "function",
+        "function": "votes_apportion",
+        "property": "has_parameter_floor_to_int",
+        "statement": "The function has a parameter named 'floor_to_int' that defaults to True."
+    },
+    {
+        "scope": "function",
+        "function": "votes_apportion",
+        "property": "has_parameter_minimum",
+        "statement": "The function has a parameter named 'minimum' that defaults to 0."
+    },
+    {
+        "scope": "function",
+        "function": "votes_apportion",
+        "property": "raises_exception_weights_required",
+        "statement": "The function raises a ValueError if the length of 'weights' is 0."
+    },
+    {
+        "scope": "function",
+        "function": "votes_apportion",
+        "property": "raises_exception_negative_total",
+        "statement": "The function raises a ValueError if 'total' is less than 0."
+    },
+    {
+        "scope": "function",
+        "function": "votes_apportion",
+        "property": "raises_exception_negative_minimum",
+        "statement": "The function raises a ValueError if 'minimum' is less than 0."
+    },
+    {
+        "scope": "function",
+        "function": "votes_apportion",
+        "property": "raises_exception_zero_total_weight",
+        "statement": "The function raises a ValueError if the sum of 'weights' is 0."
+    },
+    {
+        "scope": "function",
+        "function": "votes_apportion",
+        "property": "returns_list_of_integers",
+        "statement": "The function returns a list of integers if 'floor_to_int' is True."
+    },
+    {
+        "scope": "function",
+        "function": "votes_apportion",
+        "property": "returns_list_of_floats",
+        "statement": "The function returns a list of floats if 'floor_to_int' is False."
+    },
+    {
+        "scope": "branch",
+        "function": "votes_apportion",
+        "conditions": "len(weights) == 0",
+        "property": "raises_exception_weights_required",
+        "statement": "If the length of 'weights' is 0, a ValueError is raised."
+    },
+    {
+        "scope": "branch",
+        "function": "votes_apportion",
+        "conditions": "total < 0",
+        "property": "raises_exception_negative_total",
+        "statement": "If 'total' is less than 0, a ValueError is raised."
+    },
+    {
+        "scope": "branch",
+        "function": "votes_apportion",
+        "conditions": "minimum < 0",
+        "property": "raises_exception_negative_minimum",
+        "statement": "If 'minimum' is less than 0, a ValueError is raised."
+    },
+    {
+        "scope": "branch",
+        "function": "votes_apportion",
+        "conditions": "sum(weights) == 0",
+        "property": "raises_exception_zero_total_weight",
+        "statement": "If the sum of 'weights' is 0, a ValueError is raised."
+    },
+    {
+        "scope": "loop",
+        "function": "votes_apportion",
+        "property": "iterates_over_weights",
+        "statement": "The function iterates over the 'weights' list to calculate portions."
+    },
+    {
+        "scope": "loop",
+        "function": "votes_apportion",
+        "property": "appends_to_shares",
+        "statement": "Within the loop, each calculated portion is appended to the 'shares' list."
+    }
+]

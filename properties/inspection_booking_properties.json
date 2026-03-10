@@ -1,0 +1,34 @@
+[
+    {
+        "scope": "function",
+        "function": "inspection_booking",
+        "property": "valid_input_check",
+        "conditions": "candidate[0] < candidate[1]",
+        "description": "The function checks if the start time is before the end time."
+    },
+    {
+        "scope": "function",
+        "function": "inspection_booking",
+        "property": "no_overlap_existing",
+        "description": "The function returns False if the candidate inspection window overlaps with any existing window."
+    },
+    {
+        "scope": "function",
+        "function": "inspection_booking",
+        "property": "merge_and_sort",
+        "description": "The function merges the candidate inspection window with existing windows and sorts them."
+    },
+    {
+        "scope": "branch",
+        "function": "inspection_booking",
+        "property": "overlap_check",
+        "conditions": "overlaps(slot, candidate)",
+        "description": "If the candidate inspection window overlaps with any existing window."
+    },
+    {
+        "scope": "loop",
+        "function": "inspection_booking",
+        "property": "iterate_existing_windows",
+        "description": "Iterates over each existing inspection window to check for overlaps with the candidate window."
+    }
+]

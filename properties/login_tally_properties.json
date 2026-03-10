@@ -1,0 +1,22 @@
+[
+    {
+        "scope": "function",
+        "function": "login_tally",
+        "property": "increments_counter",
+        "description": "The function increments the login counter by 1."
+    },
+    {
+        "scope": "branch",
+        "function": "login_tally",
+        "conditions": "cap is not None",
+        "property": "applies_cap",
+        "description": "If cap is not None, the function applies the cap to the updated counter value."
+    },
+    {
+        "scope": "branch",
+        "function": "login_tally",
+        "conditions": "updated > cap",
+        "property": "adjusts_counter",
+        "description": "If the updated counter value exceeds the cap, it is adjusted to the cap value."
+    }
+]

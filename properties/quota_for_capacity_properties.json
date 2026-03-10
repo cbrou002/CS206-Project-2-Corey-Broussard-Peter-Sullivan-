@@ -1,0 +1,48 @@
+[
+    {
+        "scope": "function",
+        "function": "quota_for_capacity",
+        "property": "has_early_return",
+        "description": "The function contains an early return statement."
+    },
+    {
+        "scope": "function",
+        "function": "quota_for_capacity",
+        "property": "has_loop",
+        "description": "The function contains a loop statement."
+    },
+    {
+        "scope": "function",
+        "function": "quota_for_capacity",
+        "property": "has_list_comprehension",
+        "description": "The function contains a list comprehension statement."
+    },
+    {
+        "scope": "branch",
+        "function": "quota_for_capacity",
+        "conditions": "len(weights) == 0",
+        "property": "has_exception_handling",
+        "description": "The function handles the case when the length of weights is 0."
+    },
+    {
+        "scope": "branch",
+        "function": "quota_for_capacity",
+        "conditions": "total < 0",
+        "property": "has_exception_handling",
+        "description": "The function handles the case when total is less than 0."
+    },
+    {
+        "scope": "branch",
+        "function": "quota_for_capacity",
+        "conditions": "minimum < 0",
+        "property": "has_exception_handling",
+        "description": "The function handles the case when minimum is less than 0."
+    },
+    {
+        "scope": "branch",
+        "function": "quota_for_capacity",
+        "conditions": "sum(weights) == 0",
+        "property": "has_exception_handling",
+        "description": "The function handles the case when the sum of weights is 0."
+    }
+]

@@ -1,0 +1,51 @@
+[
+    {
+        "scope": "function",
+        "function": "quota_allocator_service",
+        "property": "valid_input_check",
+        "conditions": "total >= 0, minimum >= 0, not weights or sum(weights) != 0",
+        "description": "Checks if the input values are valid"
+    },
+    {
+        "scope": "function",
+        "function": "quota_allocator_service",
+        "property": "return_type",
+        "conditions": "always",
+        "description": "Returns a list of integers"
+    },
+    {
+        "scope": "branch",
+        "function": "quota_allocator_service",
+        "property": "total_check",
+        "conditions": "total < 0",
+        "description": "Raises a ValueError if total is negative"
+    },
+    {
+        "scope": "branch",
+        "function": "quota_allocator_service",
+        "property": "minimum_check",
+        "conditions": "minimum < 0",
+        "description": "Raises a ValueError if minimum is negative"
+    },
+    {
+        "scope": "branch",
+        "function": "quota_allocator_service",
+        "property": "weights_check",
+        "conditions": "not weights or sum(weights) == 0",
+        "description": "Raises a ValueError if weights are empty or sum to zero"
+    },
+    {
+        "scope": "loop",
+        "function": "quota_allocator_service",
+        "property": "list_comprehension_1",
+        "conditions": "always",
+        "description": "Calculates the raw quota allocation values"
+    },
+    {
+        "scope": "loop",
+        "function": "quota_allocator_service",
+        "property": "list_comprehension_2",
+        "conditions": "always",
+        "description": "Converts raw quota allocation values to integers"
+    }
+]

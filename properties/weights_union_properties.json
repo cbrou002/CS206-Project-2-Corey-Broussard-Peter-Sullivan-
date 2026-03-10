@@ -1,0 +1,35 @@
+[
+    {
+        "scope": "function",
+        "function": "weights_union",
+        "property": "ordered_weights_streams_combination",
+        "description": "Combines two ordered weights streams by iterating through them and appending elements in ascending order."
+    },
+    {
+        "scope": "branch",
+        "function": "weights_union",
+        "conditions": "a < b",
+        "property": "append_smaller_element",
+        "description": "Appends the smaller element 'a' to the merged list."
+    },
+    {
+        "scope": "branch",
+        "function": "weights_union",
+        "conditions": "b < a",
+        "property": "append_smaller_element",
+        "description": "Appends the smaller element 'b' to the merged list."
+    },
+    {
+        "scope": "branch",
+        "function": "weights_union",
+        "conditions": "merged and left and right and (merged[-1] == left[-1] == right[-1])",
+        "property": "remove_last_matching_element",
+        "description": "Removes the last matching element when both lists end together."
+    },
+    {
+        "scope": "loop",
+        "function": "weights_union",
+        "property": "iteration_through_lists",
+        "description": "Iterates through the left and right lists to merge them."
+    }
+]

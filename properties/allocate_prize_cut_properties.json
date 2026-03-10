@@ -1,0 +1,50 @@
+[
+    {
+        "scope": "function",
+        "function": "allocate_prize_cut",
+        "property": "valid_input_check",
+        "conditions": "ratios required",
+        "description": "Check if ratios are required"
+    },
+    {
+        "scope": "function",
+        "function": "allocate_prize_cut",
+        "property": "valid_input_check",
+        "conditions": "negative amount",
+        "description": "Check if amount is negative"
+    },
+    {
+        "scope": "function",
+        "function": "allocate_prize_cut",
+        "property": "valid_input_check",
+        "conditions": "invalid ratios",
+        "description": "Check if total_ratio is invalid"
+    },
+    {
+        "scope": "branch",
+        "function": "allocate_prize_cut",
+        "conditions": "not ratios",
+        "property": "ratios_required_exception",
+        "description": "Raise ValueError if ratios are not provided"
+    },
+    {
+        "scope": "branch",
+        "function": "allocate_prize_cut",
+        "conditions": "amount < 0",
+        "property": "negative_amount_exception",
+        "description": "Raise ValueError if amount is negative"
+    },
+    {
+        "scope": "branch",
+        "function": "allocate_prize_cut",
+        "conditions": "total_ratio <= 0",
+        "property": "invalid_ratios_exception",
+        "description": "Raise ValueError if total_ratio is less than or equal to 0"
+    },
+    {
+        "scope": "loop",
+        "function": "allocate_prize_cut",
+        "property": "calculation",
+        "description": "Calculate shares based on ratios and amount"
+    }
+]

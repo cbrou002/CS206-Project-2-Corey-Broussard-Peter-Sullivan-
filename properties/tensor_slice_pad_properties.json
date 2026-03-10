@@ -1,0 +1,16 @@
+[
+    {
+        "scope": "function",
+        "function": "tensor_slice_pad",
+        "property": "valid_input_range",
+        "conditions": "start >= 0 and end >= start",
+        "statement": "The input range [start, end) is valid."
+    },
+    {
+        "scope": "function",
+        "function": "tensor_slice_pad",
+        "property": "valid_missing_elements",
+        "conditions": "missing >= 0",
+        "statement": "The number of missing elements is non-negative."
+    }
+]

@@ -1,0 +1,21 @@
+[
+    {
+        "scope": "function",
+        "function": "download_rate",
+        "property": "has_sliding_window_guard",
+        "description": "The function implements a sliding window guard for download actions."
+    },
+    {
+        "scope": "branch",
+        "function": "download_rate",
+        "conditions": "len(active) > limit",
+        "property": "extra_active_elements_not_allowed",
+        "description": "If the number of active elements exceeds the limit, extra active elements are not allowed."
+    },
+    {
+        "scope": "loop",
+        "function": "download_rate",
+        "property": "list_comprehension_used",
+        "description": "The function uses list comprehension to filter timestamps based on a condition."
+    }
+]

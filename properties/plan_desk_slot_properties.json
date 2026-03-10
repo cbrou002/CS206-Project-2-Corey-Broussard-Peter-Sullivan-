@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "plan_desk_slot",
+        "property": "valid_interval",
+        "statement": "Interval must have start less than end."
+    },
+    {
+        "scope": "branch",
+        "function": "plan_desk_slot",
+        "conditions": "start >= end",
+        "property": "invalid_interval_handling",
+        "statement": "If start is greater than or equal to end, raise a ValueError."
+    },
+    {
+        "scope": "branch",
+        "function": "plan_desk_slot",
+        "conditions": "not (end <= s or start >= e)",
+        "property": "no_overlap_check",
+        "statement": "Check if the new interval does not overlap with any existing intervals."
+    },
+    {
+        "scope": "loop",
+        "function": "plan_desk_slot",
+        "property": "overlap_detection",
+        "statement": "Iterate through existing intervals to detect overlaps with the new interval."
+    }
+]

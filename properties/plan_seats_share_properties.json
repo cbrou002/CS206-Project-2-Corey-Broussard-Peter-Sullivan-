@@ -1,0 +1,50 @@
+[
+    {
+        "scope": "function",
+        "function": "plan_seats_share",
+        "property": "computes_weighted_allocation",
+        "description": "The function computes weighted allocation for seats capacity."
+    },
+    {
+        "scope": "branch",
+        "function": "plan_seats_share",
+        "conditions": "len(weights) == 0",
+        "property": "weights_required"
+    },
+    {
+        "scope": "branch",
+        "function": "plan_seats_share",
+        "conditions": "total < 0",
+        "property": "negative_total"
+    },
+    {
+        "scope": "branch",
+        "function": "plan_seats_share",
+        "conditions": "minimum < 0",
+        "property": "negative_minimum"
+    },
+    {
+        "scope": "branch",
+        "function": "plan_seats_share",
+        "conditions": "sum(weights) == 0",
+        "property": "zero_total_weight"
+    },
+    {
+        "scope": "branch",
+        "function": "plan_seats_share",
+        "conditions": "floor_to_int",
+        "property": "floors_without_distributing_remainder"
+    },
+    {
+        "scope": "loop",
+        "function": "plan_seats_share",
+        "property": "computes_portion_for_each_weight",
+        "description": "The function computes the portion for each weight in the weights list."
+    },
+    {
+        "scope": "loop",
+        "function": "plan_seats_share",
+        "property": "appends_portion_to_shares",
+        "description": "The function appends the computed portion to the shares list."
+    }
+]

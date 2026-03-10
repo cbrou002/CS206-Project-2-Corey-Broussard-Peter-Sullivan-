@@ -1,0 +1,29 @@
+[
+    {
+        "scope": "function",
+        "function": "allocate_bounty_cut",
+        "property": "valid_input_check",
+        "conditions": "len(ratios) == 0",
+        "statement": "The function raises a ValueError if the input ratios list is empty."
+    },
+    {
+        "scope": "function",
+        "function": "allocate_bounty_cut",
+        "property": "valid_input_check",
+        "conditions": "sum(ratios) <= 0",
+        "statement": "The function raises a ValueError if the sum of ratios is less than or equal to 0."
+    },
+    {
+        "scope": "function",
+        "function": "allocate_bounty_cut",
+        "property": "valid_input_check",
+        "conditions": "amount < 0",
+        "statement": "The function raises a ValueError if the input amount is negative."
+    },
+    {
+        "scope": "function",
+        "function": "allocate_bounty_cut",
+        "property": "fee_application_bug",
+        "statement": "The function incorrectly applies the fee to each share individually instead of applying it once."
+    }
+]

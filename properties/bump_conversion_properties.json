@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "function",
+        "function": "bump_conversion",
+        "property": "increments_conversion_counter",
+        "description": "This function increments the conversion counter by 1."
+    },
+    {
+        "scope": "function",
+        "function": "bump_conversion",
+        "property": "updates_counter_value",
+        "description": "This function updates the value of the counter with the incremented value."
+    },
+    {
+        "scope": "branch",
+        "function": "bump_conversion",
+        "conditions": "cap is not None",
+        "property": "checks_cap_limit",
+        "description": "If the cap is not None, the function checks if the updated value exceeds the cap."
+    },
+    {
+        "scope": "branch",
+        "function": "bump_conversion",
+        "conditions": "updated > cap",
+        "property": "caps_counter_value",
+        "description": "If the updated value exceeds the cap, the counter value is capped at the cap value."
+    }
+]

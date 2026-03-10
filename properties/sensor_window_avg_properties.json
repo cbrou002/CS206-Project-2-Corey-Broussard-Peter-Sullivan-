@@ -1,0 +1,23 @@
+[
+    {
+        "scope": "function",
+        "function": "sensor_window_avg",
+        "property": "valid_window_size",
+        "conditions": "window > 0",
+        "description": "The window size must be a positive integer."
+    },
+    {
+        "scope": "function",
+        "function": "sensor_window_avg",
+        "property": "non_empty_samples",
+        "conditions": "samples",
+        "description": "The input samples list must not be empty."
+    },
+    {
+        "scope": "branch",
+        "function": "sensor_window_avg",
+        "property": "valid_sample_count",
+        "conditions": "len(recent) >= min_samples",
+        "description": "The number of recent samples must be greater than or equal to the specified minimum samples."
+    }
+]

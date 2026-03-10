@@ -1,0 +1,16 @@
+[
+    {
+        "scope": "function",
+        "function": "schedule_training",
+        "property": "valid_interval_check",
+        "conditions": "start >= end",
+        "statement": "The interval start time must be less than the end time."
+    },
+    {
+        "scope": "function",
+        "function": "schedule_training",
+        "property": "overlap_check",
+        "conditions": "not (end <= s or start >= e)",
+        "statement": "Check for overlap between the new interval and existing intervals."
+    }
+]

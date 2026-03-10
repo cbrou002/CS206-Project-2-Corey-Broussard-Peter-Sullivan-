@@ -1,0 +1,37 @@
+[
+    {
+        "scope": "function",
+        "function": "payment_split_rebate",
+        "property": "valid_input_check",
+        "conditions": "total >= 0 and not ratios or sum(ratios) > 0",
+        "description": "Checks if the input total is non-negative and ratios are valid"
+    },
+    {
+        "scope": "function",
+        "function": "payment_split_rebate",
+        "property": "rebate_application",
+        "conditions": "total >= 0 and not ratios or sum(ratios) > 0",
+        "description": "Applies rebate to the shares calculated"
+    },
+    {
+        "scope": "branch",
+        "function": "payment_split_rebate",
+        "property": "negative_total_exception",
+        "conditions": "total < 0",
+        "description": "Raises a ValueError for negative total input"
+    },
+    {
+        "scope": "branch",
+        "function": "payment_split_rebate",
+        "property": "invalid_ratios_exception",
+        "conditions": "not ratios or sum(ratios) <= 0",
+        "description": "Raises a ValueError for invalid ratios input"
+    },
+    {
+        "scope": "loop",
+        "function": "payment_split_rebate",
+        "property": "shares_calculation",
+        "conditions": "total >= 0 and not ratios or sum(ratios) > 0",
+        "description": "Calculates the shares based on the ratios provided"
+    }
+]
